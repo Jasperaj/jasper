@@ -1,51 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>News & Events | Unifour Consultancy Pvt. Ltd.</title>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <link href="img/transparent logo.png" rel="icon">
-  <link href="img/transparent logo.png" rel="logo">
-  
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
-  
-  <!-- Bootstrap CSS File -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  
-  <!-- Libraries CSS Files -->
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  
-  <!-- Main Stylesheet File -->
-  <link href="css/style.css" rel="stylesheet">
-</head>
+<div id="header-placeholder"></div>
 
-<body id="body">
 
-  <!-- Header -->
-  <header id="header">
-    <div class="container">
-      <div id="logo" class="pull-left">
-        <h1 class="logo-border">
-          <a href="#body" class="scrollto" style="display: flex; align-items: center;">
-            <img src="img/logo.jpg" alt="Unifour Logo" style="height: 45px; vertical-align: middle; margin-right: 10px;">
-            Unifour Consultancy
-          </a>
-        </h1>
-      </div>
-    
-      <nav id="nav-menu-container">
-        <ul class="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li class="menu-active"><a href="news.html">News & Events</a></li>
-          <li><a href="downloads.html">Downloads</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+
 
   <!-- News & Events Section -->
   <section id="news" style="padding: 60px 0; background-color: #f7f9fc;">
@@ -151,55 +109,32 @@
     }
   </style>
 
-  <!-- Footer -->
-  <footer id="footer" style="text-align: center; background-color: #f7f9fc; padding: 50px 0;">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-md-6 footer-links" style="border-right: 1px solid #ddd;">
-          <h3 style="font-weight: bold; font-size: 1.5em; text-align: center;">Resources</h3>
-          <ul style="list-style-position: inside;">
-            <li style="margin-left: 10px;"><a href="news.html">News & Events</a></li>
-            <li style="margin-left: 10px;"><a href="downloads.html">Downloads</a></li>
-            <li style="margin-left: 10px;"><a href="#">FAQ</a></li>
-          </ul>
-        </div>
-        
-        <div class="col-lg-4 col-md-6 footer-links" style="border-right: 1px solid #ddd;">
-          <h3 style="font-weight: bold; font-size: 1.5em; text-align: center;">Quick Links</h3>
-          <ul style="list-style-position: inside;">
-            <li style="margin-left: 10px;"><a href="index.html#about">About Us</a></li>
-            <li style="margin-left: 10px;"><a href="#">Management</a></li>
-            <li style="margin-left: 10px;"><a href="#">Career</a></li>
-          </ul>
-        </div>
 
-        <div class="col-lg-4 col-md-6 footer-contact">
-          <h3 style="font-weight: bold; font-size: 1.5em; text-align: center;">Contact Info</h3>
-          <p>
-            Kathmandu, Nepal<br>
-            <strong>Email:</strong> <a href="mailto:unifourconsultancy@gmail.com">unifourconsultancy@gmail.com</a><br>
-          </p>
-          <div class="social-links mt-3">
-            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-          </div>
-        </div>
-      </div>
+<div id="footer-placeholder"></div>
 
-      <div class="footer-bottom" style="margin-top: 30px;">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <p>&copy; 2024 Unifour Consultancy Pvt. Ltd. All Rights Reserved.</p>
-              <p>Developed by: <a href="#">Jasper</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
 
-  <!-- JavaScript Libraries -->
+
+
+
   <script src="lib/jquery/jquery.min.js"></script>
   <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script>
+// JavaScript to load header and footer
+document.addEventListener("DOMContentLoaded", function() {
+  fetch("header.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("header-placeholder").innerHTML = data;
+    });
+
+  fetch("footer.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    });
+});
+</script>
+
+
 </body>
 </html>

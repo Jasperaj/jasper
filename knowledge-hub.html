@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<div id="header-placeholder"></div>
+<body>
+  <!-- Sidebar with Table of Contents -->
+  <aside id="sidebar">
+    <h2>Knowledge Hub</h2>
+    <ul id="category-list">
+      <li><a href="#" data-file="introduction.html">Introduction to Accounting</a></li>
+      <li><a href="#" data-file="financial-analysis.html">Financial Analysis</a></li>
+      <li><a href="#" data-file="taxation-basics.html">Basics of Taxation</a></li>
+      <li><a href="#" data-file="compliance.html">Compliance & Regulations</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main id="main-content">
+    <h1>Welcome to the Knowledge Hub</h1>
+    <p>Select a topic from the left to view the content.</p>
+  </main>
+
+  <!-- JavaScript to load only the body content dynamically -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const links = document.querySelectorAll("#category-list a");
+      const mainContent = document.getElementById("main-content");
+
+      links.forEach(link => {
+        link.addEventListener("click", function(event) {
+          event.preventDefault();
+          const fileName = this.getAttribute("data-file");
+
+          fetch(`Education Hub/${fileName}`)
+            .then(response => {
+              if (!response.ok) throw new Error("Network response was not ok");
+              return response.text();
+            })
+            .then(htmlString => {
+              // Parse the full HTML and extract the body content
+              const parser = new DOMParser();
+              const doc = parser.parseFromString(htmlString, "text/html");
+              const bodyContent = doc.body.innerHTML;
+              
+              // Replace the main content with the new body content
+              mainContent.innerHTML = bodyContent;
+            })
+            .catch(error => {
+              mainContent.innerHTML = "<h1>Content not found</h1><p>The requested content could not be loaded.</p>";
+              console.error("Error loading content:", error);
+            });
+        });
+      });
+    });
+  </script>
+
+<div id="footer-placeholder"></div>
+
+
+
+
+
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script>
+// JavaScript to load header and footer
+document.addEventListener("DOMContentLoaded", function() {
+  fetch("header.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("header-placeholder").innerHTML = data;
+    });
+
+  fetch("footer.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    });
+});
+</script>
+
+
+</body>
+</html>
