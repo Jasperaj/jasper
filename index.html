@@ -23,598 +23,341 @@
   <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
   <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="lib/magnific-popup/magnific-popup.css" rel="stylesheet">
-  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-    Theme Name: Reveal
-    Theme URL: https://bootstrapmade.com/reveal-bootstrap-corporate-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
 </head>
 
 <body id="body">
-
-  <!--==========================
-    Top Bar
-  ============================-->
+  <!-- Top Bar -->
   <section id="topbar" class="d-none d-lg-block">
     <div class="container clearfix">
       <div class="contact-info float-left">
         <i class="fa fa-envelope-o"></i> <a href="mailto:unifourconsultancy@gmail.com">unifourconsultancy@gmail.com</a>
-        <i class="fa fa-phone"></i> +977 9841905745
       </div>
       <div class="social-links float-right">
-        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
         <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
       </div>
     </div>
   </section>
 
-  <!--==========================
-    Header
-  ============================-->
-  <header id="header">
+<!-- Header -->
+<header id="header">
+  <div class="container">
+    <div id="logo" class="pull-left">
+      <h1 class="logo-border">
+  <a href="#body" class="scrollto" style="display: flex; align-items: center;">
+    <img src="img/logo.jpg" alt="Unifour Logo" style="height: 45px; vertical-align: middle; margin-right: 10px;">
+    Unifour Consultancy
+  </a>
+</h1>
+    </div>
+  
+    <nav id="nav-menu-container">
+      <ul class="nav-menu">
+        <li class="menu-active"><a href="#body">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+
+
+<!-- Hero Section -->
+<section id="intro" style="position: relative; height: 75vh; background: url('img/mainbackground.jpg') top center / cover no-repeat;">
+  <div class="overlay"></div> <!-- Added overlay for transparency -->
+  <div class="intro-content text-center">
+    <h2>Empowering <span class="underline-animate">Your Business</span><br>To Reach New Heights</h2>
+    <p>Providing customized accounting, auditing, and compliance solutions to foster your success.</p>
+    <div>
+      <a href="#about" class="btn-get-started scrollto animate-btn">Learn More</a>
+      <a href="#services" class="btn-projects scrollto animate-btn">Our Services</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Overlay to control transparency */
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7); /* White with 70% opacity for a light transparent overlay */
+    z-index: 1;
+  }
+
+  .intro-content {
+    position: relative;
+    z-index: 2; /* Keeps content above the overlay */
+  }
+
+  /* Underline Animation */
+  @keyframes underlineAnimation {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+
+  .underline-animate {
+    position: relative;
+    display: inline-block;
+  }
+
+  .underline-animate::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    height: 3px;
+    background-color: #28a745; /* Green color */
+    width: 0;
+    animation: underlineAnimation 2s ease-in-out infinite alternate;
+  }
+
+  /* Up and Down Animation for Buttons */
+  @keyframes upDownAnimation {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-btn {
+    animation: upDownAnimation 2s ease-in-out infinite;
+  }
+</style>
+
+
+
+
+
+
+<main id="main">
+  <!-- About Section -->
+  <section id="about" class="wow fadeInUp">
     <div class="container">
-
-      <div id="logo" class="pull-left">
-        <h1><a href="#body" class="scrollto" style = "text-align:left; vertical-align: top">Uni<span>four</span></a>
-	<h2><a href="#body" class="scrollto" style = "color:black;font-size:20px; text-align:left; vertical-align: top;">Consultancy</a></h2>
-        </h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="#body"><img src="img/logo.jpg" alt="" title="" /></a> -->
+      <div class="section-header">
+        <h2 style="text-align: center;">About Us</h2>
+        <p>We are a dynamic team of professionals dedicated to delivering comprehensive services in accounting, auditing, and statutory compliance. Our mission is to provide tailored, high-quality solutions to meet the diverse needs of our clients.</p>
       </div>
-	
-      <nav id="nav-menu-container">
-        <ul class="nav-menu">
-          <li class="menu-active"><a href="#body">Home</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li class="menu-has-children"><a href="">Useful Links</a>
-            <ul>
-              <li><a href="#">IRD</a></li>
-              <li><a href="#">OCR</a></li>
-              <li><a href="#">Custom</a></li>
-              <li><a href="#">SSF</a></li>
-            </ul>
-          </li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav><!-- #nav-menu-container -->
-    </div>
-  </header><!-- #header -->
-
-  <!--==========================
-    Intro Section
-  ============================-->
-  <section id="intro">
-
-    <div class="intro-content">
-      <h2>Helping <span>Grow</span><br>Your Business</h2>
-      <div>
-        <a href="#about" class="btn-get-started scrollto">About Us</a>
-        <a href="#portfolio" class="btn-projects scrollto">Our Services</a>
+      <div class="row">
+        <div class="col-lg-6 about-img">
+          <img src="img/about-img.jpg" alt="How We Work">
+        </div>
+        <div class="col-lg-6 content">
+          <h3>How We Work</h3>
+          <ul>
+            <li><i class="ion-android-checkmark-circle"></i> <strong>Partner-led</strong>: We drive the planning and performance of our service from our partner's experience and detailed knowledge of the client's business. We avail the inputs from Quality Assurance Experts.</li>
+            <li><i class="ion-android-checkmark-circle"></i> <strong>Focused</strong>: We identify risks associated with the clients and design appropriate approaches focused on those risks.</li>
+            <li><i class="ion-android-checkmark-circle"></i> <strong>Interactive</strong>: We interact with the management of the client and respond appropriately to their needs and expectations.</li>
+            <li><i class="ion-android-checkmark-circle"></i> <strong>Dynamic</strong>: We tailor our service modality to respond to the changing circumstances.</li>
+          </ul>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div id="intro-carousel" class="owl-carousel" >
-      <div class="item" style="background-image: url('img/intro-carousel/1.jpg');"></div>
-      <div class="item" style="background-image: url('img/intro-carousel/2.jpg');"></div>
-      <div class="item" style="background-image: url('img/intro-carousel/3.jpg');"></div>
-      <div class="item" style="background-image: url('img/intro-carousel/4.jpg');"></div>
-      <div class="item" style="background-image: url('img/intro-carousel/5.jpg');"></div>
+
+
+<div style="margin-top: 250px;"></div>
+<!-- Services Section -->
+<section id="services" class="wow fadeInUp">
+  <div class="container">
+    <div class="section-header">
+      <h2 style="text-align: center;">Our Services</h2>
+      <p>We offer a comprehensive range of services designed to support your business at every stage. From registration to compliance, advisory, and financial management, our goal is to provide expert guidance and hands-on solutions.</p>
     </div>
-
-  </section><!-- #intro -->
-
-  <main id="main">
-
-    <!--==========================
-      About Section
-    ============================-->
-    <section id="about" class="wow fadeInUp">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 about-img">
-            <img src="img/about-img.jpg" alt="">
+    <div class="row">
+      <!-- Card 1: Business Registration & Permissions -->
+      <div class="col-lg-6 col-md-6 service-item" style="padding-bottom: 20px;">
+        <div class="card service-card" style="box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); border-radius: 10px;">
+          <div class="card-body" style="margin-bottom: 10px;">
+            <div class="icon mb-3"><i class="fa fa-bank" style="font-size: 2em; color: #0c2e8a;"></i></div>
+            <h4 class="card-title"><a href="#">Business Registration & Permissions</a></h4>
+            <p class="card-text">We assist with company registration, VAT registration, and securing permits to establish your business effectively.</p>
           </div>
-
-          <div class="col-lg-6 content">
-            <h2>Something about us</h2>
-            <h3>We are a group of young Chartered Accountants working together to provide services to all national and international clients in the field of accounting, auditing and Statutory Complainces</h3>
-
-            <ul>
-              <li><i class="ion-android-checkmark-circle"></i> Proper Management of Accounting.</li>
-              <li><i class="ion-android-checkmark-circle"></i> Auditing and Assurance Services</li>
-              <li><i class="ion-android-checkmark-circle"></i> Statutory Compliances such as VAT, TDS, Custom, etc.</li>
-            </ul>
-
-          </div>
-        </div>
-
-      </div>
-    </section><!-- #about -->
-
-    <!--==========================
-      Services Section
-    ============================-->
-    <section id="services">
-      <div class="container">
-        <div class="section-header">
-          <h2>Services</h2>
-          <p>We provide a wide range of services starting from the basic registration process to complete financial statement preparation for your business to tensionfree environment for your growth.</p>
-        </div>
-
-        <div class="row">
-
-          <div class="col-lg-6">
-            <div class="box wow fadeInLeft">
-              <div class="icon"><i class="fa fa-bar-chart"></i></div>
-              <h4 class="title"><a href="">Financial Reports</a></h4>
-              <p class="description"> Reports to assist you in knowing wherre your business is heading towards and providing complete details so that you make the right choice at the right time.</p>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="box wow fadeInRight">
-              <div class="icon"><i class="fa fa-picture-o"></i></div>
-              <h4 class="title"><a href="">Complete Financial Statement</a></h4>
-              <p class="description">We will prepare all the required financial statements as per all the appilicable laws and acts</p>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="box wow fadeInLeft" data-wow-delay="0.2s">
-              <div class="icon"><i class="fa fa-shopping-bag"></i></div>
-              <h4 class="title"><a href="">Setup your business</a></h4>
-              <p class="description">Allow us to setup your financial department so that you get your receivables and your customers get proper service, both at the requested time</p>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="box wow fadeInRight" data-wow-delay="0.2s">
-              <div class="icon"><i class="fa fa-map"></i></div>
-              <h4 class="title"><a href="">Compliances</a></h4>
-              <p class="description">You will never have to worry about which department rules will apply or which tax needs to be paid when. We will take care of it all.</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- #services -->
-
-    <!--==========================
-      Clients Section
-    ============================
-    <section id="clients" class="wow fadeInUp">
-      <div class="container">
-        <div class="section-header">
-          <h2>Clients</h2>
-          <p>We have beeing providing our services to clients from various sectors for years and they have been the true reviewer of our services</p>
-        </div>
-
-        <div class="owl-carousel clients-carousel">
-          <img src="img/clients/client-1.png" alt="">
-          <img src="img/clients/client-2.png" alt="">
-          <img src="img/clients/client-3.png" alt="">
-          <img src="img/clients/client-4.png" alt="">
-          <img src="img/clients/client-5.png" alt="">
-          <img src="img/clients/client-6.png" alt="">
-          <img src="img/clients/client-7.png" alt="">
-          <img src="img/clients/client-8.png" alt="">
-        </div>
-
-      </div>
-    </section><!-- #clients -->-->
-
-    <!--==========================
-      Our Portfolio Section
-    ============================-->
-    <!--<section id="portfolio" class="wow fadeInUp">
-      <div class="container">
-        <div class="section-header">
-          <h2>Our Portfolio</h2>
-          <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</p>
         </div>
       </div>
 
-      <div class="container-fluid">
-        <div class="row no-gutters">
-
-          <div class="col-lg-3 col-md-4">
-            <div class="portfolio-item wow fadeInUp">
-              <a href="img/portfolio/1.jpg" class="portfolio-popup">
-                <img src="img/portfolio/1.jpg" alt="">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 1</h2></div>
-                </div>
-              </a>
-            </div>
+      <!-- Card 2: Accounting & Bookkeeping -->
+      <div class="col-lg-6 col-md-6 service-item" style="padding-bottom: 20px;">
+        <div class="card service-card" style="box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); border-radius: 10px;">
+          <div class="card-body" style="margin-bottom: 10px;">
+            <div class="icon mb-3"><i class="fa fa-book" style="font-size: 2em; color: #0c2e8a;"></i></div>
+            <h4 class="card-title"><a href="#">Accounting & Bookkeeping</a></h4>
+            <p class="card-text">Our comprehensive accounting services include meticulous bookkeeping and accurate financial record management.</p>
           </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="portfolio-item wow fadeInUp">
-              <a href="img/portfolio/2.jpg" class="portfolio-popup">
-                <img src="img/portfolio/2.jpg" alt="">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 2</h2></div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="portfolio-item wow fadeInUp">
-              <a href="img/portfolio/3.jpg" class="portfolio-popup">
-                <img src="img/portfolio/3.jpg" alt="">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 3</h2></div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="portfolio-item wow fadeInUp">
-              <a href="img/portfolio/4.jpg" class="portfolio-popup">
-                <img src="img/portfolio/4.jpg" alt="">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 4</h2></div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="portfolio-item wow fadeInUp">
-              <a href="img/portfolio/5.jpg" class="portfolio-popup">
-                <img src="img/portfolio/5.jpg" alt="">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 5</h2></div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="portfolio-item wow fadeInUp">
-              <a href="img/portfolio/6.jpg" class="portfolio-popup">
-                <img src="img/portfolio/6.jpg" alt="">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 6</h2></div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="portfolio-item wow fadeInUp">
-              <a href="img/portfolio/7.jpg" class="portfolio-popup">
-                <img src="img/portfolio/7.jpg" alt="">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 7</h2></div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="portfolio-item wow fadeInUp">
-              <a href="img/portfolio/8.jpg" class="portfolio-popup">
-                <img src="img/portfolio/8.jpg" alt="">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 8</h2></div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section> #portfolio -->
-
-    <!--==========================
-      Testimonials Section
-    ============================
-    <section id="testimonials" class="wow fadeInUp">
-      <div class="container">
-        <div class="section-header">
-          <h2>Testimonials</h2>
-          <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</p>
-        </div>
-        <div class="owl-carousel testimonials-carousel">
-
-            <div class="testimonial-item">
-              <p>
-                <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
-                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">
-              </p>
-              <img src="img/testimonial-1.jpg" class="testimonial-img" alt="">
-              <h3>Saul Goodman</h3>
-              <h4>Ceo &amp; Founder</h4>
-            </div>
-
-            <div class="testimonial-item">
-              <p>
-                <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
-                Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">
-              </p>
-              <img src="img/testimonial-2.jpg" class="testimonial-img" alt="">
-              <h3>Sara Wilsson</h3>
-              <h4>Designer</h4>
-            </div>
-
-            <div class="testimonial-item">
-              <p>
-                <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
-                Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">
-              </p>
-              <img src="img/testimonial-3.jpg" class="testimonial-img" alt="">
-              <h3>Jena Karlis</h3>
-              <h4>Store Owner</h4>
-            </div>
-
-            <div class="testimonial-item">
-              <p>
-                <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
-                Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">
-              </p>
-              <img src="img/testimonial-4.jpg" class="testimonial-img" alt="">
-              <h3>Matt Brandon</h3>
-              <h4>Freelancer</h4>
-            </div>
-
-            <div class="testimonial-item">
-              <p>
-                <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
-                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">
-              </p>
-              <img src="img/testimonial-5.jpg" class="testimonial-img" alt="">
-              <h3>John Larson</h3>
-              <h4>Entrepreneur</h4>
-            </div>
-
-        </div>
-
-      </div>
-    </section><!-- #testimonials -->-->
-
-    <!--==========================
-      Call To Action Section
-    ============================
-    <section id="call-to-action" class="wow fadeInUp">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-9 text-center text-lg-left">
-            <h3 class="cta-title">Call To Action</h3>
-            <p class="cta-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div>
-          <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">Call To Action</a>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- #call-to-action -->-->
-
-    <!--==========================
-      Our Team Section
-    ============================-->
-    <section id="team" class="wow fadeInUp">
-      <div class="container">
-        <div class="section-header">
-          <h2>Our Team</h2>
-        </div>
-	<div class="row">
-          <div class="col-lg-3 col-md-6">
-            <div class="member">
-              <div class="pic"><img src="#" alt=""></div>
-              <div class="details">
-                <h4>CA Upaj Manandhar</h4>
-		<span>Director</span>
-		<br>Statutory and Internal Audits of Companies</br>
-		<br>Financial Analysis and Forecasting</br>
-		<br>Expertise knowledge in Taxation and Compliances</br>
-		<br>Experience in business and accounting advisory</br>
-                <div class="social">
-                  <a href=""><i class="fa fa-twitter"></i></a>
-                  <a href=""><i class="fa fa-facebook"></i></a>
-                  <a href=""><i class="fa fa-google-plus"></i></a>
-                  <a href="https://www.google.com"><i class="fa fa-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-	<div class="col-lg-3 col-md-6">
-            <div class="member">
-              <div class="pic"><img src="#" alt=""></div>
-              <div class="details">
-                <h4>CA Nishan Shrestha</h4>
-                <span>Director</span>
-		<br>Expertise in Internal Audit of Commercial Banks</br>
-		<br>Business and Systems set-up and compliance management</br>
-		<br>Company Registration and OCR related procedures</br>
-		<br>Expertise knowledge of Statutory Audits</br>
-                <div class="social">
-                  <a href=""><i class="fa fa-twitter"></i></a>
-                  <a href=""><i class="fa fa-facebook"></i></a>
-                  <a href=""><i class="fa fa-google-plus"></i></a>
-                  <a href=""><i class="fa fa-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-	</div>
-          <div class="col-lg-3 col-md-6">
-            <div class="member">
-              <div class="pic"><img src="#" alt=""></div>
-              <div class="details">
-                <h4>CA Ghanisha Kunwar</h4>
-                <span>Director</span>
-		<br>Statutory Audits of Non-Profit Organization </br>
-		<br>Statutory Audits of Commercial Banks of Nepal</br>
-		<br>Statutory and Internal Audits of Private Compaines</br>
-		<br>Expertise in Statutory Complainces</br>
-                <div class="social">
-                  <a href=""><i class="fa fa-twitter"></i></a>
-                  <a href=""><i class="fa fa-facebook"></i></a>
-                  <a href=""><i class="fa fa-google-plus"></i></a>
-                  <a href=""><i class="fa fa-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="member">
-              <div class="pic"><img src="#" alt=""></div>
-              <div class="details">
-                <h4>Jayan Tajale</h4>
-		<span>Director</span>
-		<br>Internal Audit of Banks</br>
-		<br>Excellent knowledge in Business Laws</br>
-		<br>Excellent knowledge in handling Accounting System</br>
-		<br>Expertise in Statutory Complainces</br>
-                <div class="social">
-                  <a href=""><i class="fa fa-twitter"></i></a>
-                  <a href=""><i class="fa fa-facebook"></i></a>
-                  <a href=""><i class="fa fa-google-plus"></i></a>
-                  <a href=""><i class="fa fa-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-      </div>
-    </section><!-- #team -->
-
-    <!--==========================
-      Contact Section
-    ============================-->
-    <section id="contact" class="wow fadeInUp">
-      <div class="container">
-        <div class="section-header">
-          <h2>Contact Us</h2>
-          <p>For any services please contanct us. We are here to serve you for the best of you</p>
-        </div>
-
-        <div class="row contact-info">
-
-          <div class="col-md-4">
-            <div class="contact-address">
-              <i class="ion-ios-location-outline"></i>
-              <h3>Address</h3>
-              <address>Naxal, Kathmandu, Nepal</address>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="contact-phone">
-              <i class="ion-ios-telephone-outline"></i>
-              <h3>Phone Number</h3>
-              <p><a href="tel:+977 9841 905745">+977 9841 905745</a></p>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="contact-email">
-              <i class="ion-ios-email-outline"></i>
-              <h3>Email</h3>
-              <p><a href="mailto:unifourconsultancy@gmail.com">unifourconsultancy@gmail.com</a></p>
-            </div>
-          </div>
-
         </div>
       </div>
 
-      <div class="container mb-4">
-        <iframe src="https://www.google.com/maps/@27.7200255,85.337536,16z" width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
-      </div>
-
-      <div class="container">
-        <div class="form">
-          <div id="sendmessage">Your message has been sent. Thank you!</div>
-          <div id="errormessage"></div>
-          <form action="" method="post" role="form" class="contactForm">
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                <div class="validation"></div>
-              </div>
-              <div class="form-group col-md-6">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                <div class="validation"></div>
-              </div>
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-              <div class="validation"></div>
-            </div>
-            <div class="form-group">
-              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-              <div class="validation"></div>
-            </div>
-            <div class="text-center"><button type="submit">Send Message</button></div>
-          </form>
+      <!-- Card 3: Financial Reporting & Analysis -->
+      <div class="col-lg-6 col-md-6 service-item" style="padding-bottom: 20px;">
+        <div class="card service-card" style="box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); border-radius: 10px;">
+          <div class="card-body" style="margin-bottom: 10px;">
+            <div class="icon mb-3"><i class="fa fa-line-chart" style="font-size: 2em; color: #0c2e8a;"></i></div>
+            <h4 class="card-title"><a href="#">Financial Reporting & Analysis</a></h4>
+            <p class="card-text">We provide financial statements, monthly reports, and internal audits to help you analyze and optimize business performance.</p>
+          </div>
         </div>
-
       </div>
-    </section><!-- #contact -->
+
+      <!-- Card 4: Periodic Statutory Compliance -->
+      <div class="col-lg-6 col-md-6 service-item" style="padding-bottom: 20px;">
+        <div class="card service-card" style="box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); border-radius: 10px;">
+          <div class="card-body" style="margin-bottom: 10px;">
+            <div class="icon mb-3"><i class="fa fa-calendar-check-o" style="font-size: 2em; color: #0c2e8a;"></i></div>
+            <h4 class="card-title"><a href="#">Periodic Statutory Compliance</a></h4>
+            <p class="card-text">We manage all compliance needs including TDS, VAT, income tax filings, customs, and excise, keeping you compliant year-round.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: Advisory Services -->
+      <div class="col-lg-6 col-md-6 service-item" style="padding-bottom: 20px;">
+        <div class="card service-card" style="box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); border-radius: 10px;">
+          <div class="card-body" style="margin-bottom: 10px;">
+            <div class="icon mb-3"><i class="fa fa-lightbulb-o" style="font-size: 2em; color: #0c2e8a;"></i></div>
+            <h4 class="card-title"><a href="#">Advisory Services</a></h4>
+            <p class="card-text">Our advisory services include branch registration, FDI registration, and support for foreign branches and liaison offices.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6: Ancillary Services -->
+      <div class="col-lg-6 col-md-6 service-item" style="padding-bottom: 20px;">
+        <div class="card service-card" style="box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); border-radius: 10px;">
+          <div class="card-body" style="margin-bottom: 10px;">
+            <div class="icon mb-3"><i class="fa fa-cogs" style="font-size: 2em; color: #0c2e8a;"></i></div>
+            <h4 class="card-title"><a href="#">Ancillary Services</a></h4>
+            <p class="card-text">We provide tax assessment support, physical verification, reconciliation services, and more based on your business needs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<div style="margin-top: 100px;"></div>
+<!-- Contact Section -->
+<section id="contact" class="wow fadeInUp">
+  <div class="container">
+    <div class="section-header">
+      <h2 style="text-align: center;">Contact Us</h2>
+    </div>
+    <div class="row contact-info">
+      <!-- Email Contact -->
+      <div class="col-md-6">
+        <div class="contact-email" style="text-align: center; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 30px; transition: transform 0.3s, box-shadow 0.3s; min-height: 200px;">
+          <a href="mailto:unifourconsultancy@gmail.com" style="text-decoration: none; color: inherit;">
+            <i class="ion-ios-email-outline" style="font-size: 2em; color: #0c2e8a;"></i>
+            <h3 style="color: #0c2e8a;">Email</h3>
+          </a>
+        </div>
+      </div>
+      <!-- WhatsApp Contact -->
+      <div class="col-md-6">
+        <div class="contact-whatsapp" style="text-align: center; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 30px; transition: transform 0.3s, box-shadow 0.3s; min-height: 200px;">
+          <a href="https://wa.me/9843016533" style="text-decoration: none; color: inherit;">
+            <i class="fa fa-whatsapp" style="font-size: 2em; color: #25D366;"></i>
+            <h3 style="color: #25D366;">Whatsapp</h3>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Hover Effect for Contact Cards */
+  .contact-email:hover, .contact-whatsapp:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+</style>
+
 
   </main>
+<div style="margin-top: 50px;"></div>
 
-  <!--==========================
-    Footer
-  ============================-->
-  <footer id="footer">
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong>Unifour Consultancy Pvt. Ltd.</strong>. All Rights Reserved
+
+
+
+
+
+
+
+
+<!-- Footer -->
+<footer id="footer" style="text-align: center; background-color: #f7f9fc; padding: 50px 0;">
+  <div class="container">
+    <div class="row">
+      <!-- Resources Section -->
+      <div class="col-lg-4 col-md-6 footer-links" style="border-right: 1px solid #ddd;">
+        <h3 style="font-weight: bold; font-size: 1.5em; text-align: center;">Resources</h3>
+        <ul style="list-style-position: inside;">
+          <li style="margin-left: 10px;"><a href="#">News & Events</a></li>
+          <li style="margin-left: 10px;"><a href="#">Downloads</a></li>
+          <li style="margin-left: 10px;"><a href="#">FAQ</a></li>
+        </ul>
       </div>
-      <div class="credits">
-        <!--
-          All the links in the footer should remain intact.
-          You can delete the links only if you purchased the pro version.
-          Licensing information: https://bootstrapmade.com/license/
-          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Reveal
-        -->
-        Designed by <a href="https://www.facebook.com/frenlyupaj">Upaj Manandhar</a>
+
+      <!-- Quick Links Section -->
+      <div class="col-lg-4 col-md-6 footer-links" style="border-right: 1px solid #ddd;">
+        <h3 style="font-weight: bold; font-size: 1.5em; text-align: center;">Quick Links</h3>
+        <ul style="list-style-position: inside;">
+          <li style="margin-left: 10px;"><a href="#">About Us</a></li>
+          <li style="margin-left: 10px;"><a href="#">Management</a></li>
+          <li style="margin-left: 10px;"><a href="#">Career</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info Section -->
+      <div class="col-lg-4 col-md-6 footer-contact">
+        <h3 style="font-weight: bold; font-size: 1.5em; text-align: center;">Contact Info</h3>
+        <p>
+          Kathmandu, Nepal<br>
+          <strong>Email:</strong> <a href="mailto:unifourconsultancy@gmail.com">unifourconsultancy@gmail.com</a><br>
+        </p>
+        <div class="social-links mt-3">
+          <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+          <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+          <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+          <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+        </div>
       </div>
     </div>
-  </footer><!-- #footer -->
 
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    <!-- Footer Bottom -->
+    <div class="footer-bottom" style="margin-top: 30px;">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <p>&copy; 2024 Unifour Consultancy Pvt. Ltd. All Rights Reserved.</p>
+            <p>Developed by: <a href="#">Jasper</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
 
-  <!-- JavaScript Libraries -->
+
+
   <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/jquery/jquery-migrate.min.js"></script>
   <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/superfish/hoverIntent.js"></script>
-  <script src="lib/superfish/superfish.min.js"></script>
-  <script src="lib/wow/wow.min.js"></script>
-  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="lib/magnific-popup/magnific-popup.min.js"></script>
-  <script src="lib/sticky/sticky.js"></script>
-
-  <!-- Contact Form JavaScript File -->
-  <script src="contactform/contactform.js"></script>
-
-  <!-- Template Main Javascript File -->
-  <script src="js/main.js"></script>
-
 </body>
 </html>
