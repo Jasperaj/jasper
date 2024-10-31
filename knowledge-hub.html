@@ -1,83 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Header -->
 <div id="header-placeholder"></div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knowledge Hub</title>
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Styling for Sidebar and Main Content */
+    #sidebar {
+      float: left;
+      width: 20%;
+      background-color: #f4f4f4;
+      padding: 15px;
+      height: 100vh;
+      box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
+    }
+    #main-content {
+      float: left;
+      width: 75%;
+      padding: 20px;
+    }
+    #topic-boxes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .content-box {
+      flex: 1 1 calc(33.333% - 20px); /* 3 boxes per row, with spacing */
+      box-sizing: border-box;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 15px;
+      background-color: #f8f9fa;
+      cursor: pointer;
+      transition: box-shadow 0.3s;
+      min-width: 200px;
+      max-width: 300px; /* Optional, to control the max width of each box */
+    }
+    .content-box:hover {
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    .content-box h3 {
+      margin-top: 0;
+      color: #0c2e8a; /* Adjust to match main theme color */
+    }
+    .content-box p {
+      color: #666;
+    }
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .content-box {
+        flex: 1 1 calc(50% - 20px); /* 2 columns per row on medium screens */
+      }
+    }
+    @media (max-width: 576px) {
+      .content-box {
+        flex: 1 1 100%; /* 1 column per row on small screens */
+      }
+    }
+  </style>
+</head>
 <body>
+
+
   <!-- Sidebar with Table of Contents -->
   <aside id="sidebar">
     <h2>Knowledge Hub</h2>
     <ul id="category-list">
-      <li><a href="#" data-file="introduction.html">Introduction to Accounting</a></li>
+      <li><a href="#" data-file="../Education Hub/bank-statement-pdf-to-excel.html">Bank Statement PDF to Excel</a></li>
       <li><a href="#" data-file="financial-analysis.html">Financial Analysis</a></li>
       <li><a href="#" data-file="taxation-basics.html">Basics of Taxation</a></li>
       <li><a href="#" data-file="compliance.html">Compliance & Regulations</a></li>
     </ul>
   </aside>
 
-  <!-- Main Content Area -->
+  <!-- Main Content Area with Topic Boxes -->
   <main id="main-content">
     <h1>Welcome to the Knowledge Hub</h1>
     <p>Select a topic from the left to view the content.</p>
+
+    <!-- Content Boxes for Each Topic in a 3-Column Layout -->
+    <div id="topic-boxes">
+      <!-- Topic boxes will be dynamically generated here -->
+    </div>
   </main>
 
-  <!-- JavaScript to load only the body content dynamically -->
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- JavaScript to load content boxes dynamically from JSON -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      const links = document.querySelectorAll("#category-list a");
-      const mainContent = document.getElementById("main-content");
+      const topics = [
+        {
+          "file": "bank-statement-pdf-to-excel.html",
+          "title": "Bank Statement PDF to Excel",
+          "description": "Learn how to convert NIC Asia Bank's PDF statements into Excel format for easy data handling."
+        },
+        {
+          "file": "financial-analysis.html",
+          "title": "Financial Analysis",
+          "description": "Understand the basics of financial analysis, including key metrics and indicators."
+        },
+        {
+          "file": "taxation-basics.html",
+          "title": "Basics of Taxation",
+          "description": "An overview of the fundamental principles of taxation, useful for businesses and individuals."
+        },
+        {
+          "file": "compliance.html",
+          "title": "Compliance & Regulations",
+          "description": "Detailed guide on compliance requirements and regulatory standards for businesses."
+        }
+      ];
 
-      links.forEach(link => {
-        link.addEventListener("click", function(event) {
-          event.preventDefault();
-          const fileName = this.getAttribute("data-file");
+      const topicBoxesContainer = document.getElementById("topic-boxes");
 
-          fetch(`Education Hub/${fileName}`)
-            .then(response => {
-              if (!response.ok) throw new Error("Network response was not ok");
-              return response.text();
-            })
-            .then(htmlString => {
-              // Parse the full HTML and extract the body content
-              const parser = new DOMParser();
-              const doc = parser.parseFromString(htmlString, "text/html");
-              const bodyContent = doc.body.innerHTML;
-              
-              // Replace the main content with the new body content
-              mainContent.innerHTML = bodyContent;
-            })
-            .catch(error => {
-              mainContent.innerHTML = "<h1>Content not found</h1><p>The requested content could not be loaded.</p>";
-              console.error("Error loading content:", error);
-            });
+      // Populate topic boxes dynamically
+      topics.forEach(topic => {
+        const box = document.createElement("div");
+        box.classList.add("content-box");
+        box.innerHTML = `
+          <h3>${topic.title}</h3>
+          <p>${topic.description}</p>
+        `;
+        box.addEventListener("click", () => {
+          window.location.href = `Education Hub/${topic.file}`;
         });
+        topicBoxesContainer.appendChild(box);
       });
     });
   </script>
 
-<div id="footer-placeholder"></div>
-
-
-
-
-
+  <!-- Load Header and Footer -->
   <script src="lib/jquery/jquery.min.js"></script>
   <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script>
-// JavaScript to load header and footer
-document.addEventListener("DOMContentLoaded", function() {
-  fetch("header.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("header-placeholder").innerHTML = data;
-    });
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      fetch("header.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("header-placeholder").innerHTML = data;
+        });
 
-  fetch("footer.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("footer-placeholder").innerHTML = data;
+      fetch("footer.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+        });
     });
-});
-</script>
-
+  </script>
 
 </body>
 </html>
