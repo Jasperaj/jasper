@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI Calculator for Home Loan, Car Loan & Personal Loan</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<script 
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <style>
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header styling */
+        #header-placeholder {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background-color: #fff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    /* Main container for sidebar and content */
+    #main-container {
+	margin-left: 0%; /* Adjust to match the sidebar width */
+	padding: 80px 20px 20px; /* Ensure this padding starts below the fixed header */
+	box-sizing: border-box; /* Ensures padding is counted in total width */
+	display: flex;
+	flex: 1;
+	width: 100%;
+fixed header */
+    }
+        /* Sidebar styling */
+        #sidebar-placeholder {
+            width: 20%;
+            min-width: 250px;
+            position: fixed;
+            top: 60px;  /* Below the header */
+            bottom: 0;
+            overflow-y: auto;
+            background-color: #f4f4f4;
+            box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            z-index: 999;
+        }
+
+        #sidebar-placeholder h2 {
+            font-size: 1.2em;
+            color: #0c2e8a;
+            margin-bottom: 15px;
+        }
+
+    #sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .category {
+      font-weight: bold;
+      cursor: pointer;
+      color: #0c2e8a;
+      padding-left: 5px;
+      margin-bottom: 5px;
+    }
+
+    .category ul {
+      display: none;
+      margin-top: 5px;
+      padding-left: 15px;
+    }
+
+    .category ul li {
+      margin: 3px 0;
+      font-size: 0.85em;
+      color: #555;
+      font-weight: normal;
+    }
+
+    .category ul li a {
+      color: #555;
+      text-decoration: none;
+      display: inline-block;
+      max-width: 90%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .category ul li a:hover {
+      text-decoration: underline;
+    }
+
+
+
+        /* Main content styling */
+        #main-content {
+            padding: 50px;
+            margin-top: 100px; /* Space for fixed header */
+            margin-left: 20%; /* Space for fixed sidebar */
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: #0c2e8a;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .header-image {
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+            height: 200px;
+            max-width: 800px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* EMI Calculator styling */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .slider-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .slider {
+            flex-grow: 1;
+        }
+
+        .slider-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.6em;
+            color: #666;
+        }
+
+        .result-box {
+	    display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+	#emiChart {
+    	max-width: 350px;
+    	max-height: 350px;
+	}
+        /* Footer styling */
+        #footer-placeholder {
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+  <!-- Header Placeholder -->
+  <div id="header-placeholder"> <!-- Header content will load here dynamically --> </div>
+
+  <!-- Sidebar Placeholder -->
+  <div id="sidebar-placeholder">
+  </div>
+
+  <!-- Main Content Section -->
+  <main id="main-content">
+      <h1>EMI Calculator for Home Loan, Car Loan & Personal Loan</h1>
+      <img src="../img/emi-calculator.png" alt="EMI Calculator Banner" class="header-image">
+
+      <div class="card mt-4">
+          <div class="card-body">
+              <form id="emi-form">
+                  <!-- Loan Amount -->
+                  <div class="form-group">
+                      <label for="loanAmountInput">Loan Amount</label>
+                      <input type="text" class="form-control w-50 text-right" id="loanAmountInput" value="500000" oninput="updateSlider('loanAmount', 'loanAmountInput'); calculateEMI();" placeholder="">
+                      <div class="slider-container">
+                          <input type="range" min="100000" max="150000000" step="100000" value="500000" class="slider" id="loanAmount" oninput="updateInput('loanAmount', 'loanAmountInput'); calculateEMI();">
+                      </div>
+                      <div class="slider-labels">
+                          <span>0</span><span>25L</span><span>50L</span><span>75L</span><span>1Cr</span><span>5Cr</span><span>10Cr</span><span>15Cr</span>
+                      </div>
+                  </div>
+
+                  <!-- Interest Rate -->
+                  <div class="form-group">
+                      <label for="interestRateInput">Interest Rate (%)</label>
+                      <input type="number" class="form-control w-25 text-right" id="interestRateInput" value="10" step="0.1" oninput="updateSlider('interestRate', 'interestRateInput'); calculateEMI();" placeholder="%">
+                      <div class="slider-container">
+                          <input type="range" min="5" max="25" step="0.1" value="10" class="slider" id="interestRate" oninput="updateInput('interestRate', 'interestRateInput'); calculateEMI();">
+                      </div>
+                      <div class="slider-labels">
+                          <span>5%</span><span>10%</span><span>15%</span><span>20%</span><span>25%</span>
+                      </div>
+                  </div>
+
+                  <!-- Loan Tenure -->
+                  <div class="form-group">
+                      <label for="loanTenureInput">Loan Tenure (Years)</label>
+                      <input type="number" class="form-control w-25 text-right" id="loanTenureInput" value="10" oninput="updateSlider('loanTenure', 'loanTenureInput'); calculateEMI();" placeholder="Years">
+                      <div class="slider-container">
+                          <input type="range" min="1" max="30" value="10" class="slider" id="loanTenure" oninput="updateInput('loanTenure', 'loanTenureInput'); calculateEMI();">
+                      </div>
+                      <div class="slider-labels">
+                          <span>1</span><span>5</span><span>10</span><span>15</span><span>20</span><span>25</span><span>30</span>
+                      </div>
+                  </div>
+              </form>
+
+              <!-- EMI Result Display -->
+<div class="result-box mt-4" style="display: flex; align-items: center; justify-content: space-between;" id="result-section">
+    <div>
+        <h4>Loan EMI: <span id="emiAmount">0</span> per month</h4>
+        <p><strong>Loan Summary:</strong></p>
+        <p>Loan Amount: <span id="summaryLoanAmount">0</span></p>
+        <p>Interest Rate: <span id="summaryInterestRate">0</span>%</p>
+        <p>Loan Tenure: <span id="summaryLoanTenure">0</span> years</p>
+        <p>Total Interest Payable: <span id="totalInterest">0</span></p>
+        <p>Total Payment (Principal + Interest): <span id="totalPayment">0</span></p>
+    </div>
+    <canvas id="emiChart" width="150" height="150"></canvas>
+</div>          
+        <!-- Download Image button -->
+        <button onclick="downloadResultImage()" class="btn btn-primary mt-3">Download Result Image</button>
+</div>
+
+<div class="form-group">
+    <label for="startDateInput">Start Date</label>
+    <input type="date" class="form-control w-50" id="startDateInput" value="2024-01-01">
+</div>
+
+
+<div class="table-responsive mt-4">
+    <table class="table table-bordered" id="emiTable">
+        <thead>
+                        <tr>
+                            <th>Year Summary</th>
+                            <th>Year</th>
+                            <th>Month</th>
+                            <th>Period</th>
+                            <th>EMI Amount</th>
+                            <th>Principal Repayment</th>
+                            <th>Interest Repayment</th>
+                            <th>Balance Payable</th>
+                            <th>Repayment %</th>
+                        </tr>
+                    </thead>
+                    <tbody id="emiTableBody"></tbody>
+    </table>
+</div>
+<button onclick="downloadEMITable()" class="btn btn-primary mt-3">Download EMI Table</button>
+
+
+      </div>
+  </main>
+
+  <!-- Footer Placeholder -->
+  <div id="footer-placeholder"> <!-- Footer content will load here dynamically --> </div>
+
+  <!-- JavaScript to Load Header, Footer, and Sidebar Categories Dynamically -->
+  <script src="../knowledgehub/topics_array.js"></script>
+  <script src="../lib/jquery/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+function downloadResultImage() {
+    const resultSection = document.getElementById('result-section');
+
+    // Use html2canvas to capture the result section
+    html2canvas(resultSection).then(canvas => {
+        // Convert canvas to an image
+        const imgData = canvas.toDataURL('image/png');
+
+        // Create a link element to trigger download
+        const downloadLink = document.createElement('a');
+        downloadLink.href = imgData;
+        downloadLink.download = 'Loan_Summary.png';
+        downloadLink.style.display = 'none';
+
+        document.body.appendChild(downloadLink);
+        downloadLink.click(); // Trigger the download
+        document.body.removeChild(downloadLink); // Remove the link after downloading
+    });
+}
+
+
+let emiChart; // Global variable to hold the chart instance
+document.querySelectorAll('.category').forEach(category => {
+    category.addEventListener('click', function () {
+        const subList = this.querySelector('ul');
+        if (subList) {
+            subList.style.display = subList.style.display === "none" ? "block" : "none";
+        }
+    });
+});
+
+    document.addEventListener("DOMContentLoaded", function() {
+      // Load header and footer dynamically
+      fetch("../header.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("header-placeholder").innerHTML = data;
+        })
+        .catch(error => console.error("Error loading header:", error));
+
+      fetch("../footer.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+        })
+        .catch(error => console.error("Error loading footer:", error));
+
+      // Populate sidebar categories and topics
+      const sidebarContainer = document.getElementById("sidebar-placeholder");
+
+      sidebarContainer.innerHTML = `
+        <aside id="sidebar">
+          <h2>Categories</h2>
+          <ul id="category-list"></ul>
+        </aside>
+      `;
+
+      const uniqueCategories = {};
+      topics.forEach(topic => {
+        if (!uniqueCategories[topic.category]) {
+          uniqueCategories[topic.category] = [];
+        }
+        uniqueCategories[topic.category].push(topic);
+      });
+
+      const categoryList = document.getElementById("category-list");
+      Object.keys(uniqueCategories).forEach(category => {
+        const categoryItem = document.createElement("li");
+        categoryItem.classList.add("category");
+        categoryItem.textContent = category;
+
+        const subList = document.createElement("ul");
+        uniqueCategories[category].forEach((topic, index) => {
+          const topicItem = document.createElement("li");
+
+          // Truncate title and add numbering
+          const maxTitleLength = 40;
+          const truncatedTitle = topic.title.length > maxTitleLength
+            ? topic.title.slice(0, maxTitleLength) + "..."
+            : topic.title;
+
+          topicItem.innerHTML = `<a href="../knowledgehub/${topic.file}">${index + 1}. ${truncatedTitle}</a>`;
+          subList.appendChild(topicItem);
+        });
+
+	    // Attach event listener to start date input to regenerate EMI table on change
+    	document.getElementById('startDateInput').addEventListener('change', generateEMITable);
+
+        // Add toggle function to display topics
+        categoryItem.appendChild(subList);
+        categoryItem.addEventListener("click", function () {
+          subList.style.display = subList.style.display === "none" ? "block" : "none";
+        });
+
+        subList.style.display = "none"; // Initially hide topics
+        categoryList.appendChild(categoryItem);
+      });
+    });
+  </script>
+
+  <script>
+
+      function updateInput(sliderId, inputId) {
+          const slider = document.getElementById(sliderId);
+          const input = document.getElementById(inputId);
+          input.value = formatNumber(slider.value);
+          calculateEMI();
+      }
+
+      function updateSlider(sliderId, inputId) {
+          const slider = document.getElementById(sliderId);
+          const input = document.getElementById(inputId);
+          slider.value = parseNumber(input.value);
+          calculateEMI();
+      }
+
+      function parseNumber(str) {
+          return parseFloat(str.replace(/,/g, ''));
+      }
+
+	function formatNumber(num) {
+    	return num.toString().replace(/\B(?=(\d{3})+(?!\d{3})+(?!\d))/g, ",");
+	}
+
+
+function calculateEMI() {
+    let loanAmount = parseNumber(document.getElementById('loanAmountInput').value);
+    let annualInterestRate = parseFloat(document.getElementById('interestRateInput').value);
+    let loanTenureYears = parseFloat(document.getElementById('loanTenureInput').value);
+    let monthlyInterestRate = annualInterestRate / 12 / 100;
+    let loanTenureMonths = loanTenureYears * 12;
+    let emi = (loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, loanTenureMonths)) / 
+              (Math.pow(1 + monthlyInterestRate, loanTenureMonths) - 1);
+    let totalPayment = emi * loanTenureMonths;
+    let totalInterest = totalPayment - loanAmount;
+
+    document.getElementById('emiAmount').innerText = formatNumber(emi.toFixed(0));
+    document.getElementById('totalInterest').innerText = formatNumber(totalInterest.toFixed(0));
+    document.getElementById('totalPayment').innerText = formatNumber(totalPayment.toFixed(0));
+    document.getElementById('summaryLoanAmount').innerText = formatNumber(loanAmount.toFixed(0));
+    document.getElementById('summaryInterestRate').innerText = annualInterestRate.toFixed(1);
+    document.getElementById('summaryLoanTenure').innerText = loanTenureYears.toFixed(0);
+
+    // Draw or update the pie chart with the new values
+    drawChart(loanAmount, totalInterest);
+    generateEMITable();
+}
+
+
+function drawChart(principal, interest) {
+    const ctx = document.getElementById('emiChart').getContext('2d');
+    
+    if (emiChart) {  // Check if the chart already exists
+        emiChart.data.datasets[0].data = [principal, interest];  // Update data
+        emiChart.update();  // Refresh chart with new data
+    } else {  // Create chart if it doesn't exist
+        emiChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Principal', 'Interest'],
+                datasets: [{
+                    data: [principal, interest],
+                    backgroundColor: ['#36A2EB', '#FF6384']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                const dataset = tooltipItem.dataset;
+                                const currentValue = dataset.data[tooltipItem.dataIndex];
+                                const total = dataset.data.reduce((acc, value) => acc + value, 0);
+                                const percentage = ((currentValue / total) * 100).toFixed(2); // Calculate percentage
+                                return `${tooltipItem.label}: ${percentage}%`; // Show percentage
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+}
+
+  </script>
+
+
+<script>
+
+function generateEMITable() {
+    const loanAmount = parseNumber(document.getElementById('loanAmountInput').value);
+    const annualInterestRate = parseFloat(document.getElementById('interestRateInput').value);
+    const loanTenureYears = parseFloat(document.getElementById('loanTenureInput').value);
+    const startDate = new Date(document.getElementById('startDateInput').value);
+
+    const monthlyInterestRate = annualInterestRate / 12 / 100;
+    const emi = (loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, loanTenureYears * 12)) / 
+                (Math.pow(1 + monthlyInterestRate, loanTenureYears * 12) - 1);
+    
+    let balance = loanAmount;
+    const emiTableBody = document.getElementById('emiTableBody');
+    emiTableBody.innerHTML = ''; // Clear previous entries
+    let currentYear = startDate.getFullYear();
+    let yearlyData = '';
+
+    for (let period = 1; period <= loanTenureYears * 12; period++) {
+        const interestPayment = balance * monthlyInterestRate;
+        const principalPayment = emi - interestPayment;
+        balance -= principalPayment;
+
+        const date = new Date(startDate.getFullYear(), startDate.getMonth() + period - 1, startDate.getDate());
+        const year = date.getFullYear();
+        const month = date.toLocaleString('default', { month: 'long' });
+        const repaymentPercentage = ((loanAmount - balance) / loanAmount * 100).toFixed(2);
+
+        // New Year Row with toggle for month-wise details
+        if (year !== currentYear || period === 1) {
+            if (yearlyData) {
+                emiTableBody.insertAdjacentHTML('beforeend', yearlyData + '</tbody>');
+            }
+            currentYear = year;
+            yearlyData = `
+                <tr>
+                    <td class="toggle-icon" onclick="toggleYear('${year}')">[+]</td>
+                    <td colspan="8"><strong>Year ${year}</strong></td>
+                </tr>
+                <tbody id="year-${year}" style="display: none;">
+            `;
+        }
+
+        // Monthly Row
+        yearlyData += `
+            <tr>
+                <td></td>
+                <td>${year}</td>
+                <td>${month}</td>
+                <td>${period}</td>
+                <td>${formatNumber(emi.toFixed(2))}</td>
+                <td>${formatNumber(principalPayment.toFixed(2))}</td>
+                <td>${formatNumber(interestPayment.toFixed(2))}</td>
+                <td>${formatNumber(balance > 0 ? balance.toFixed(2) : '0')}</td>
+                <td>${repaymentPercentage}%</td>
+            </tr>
+        `;
+    }
+    emiTableBody.insertAdjacentHTML('beforeend', yearlyData + '</tbody>');
+}
+
+
+function downloadEMITable() {
+    const rows = Array.from(document.querySelectorAll("#emiTable tr"));
+    const csvContent = rows.map(row => {
+        const cells = Array.from(row.querySelectorAll("td, th")).map(cell => {
+            const cellText = cell.innerText;
+            // Wrap cell text in quotes if it contains a comma
+            return cellText.includes(",") ? `"${cellText}"` : cellText;
+        });
+        return cells.join(",");
+    }).join("\n");
+
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const downloadLink = document.createElement('a');
+    downloadLink.href = url;
+    downloadLink.download = 'EMI_Repayment_Schedule.csv';
+    downloadLink.style.display = 'none';
+
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+    URL.revokeObjectURL(url);
+}
+
+
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+</body>
+</html>

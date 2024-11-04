@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Companies Act 2063 BS (2006 AD) - Nepal</title>
+    <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #content {
+            padding: 20px;
+        }
+        h1 {
+            color: #0c2e8a;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .table-of-contents {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+        .table-of-contents h2 {
+            color: #0c2e8a;
+        }
+        .table-of-contents ul {
+            list-style: none;
+            padding: 0;
+        }
+        .table-of-contents li {
+            margin-bottom: 5px;
+        }
+        .table-of-contents a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .pdf-viewer {
+            margin-top: 20px;
+        }
+.header-image {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    height: auto;
+    max-width: 300px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+
+  <!-- Header Placeholder -->
+  <div id="header-placeholder"></div>
+
+  <!-- Main Content Section -->
+  <main id="content" class="container">
+      <h1>Companies Act 2063 BS (2006 AD) - Nepal</h1>
+
+      <!-- Header Image -->
+      <img src="../img/companies-act.png" alt="Companies Act 2063 Banner" class="header-image">
+
+
+      <p>The Companies Act, 2063 BS (2006 AD), provides the legal framework for the formation, management, and regulation of companies in Nepal. Below is the complete document along with a table of contents for easier navigation through the main sections.</p>
+
+      <!-- Table of Contents -->
+      <div class="table-of-contents">
+          <h2>Table of Contents</h2>
+          <ul>
+              <li><a href="#preliminary">1. Preliminary</a></li>
+              <li><a href="#company-formation">2. Formation of Companies</a></li>
+              <li><a href="#company-management">3. Management of the Company</a></li>
+              <li><a href="#share-capital">4. Share Capital and Shareholders</a></li>
+              <li><a href="#meetings">5. General Meetings and Resolutions</a></li>
+              <li><a href="#accounts-and-audit">6. Accounts and Audit</a></li>
+              <li><a href="#merger-and-acquisition">7. Merger and Acquisition</a></li>
+              <li><a href="#liquidation">8. Liquidation of Companies</a></li>
+              <li><a href="#penalties">9. Offenses and Penalties</a></li>
+          </ul>
+      </div>
+
+      <!-- Embedded PDF Viewer -->
+      <div class="pdf-viewer">
+          <iframe src="https://ocr.gov.np/images/pdf/the-companies-act%202006-english.pdf" width="100%" height="800px" style="border: none;">
+              Your browser does not support PDF viewing. Please download the document instead:
+              <a href="https://ocr.gov.np/images/pdf/the-companies-act%202006-english.pdf">Download PDF</a>
+          </iframe>
+      </div>
+  </main>
+
+  <!-- Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <!-- jQuery and Bootstrap JS -->
+  <script src="../lib/jquery/jquery.min.js"></script>
+  <script src="../lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- JavaScript to Load Header and Footer -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      fetch("../header.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("header-placeholder").innerHTML = data;
+        })
+        .catch(error => console.error("Error loading header:", error));
+
+      fetch("../footer.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+        })
+        .catch(error => console.error("Error loading footer:", error));
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TDS Compliance in Nepal</title>
+  <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* General styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header styling */
+    #header-placeholder {
+      width: 100%;
+      position: fixed; /* Keeps header fixed at the top */
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      background-color: #fff;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for visual separation */
+    }
+
+    /* Main container for sidebar and content */
+    #main-container {
+      display: flex;
+      flex: 1;
+      width: 100%;
+      margin-top: 60px; /* Adjusted margin-top to account for fixed header height */
+    }
+    
+    /* Sidebar styling */
+    #sidebar-placeholder {
+      width: 18%;
+      min-width: 250px;
+      position: fixed; /* Keeps sidebar fixed on the left */
+      top: 60px; /* Aligns it right below the header */
+      bottom: 0;
+      overflow-y: auto; /* Allows scrolling within the sidebar */
+      background-color: #f4f4f4;
+      box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      z-index: 999;
+    }
+
+    #sidebar h2 {
+      font-size: 1.2em;
+      color: #0c2e8a;
+      margin-bottom: 15px;
+    }
+
+    #sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .category {
+      font-weight: bold;
+      cursor: pointer;
+      color: #0c2e8a;
+      padding-left: 5px;
+      margin-bottom: 5px;
+    }
+
+    .category ul {
+      display: none;
+      margin-top: 5px;
+      padding-left: 15px;
+    }
+
+    .category ul li {
+      margin: 3px 0;
+      font-size: 0.85em;
+      color: #555;
+      font-weight: normal;
+    }
+
+    .category ul li a {
+      color: #555;
+      text-decoration: none;
+      display: inline-block;
+      max-width: 90%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .category ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Content styling */
+    #main-content {
+      padding: 80px 20px 20px; /* Top padding to account for the fixed header height */
+      width: 75%; /* Adjust width to prevent overlap */
+      margin-left: 25%; /* Adjusted to account for sidebar's fixed position */
+      box-sizing: border-box;
+    }
+
+    h1, h2 {
+      color: #0c2e8a;
+    }
+
+    .header-image {
+      display: block;
+      margin: 0 auto;
+      width: 50%;
+      height: auto;
+      max-width: 600px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    pre, code {
+      background-color: #f8f9fa;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      line-height: 1.8; /* Adjusts line spacing for better readability */
+      font-size: 1em; /* Ensures the font size is appropriate for readability */
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header Placeholder -->
+  <div id="header-placeholder"></div>
+
+  <!-- Main container for sidebar and content -->
+  <div id="main-container">
+    <!-- Sidebar Placeholder -->
+    <div id="sidebar-placeholder"></div>
+
+
+  <!-- Main Content Area -->
+  <main id="main-content">
+    <h1>TDS Compliance in Nepal</h1>
+      <!-- Header Image -->
+      <img src="../img/companies-act.png" alt="Companies Act 2063 Banner" class="header-image">	
+    <!-- Summary Table -->
+    <table class="summary-table table table-bordered">
+      <thead>
+        <tr>
+          <th>Section</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><a href="#introduction">Introduction to TDS</a></td><td>Overview and significance of TDS in Nepal</td></tr>
+        <tr><td><a href="#concept">Concept of TDS</a></td><td>Explanation of TDS deduction and deposit</td></tr>
+        <tr><td><a href="#rates">TDS Rates</a></td><td>Current applicable TDS rates in Nepal</td></tr>
+        <tr><td><a href="#process">TDS Deduction Process</a></td><td>Steps and accounting entries for TDS</td></tr>
+        <tr><td><a href="#etds">E-TDS Filing Process</a></td><td>Electronic filing and submission process for TDS</td></tr>
+        <tr><td><a href="#filing">How to File TDS Return in Nepal</a></td><td>Step-by-step TDS return filing process</td></tr>
+      </tbody>
+    </table>
+
+    <section id="introduction">
+      <h2>Introduction to TDS</h2>
+      <p>Tax Deducted at Source (TDS) is a tax collection mechanism under which tax is deducted at the point of in	come generation or payment. In Nepal, TDS is applied to various transactions to ensure timely tax collection and reduce the risk of tax evasion. TDS payments are governed by Nepal’s Inland Revenue Department (IRD) and must be filed monthly to comply with tax laws.</p>
+    </section>
+
+<section id="concept">
+  <h2>Concept of TDS (Tax Deducted at Source)</h2>
+
+  <p><strong>Tax Deducted at Source (TDS)</strong> is a mechanism by which tax is collected at the point where income is generated. The payer, such as a company or organization, deducts a specified percentage of tax from payments made to employees, contractors, or service providers before making the payment. This deducted amount is then deposited with the tax authority, the <strong>Inland Revenue Department (IRD)</strong> in Nepal.</p>
+
+  <p>The TDS system ensures steady tax collection for the government while simplifying tax compliance for recipients by collecting taxes on their behalf as income is earned.</p>
+
+  <h3>Why TDS is Done</h3>
+  <p>The key reasons for implementing TDS are:</p>
+  <ul>
+    <li><strong>Timely Collection of Revenue:</strong> TDS allows the government to collect tax revenue in advance rather than waiting until the end of the financial year.</li>
+    <li><strong>Reducing Tax Evasion:</strong> TDS minimizes the chances of tax evasion, as taxes are deducted directly from payments at the source.</li>
+    <li><strong>Simplified Tax Compliance for Recipients:</strong> Since tax is deducted at the source, recipients have reduced tax liabilities at the end of the year.</li>
+    <li><strong>Consistent Revenue for the Government:</strong> TDS ensures a regular flow of tax revenue, aiding government planning and expenditure.</li>
+  </ul>
+
+  <h3>How the TDS Mechanism Works</h3>
+  <p>In the TDS mechanism, two parties are involved:</p>
+  <ul>
+    <li><strong>Withholding Agent (Payer):</strong> The entity making the payment, responsible for deducting TDS.</li>
+    <li><strong>Withholdee (Payee):</strong> The entity receiving the payment after TDS deduction.</li>
+  </ul>
+
+  <p>Let’s illustrate this with an example:</p>
+  <p><strong>Example:</strong> A logistics company, Star Transport, hires a maintenance contractor for vehicle repairs. For the month of Ashad, Star Transport needs to pay the contractor NPR 80,000. According to TDS regulations, the applicable TDS rate on maintenance services is 5%. Star Transport will deduct NPR 4,000 (5% of 80,000) as TDS and pay the contractor NPR 76,000. Star Transport will then deposit the TDS amount of NPR 4,000 with the IRD and file a TDS return showing that TDS was deducted on this payment.</p>
+
+  <h4>Responsibilities of the Payer (Star Transport in this example)</h4>
+  <ul>
+    <li>Calculate and deduct TDS at the specified rate on relevant transactions.</li>
+    <li>Deposit the collected TDS with the IRD within the due date, typically by the 25th of the following month.</li>
+    <li>File a TDS return detailing the transaction and payee information by the due date (25th of the following month).</li>
+  </ul>
+
+  <h3>Examples of TDS Deductions in Different Scenarios</h3>
+
+  <h4>Example 1: TDS on Consultant Fees</h4>
+  <p>Suppose a company hires a freelance consultant and agrees to pay a fee of <strong>NPR 70,000</strong>. The TDS rate on professional fees is <strong>15%</strong>.</p>
+  <ul>
+    <li><strong>Gross Fee:</strong> NPR 70,000</li>
+    <li><strong>TDS Rate:</strong> 15%</li>
+    <li><strong>TDS Amount:</strong> \( 70,000 \times 0.15 = 10,500 \)</li>
+  </ul>
+  <p>The company will deduct <strong>NPR 10,500</strong> from the consultant’s payment and pay the remaining <strong>NPR 59,500</strong>. The deducted <strong>NPR 10,500</strong> is deposited with the IRD on behalf of the consultant.</p>
+
+  <h4>Example 2: TDS on Equipment Rental</h4>
+  <p>Imagine a company rents equipment from a vendor for a project, with a total rental cost of <strong>NPR 120,000</strong>. The applicable TDS rate on rental expenses is <strong>10%</strong>.</p>
+  <ul>
+    <li><strong>Gross Rental Cost:</strong> NPR 120,000</li>
+    <li><strong>TDS Rate:</strong> 10%</li>
+    <li><strong>TDS Amount:</strong> \( 120,000 \times 0.10 = 12,000 \)</li>
+  </ul>
+  <p>The company will deduct <strong>NPR 12,000</strong> as TDS, paying the vendor <strong>NPR 108,000</strong>. The TDS of <strong>NPR 12,000</strong> is deposited with the IRD.</p>
+
+  <h3>Accounting Entry for TDS Deduction</h3>
+
+  <h4>For Consultant Fee TDS Deduction:</h4>
+  <pre>
+Consulting Fee Expense       Dr    70,000
+     To TDS Payable                10,500
+     To Cash/Bank                  59,500
+  </pre>
+
+  <h4>For Equipment Rental TDS Deduction:</h4>
+  <pre>
+Equipment Rental Expense      Dr   120,000
+     To TDS Payable                12,000
+     To Cash/Bank                 108,000
+  </pre>
+
+  <p>In both cases, “TDS Payable” represents the amount that the company will remit to the IRD on behalf of the recipient (consultant or vendor). TDS simplifies compliance by ensuring that taxes are collected at the source, contributing to a streamlined tax system for both payers and payees.</p>
+</section>
+
+    <section id="process">
+      <h2>TDS Deduction Process</h2>
+      <p>The TDS process in Nepal involves calculating, deducting, depositing, and filing TDS returns by the 25th of the following month. The steps are as follows:</p>
+      <ol>
+        <li>Calculate TDS based on applicable rate for the transaction type.</li>
+        <li>Deduct TDS from payment and record it in accounts payable.</li>
+        <li>Deposit the deducted TDS amount to the IRD by visiting authorized banks or using the online IRD portal.</li>
+      </ol>
+
+      <h3>Accounting Entry for TDS Deduction</h3>
+      <p>When TDS is deducted, the following accounting entry is recorded:</p>
+      <pre>
+      Rent Expense Account      Dr 100,000
+      TDS Payable               Cr 10,000
+      Cash/Bank                 Cr 90,000
+      </pre>
+      <p>In this example, Rs. 10,000 is the TDS deducted on a Rs. 100,000 rent payment.</p>
+    </section>
+
+    <section id="etds">
+      <h2>E-TDS Filing Process</h2>
+      <p>E-TDS filing in Nepal is conducted online through the IRD's taxpayer portal. The e-TDS process helps streamline TDS compliance and includes the following steps:</p>
+      <ol>
+        <li><strong>Login to the IRD Portal <a href "https://taxpayerportal.ird.gov.np/taxpayer/app.html">https://taxpayerportal.ird.gov.np/taxpayer/app.html</a></strong>: Use your PAN as your login ID.</li>
+        <li><strong>Generate Submission Number</strong>: Select "E-TDS" and fill in the required form to obtain a submission number.</li>
+        <li><strong>Enter Transaction Details</strong>: Fill in the TDS transaction details, including payee PAN, amount, and TDS amount deducted.</li>
+        <li><strong>Submit Voucher Details</strong>: Match the details with the deposit voucher and submit for final reconciliation.</li>
+        <li><strong>Confirm and Submit</strong>: Review the return and submit it to complete the e-TDS filing.</li>
+      </ol>
+
+      <!-- Placeholder for e-TDS Process Images -->
+      <p><em>[Images illustrating the IRD portal steps for e-TDS filing can be included here]</em></p>
+    </section>
+    
+<section id="filing">
+  <h2>How to File TDS Return in Nepal</h2>
+  <p>Filing a TDS return is essential for a business to comply with the tax regulation as per the Income Tax Act. It is also essential to obtain a Tax Clearance Certificate from the Inland Revenue Department (IRD) in Nepal. Follow the steps below to file a TDS return:</p>
+
+  <h3>Step 2: Enter Transaction Details</h3>
+  <p>In this step, you’ll enter the details of each transaction where TDS was deducted. Refer to the table below for examples of various types of transactions and their respective revenue codes.</p>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Transaction Type</th>
+        <th>Revenue Code</th>
+        <th>Gross Payment (NPR)</th>
+        <th>TDS Rate</th>
+        <th>TDS Amount (NPR)</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Salary</td>
+        <td>11112</td>
+        <td>50,000</td>
+        <td>15%</td>
+        <td>7,500</td>
+        <td>Monthly employee salary with TDS deduction</td>
+      </tr>
+      <tr>
+        <td>Audit Fee</td>
+        <td>11134</td>
+        <td>100,000</td>
+        <td>10%</td>
+        <td>10,000</td>
+        <td>Annual audit fee payment with TDS deduction</td>
+      </tr>
+      <tr>
+        <td>Service Fee</td>
+        <td>11134</td>
+        <td>30,000</td>
+        <td>1.5%</td>
+        <td>450</td>
+        <td>Consultancy service fee with TDS deduction</td>
+      </tr>
+      <tr>
+        <td>Rent</td>
+        <td>11131</td>
+        <td>60,000</td>
+        <td>10%</td>
+        <td>6,000</td>
+        <td>Monthly office rent with TDS deduction</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>After entering each transaction, click "Add" to include additional transactions or upload a batch file if needed. Once all entries are complete, click "Save".</p>
+
+<h3>Step 3: Enter Voucher Details for TDS Deposit</h3>
+<p>Once the TDS amount is deducted, the payer (withholding agent) must deposit this amount with the Inland Revenue Department (IRD) by the 25th of the following month. The TDS deposit can be done in two ways:</p>
+<ul>
+  <li><strong>Bank Deposit:</strong> Visit a nearby authorized bank (e.g., Rashtriya Banijya Bank, Nepal Bank Limited, Agriculture Development Bank) and deposit the TDS amount in cash.</li>
+  <li><strong>Online Deposit:</strong> Use the IRD Taxpayer Portal for an online deposit. Follow the steps below for online payment.</li>
+</ul>
+
+<h4>Step-by-Step Process for Depositing TDS Online</h4>
+<ol>
+  <li><strong>Login to the IRD Taxpayer Portal</strong>
+    <p>Go to the IRD Taxpayer Portal and log in using your ID and Password. Your PAN number will serve as your ID. If you don’t have login credentials, visit your local revenue department to request them.</p>
+  </li>
+
+  <li><strong>Access the Payment Voucher Section</strong>
+    <p>Once logged in, click on "Payment Voucher" in the portal. This will open a form where you will enter the details for the TDS deposit.</p>
+  </li>
+
+  <li><strong>Fill in the Payment Voucher Details</strong>
+    <p>Complete each field in the form as follows:</p>
+    <ul>
+      <li><strong>Select Bank:</strong> Choose the bank where you want to deposit the TDS amount. The list of available banks may vary based on your location.</li>
+
+      <li><strong>Tax Type:</strong> Since TDS is part of income tax, select <em>‘आय कर’</em> (Income Tax) in the first column.</li>
+
+      <li><strong>Choose the Appropriate Revenue Code:</strong> Carefully select the revenue code that corresponds to the type of transaction for which TDS was deducted. Below are some common revenue codes:
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Revenue Code</th>
+              <th>Usage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>11111</td><td>Income Tax relating to an individual or proprietorship firm</td></tr>
+            <tr><td>11112</td><td>TDS on Salary</td></tr>
+            <tr><td>11113</td><td>Capital Gain Tax for Individuals</td></tr>
+            <tr><td>11121</td><td>Income Tax for Government Institutions</td></tr>
+            <tr><td>11122</td><td>Income Tax for Public Limited Companies</td></tr>
+            <tr><td>11123</td><td>Income Tax for Private Limited Companies</td></tr>
+            <tr><td>11131</td><td>TDS on Rent</td></tr>
+            <tr><td>11132</td><td>TDS on Interest</td></tr>
+            <tr><td>11133</td><td>TDS on Dividends</td></tr>
+            <tr><td>11134</td><td>Income Tax on Other Investments</td></tr>
+          </tbody>
+        </table>
+        <p><strong>Example:</strong> If depositing TDS on salary, select <strong>11112</strong>. For rent, select <strong>11131</strong>.</p>
+      </li>
+
+      <li><strong>Advance Tax Deduction:</strong> Since we’re depositing TDS deducted on certain transactions, select <em>‘अग्रिम कर कट्टी’</em> (Advance Tax Deduction).</li>
+
+      <li><strong>Enter TDS Amount:</strong> Specify the TDS amount to be deposited. 
+        <p><strong>Example:</strong> If TDS of NPR 10,000 was deducted on a rent payment, enter 10,000 in this field.</p>
+      </li>
+
+      <li><strong>Select Fiscal Year:</strong> Choose the fiscal year for which TDS was deducted.
+        <p><strong>Example:</strong> For TDS deducted in Ashad 2078, select fiscal year <em>2077/78</em>.</p>
+      </li>
+
+      <li><strong>Confirm TDS Deposit:</strong> Select <em>‘हो’</em> (Yes) to confirm that this is a TDS deposit.</li>
+    </ul>
+  </li>
+
+  <li><strong>Generate Transaction Code</strong>
+    <p>After filling out the form, click on “Generate Transaction Code” located at the bottom left corner of the screen. A confirmation window will appear. Click “Confirm” to generate the transaction code, which will redirect you to the payment gateway of ConnectIPS.</p>
+  </li>
+
+  <li><strong>Complete the Payment</strong>
+    <p>You can either:</p>
+    <ul>
+      <li>Print the voucher and visit a branch of the bank you selected to deposit the TDS amount in cash.</li>
+      <li>Or complete the payment online using your ConnectIPS login credentials. Online payments usually process within minutes, while bank deposits may take 1-2 days to complete.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>This step ensures that the TDS amount is properly deposited with the IRD, meeting the compliance requirements and preventing any penalties.</p>
+
+
+  <p>Next, enter the details of the voucher used for depositing the TDS amount. Ensure that each entry aligns with the correct transaction type and revenue code.</p>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th>Description</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Transaction Type</td>
+        <td>Select the type of transaction for the TDS deposit</td>
+        <td>Salary, Rent, Audit Fee</td>
+      </tr>
+      <tr>
+        <td>Revenue Code</td>
+        <td>Select the appropriate revenue code matching the transaction</td>
+        <td>11112 for Salary, 11131 for Rent, 11134 for Service Fee</td>
+      </tr>
+      <tr>
+        <td>Voucher Number</td>
+        <td>Enter the unique voucher or receipt number for the payment</td>
+        <td>VCH001234</td>
+      </tr>
+      <tr>
+        <td>Deposit Method</td>
+        <td>Select the method used to deposit the TDS (e.g., Bank, Online)</td>
+        <td>Online Payment</td>
+      </tr>
+      <tr>
+        <td>Deposit Date</td>
+        <td>Date of TDS deposit (in B.S. or A.D.)</td>
+        <td>2079/12/01 (B.S.)</td>
+      </tr>
+      <tr>
+        <td>Branch/Office</td>
+        <td>Specify the bank branch or Tax Office where the TDS was deposited</td>
+        <td>Nepal Bank Limited, Kathmandu</td>
+      </tr>
+      <tr>
+        <td>TDS Amount</td>
+        <td>The total TDS amount deposited for the transaction</td>
+        <td>10,000 NPR</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Ensure all voucher details reconcile with the IRD’s records before final submission. Once reconciled, click "Submit" to complete the filing.</p>
+      <h3>Step 4: Submit the TDS Return</h3>
+      <p>Once all details have been entered and verified, click on "Submit" in the transaction entry form. Double-check the information before final submission.</p>
+
+      <h3>Step 5: Self-Verify the Return</h3>
+      <p>After submission, self-verify the return as follows:</p>
+      <ol>
+        <li>Log back into the IRD Taxpayer Portal using your ID and password.</li>
+        <li>Select the “Verification” option and choose the specific return to verify.</li>
+        <li>Enter the submission number and confirm the details.</li>
+        <li>Once verified, you can preview, print, or save the return in PDF format.</li>
+      </ol>
+    </section>
+<section id="penalties">
+  <h2>What are Penalties for Late TDS Filing?</h2>
+  <p>Timely TDS filing is crucial to avoid penalties and maintain good standing with tax authorities. Below are the key penalties associated with late TDS filing in Nepal:</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Penalty Type</th>
+      <th>Penalty Rate/Amount</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Late Deduction Penalty</td>
+      <td>1.5% per month</td>
+      <td>Applied on the amount of TDS not deducted.</td>
+    </tr>
+    <tr>
+      <td>Late Deposit Interest</td>
+      <td>15% per annum</td>
+      <td>Applied on the amount of TDS deducted but not deposited.</td>
+    </tr>
+    <tr>
+      <td>Late Filing Penalty</td>
+      <td>2.5% per annum</td>
+      <td>Charged for each month after the filing due date.</td>
+    </tr>
+    <tr>
+      <td>Incorrect Information Penalty</td>
+      <td>Up to NPR 1,000 per instance</td>
+      <td>Penalty for each instance of incorrect information submitted.</td>
+    </tr>
+    <tr>
+      <td>Prosecution for Serious Offenses</td>
+      <td>Up to 1 year imprisonment</td>
+      <td>For willful non-compliance with TDS obligations.</td>
+    </tr>
+  </tbody>
+</table>
+
+  <h3>Example Case</h3>
+  <p>Consider a company, XYZ Pvt. Ltd., that deducted TDS of NPR 20,000 on a service payment but failed to deposit the amount on time:</p>
+  <ul>
+    <li><strong>Late Deposit Interest:</strong> For a delay of 2 months, the penalty would be:
+      <br> ( 20,000 * 15% * 2 / 12) = 500 NPR
+    </li>
+    <li><strong>Late Filing Penalty:</strong> If the filing is delayed by 15 days, the penalty would be:
+      <br> ( 20,000 * 2.5% * 1 / 12) = 42 NPR
+    </li>
+  </ul>
+  <p>Therefore, XYZ Pvt. Ltd. would incur a total penalty and interest of NPR 542 for the delayed TDS deposit and filing. This example illustrates how quickly penalties can add up, emphasizing the importance of timely compliance.</p>
+</section>
+
+<section id="disclaimer">
+  <h3>Disclaimer on TDS Rates</h3>
+  <p>Note that TDS rates in Nepal are subject to change annually based on the government’s fiscal budget. For the latest TDS rates, consult the official IRD website or check the latest TDS rates on Company Khata.</p>
+</section>
+
+<section id="conclusion">
+  <h2>Conclusion</h2>
+  <p>Adhering to TDS regulations is essential for maintaining compliance with the tax authorities in Nepal. Understanding TDS deductions, deposits, filing deadlines, and penalties will help businesses avoid fines and legal complications. By managing TDS obligations properly, businesses contribute to transparent financial practices and support the country's tax system.</p>
+</section>
+
+    </main>
+  </div>
+
+  <!-- Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <!-- JavaScript to Load Header, Footer, and Dynamic Sidebar -->
+  <script src="../knowledgehub/topics_array.js"></script> <!-- Topics data -->
+  <!-- jQuery and Bootstrap JS -->
+  <script src="../lib/jquery/jquery.min.js"></script>
+  <script src="../lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Load header and footer dynamically
+      fetch("../header.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("header-placeholder").innerHTML = data;
+        })
+        .catch(error => console.error("Error loading header:", error));
+
+      fetch("../footer.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+        })
+        .catch(error => console.error("Error loading footer:", error));
+
+      // Populate sidebar categories and topics
+      const sidebarContainer = document.getElementById("sidebar-placeholder");
+
+      // Insert sidebar HTML structure
+      sidebarContainer.innerHTML = `
+        <aside id="sidebar">
+          <h2>Categories</h2>
+          <ul id="category-list"></ul>
+        </aside>
+      `;
+
+      const uniqueCategories = {};
+      topics.forEach(topic => {
+        if (!uniqueCategories[topic.category]) {
+          uniqueCategories[topic.category] = [];
+        }
+        uniqueCategories[topic.category].push(topic);
+      });
+
+      const categoryList = document.getElementById("category-list");
+      Object.keys(uniqueCategories).forEach(category => {
+        const categoryItem = document.createElement("li");
+        categoryItem.classList.add("category");
+        categoryItem.textContent = category;
+
+        const subList = document.createElement("ul");
+        uniqueCategories[category].forEach((topic, index) => {
+          const topicItem = document.createElement("li");
+
+          // Truncate title and add numbering
+          const maxTitleLength = 40;
+          const truncatedTitle = topic.title.length > maxTitleLength
+            ? topic.title.slice(0, maxTitleLength) + "..."
+            : topic.title;
+
+          topicItem.innerHTML = `<a href="../knowledgehub/${topic.file}">${index + 1}. ${truncatedTitle}</a>`;
+          subList.appendChild(topicItem);
+        });
+
+        // Add toggle function to display topics
+        categoryItem.appendChild(subList);
+        categoryItem.addEventListener("click", function () {
+          subList.style.display = subList.style.display === "none" ? "block" : "none";
+        });
+
+        subList.style.display = "none"; // Initially hide topics
+        categoryList.appendChild(categoryItem);
+      });
+    });
+  </script>
+</body>
+</html>

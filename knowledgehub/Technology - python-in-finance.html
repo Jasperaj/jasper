@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python in Finance</title>
+  <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* General styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header and Footer styling */
+    #header-placeholder, #footer-placeholder {
+      width: 100%;
+    }
+
+    /* Main container for sidebar and content */
+    #main-container {
+      display: flex;
+      flex: 1;
+      width: 100%;
+    }
+    
+    /* Sidebar styling */
+    #sidebar-placeholder {
+      width: 20%;
+      min-width: 250px;
+    }
+
+    #sidebar {
+      background-color: #f4f4f4;
+      padding: 15px;
+      box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
+      font-size: 0.9em;
+      height: 100vh; /* Full height to align with content */
+      overflow-y: auto;
+    }
+
+    #sidebar h2 {
+      font-size: 1.2em;
+      color: #0c2e8a;
+      margin-bottom: 15px;
+    }
+
+    #sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .category {
+      font-weight: bold;
+      cursor: pointer;
+      color: #0c2e8a;
+      padding-left: 5px;
+      margin-bottom: 5px;
+    }
+
+    .category ul {
+      display: none;
+      margin-top: 5px;
+      padding-left: 15px;
+    }
+
+    .category ul li {
+      margin: 3px 0;
+      font-size: 0.85em;
+      color: #555;
+      font-weight: normal;
+    }
+
+    .category ul li a {
+      color: #555;
+      text-decoration: none;
+      display: inline-block;
+      max-width: 90%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .category ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Content styling */
+    #main-content {
+      padding: 20px;
+      width: 80%;
+      max-width: calc(100% - 250px); /* Accounts for sidebar width */
+      overflow-y: auto;
+    }
+
+    h1 {
+      color: #0c2e8a;
+    }
+
+    .header-image {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      height: auto;
+      max-width: 600px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    pre, code {
+      background-color: #f8f9fa;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      line-height: 1.8; /* Adjusts line spacing for better readability */
+      font-size: 1em; /* Ensures the font size is appropriate for readability */
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header Placeholder -->
+  <div id="header-placeholder"></div>
+
+  <!-- Main container for sidebar and content -->
+  <div id="main-container">
+    <!-- Sidebar Placeholder -->
+    <div id="sidebar-placeholder"></div>
+
+    <!-- Main Content Area -->
+    <main id="main-content">
+      <h1>Python in Finance</h1>
+
+      <!-- Header Image -->
+      <img src="../img/python-in-finance.png" alt="Python in Finance Banner" class="header-image">
+
+      <section>
+        <h2>Importance of Python in Finance</h2>
+        <p>Python is a preferred programming language in the finance industry for its versatility, ease of use, and extensive libraries...</p>
+      </section>
+
+      <section>
+        <h2>Use Cases of Python in Finance</h2>
+      <ul>
+        <li><strong>Data Analysis:</strong> Python enables financial analysts to clean, process, and analyze large datasets with ease, improving data-driven decision-making.</li>
+        <li><strong>Algorithmic Trading:</strong> Python’s libraries support the creation of trading algorithms and backtesting strategies.</li>
+        <li><strong>Risk Management:</strong> Financial firms use Python to calculate risk metrics and model various risk scenarios.</li>
+        <li><strong>Financial Modeling:</strong> Python allows for the creation of financial models to forecast returns, assess risk, and optimize portfolios.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Example Code Using Python in Finance</h2>
+
+      <h3>1. Data Analysis with Pandas</h3>
+      <p><strong>Scenario:</strong> Analyze a dataset of daily stock prices for a company to compute daily returns and find the average daily return.</p>
+      <div class="code-box">
+        <pre><code>import pandas as pd
+
+# Load stock price data
+data = {'Date': ['2023-01-01', '2023-01-02', '2023-01-03', '2023-01-04'],
+        'Close': [100, 102, 101, 105]}
+df = pd.DataFrame(data)
+df['Date'] = pd.to_datetime(df['Date'])
+
+# Calculate daily returns
+df['Daily Return'] = df['Close'].pct_change()
+
+# Calculate the average daily return
+average_daily_return = df['Daily Return'].mean()
+print("Average Daily Return:", average_daily_return)</code></pre>
+      </div>
+      <p>In this example, we calculate the daily returns for a series of stock prices, which is crucial in understanding stock performance over time. Pandas makes it simple to calculate percentage changes and averages.</p>
+
+      <h3>2. Visualizing Stock Data with Matplotlib</h3>
+      <p><strong>Scenario:</strong> Visualize the stock price trend over time to identify patterns.</p>
+      <div class="code-box">
+        <pre><code>import matplotlib.pyplot as plt
+
+# Plot stock price data
+plt.plot(df['Date'], df['Close'], marker='o')
+plt.title('Stock Price Over Time')
+plt.xlabel('Date')
+plt.ylabel('Stock Price')
+plt.show()</code></pre>
+      </div>
+      <p>This chart helps visualize stock price trends, allowing analysts to identify patterns or trends. Matplotlib provides flexibility in creating line graphs, bar charts, and more.</p>
+
+      <h3>3. Financial Calculations with NumPy</h3>
+      <p><strong>Scenario:</strong> Calculate the expected portfolio return and risk using an array of asset returns and weights.</p>
+      <div class="code-box">
+        <pre><code>import numpy as np
+
+# Define returns and weights
+returns = np.array([0.01, 0.02, 0.015])  # Expected returns for three assets
+weights = np.array([0.4, 0.4, 0.2])     # Portfolio weights
+
+# Calculate expected portfolio return
+portfolio_return = np.dot(returns, weights)
+print("Expected Portfolio Return:", portfolio_return)
+
+# Calculate portfolio risk (standard deviation)
+portfolio_risk = np.sqrt(np.dot(weights.T, np.dot(np.cov(returns), weights)))
+print("Portfolio Risk:", portfolio_risk)</code></pre>
+      </div>
+      <p>Calculating portfolio return and risk (volatility) helps in constructing balanced investment portfolios. NumPy simplifies complex mathematical operations, making financial calculations efficient.</p>
+
+
+<section>
+  <h2>Conclusion</h2>
+  <p>Python’s capabilities in finance, from data analysis and visualization to complex financial modeling, make it an invaluable tool in the industry. With the power of libraries like <code>Pandas</code>, <code>Matplotlib</code>, and <code>NumPy</code>, Python allows financial professionals to efficiently handle vast datasets, perform advanced calculations, and create insightful visualizations.</p>
+  <p>In this post, we introduced basic use cases of Python in finance, but this is just the beginning. In upcoming posts, we will dive deeper into specific areas such as algorithmic trading, risk analysis, and more advanced financial modeling techniques using Python. Stay tuned as we explore how Python can help solve complex financial challenges!</p>
+</section>
+
+
+    </section>
+    </main>
+  </div>
+  <!-- Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <!-- JavaScript to Load Header, Footer, and Dynamic Sidebar -->
+  <script src="../knowledgehub/topics_array.js"></script> <!-- Topics data -->
+  <!-- jQuery and Bootstrap JS -->
+  <script src="../lib/jquery/jquery.min.js"></script>
+  <script src="../lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Load header and footer dynamically
+      fetch("../header.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("header-placeholder").innerHTML = data;
+        })
+        .catch(error => console.error("Error loading header:", error));
+
+      fetch("../footer.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+        })
+        .catch(error => console.error("Error loading footer:", error));
+
+      // Populate sidebar categories and topics
+      const sidebarContainer = document.getElementById("sidebar-placeholder");
+
+      // Insert sidebar HTML structure
+      sidebarContainer.innerHTML = `
+        <aside id="sidebar">
+          <h2>Categories</h2>
+          <ul id="category-list"></ul>
+        </aside>
+      `;
+
+      const uniqueCategories = {};
+      topics.forEach(topic => {
+        if (!uniqueCategories[topic.category]) {
+          uniqueCategories[topic.category] = [];
+        }
+        uniqueCategories[topic.category].push(topic);
+      });
+
+      const categoryList = document.getElementById("category-list");
+      Object.keys(uniqueCategories).forEach(category => {
+        const categoryItem = document.createElement("li");
+        categoryItem.classList.add("category");
+        categoryItem.textContent = category;
+
+        const subList = document.createElement("ul");
+        uniqueCategories[category].forEach((topic, index) => {
+          const topicItem = document.createElement("li");
+
+          // Truncate title and add numbering
+          const maxTitleLength = 40;
+          const truncatedTitle = topic.title.length > maxTitleLength
+            ? topic.title.slice(0, maxTitleLength) + "..."
+            : topic.title;
+
+          topicItem.innerHTML = `<a href="../knowledgehub/${topic.file}">${index + 1}. ${truncatedTitle}</a>`;
+          subList.appendChild(topicItem);
+        });
+
+        // Add toggle function to display topics
+        categoryItem.appendChild(subList);
+        categoryItem.addEventListener("click", function () {
+          subList.style.display = subList.style.display === "none" ? "block" : "none";
+        });
+
+        subList.style.display = "none"; // Initially hide topics
+        categoryList.appendChild(categoryItem);
+      });
+    });
+  </script>
+</body>
+</html>

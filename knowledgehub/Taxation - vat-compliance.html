@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VAT Compliance in Nepal</title>
+  <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	  <!-- Right-click disabling JavaScript -->
+
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self' 'unsafe-inline';
+  style-src 'self' 'unsafe-inline';
+">
+  <script>
+    // Disable right-click context menu
+    document.addEventListener("contextmenu", function(e) {
+      e.preventDefault();
+    });
+
+    // Optionally disable F12 and other key combinations for DevTools
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "F12") e.preventDefault();
+      if (e.ctrlKey && e.shiftKey && e.key === "I") e.preventDefault();
+      if (e.ctrlKey && e.shiftKey && e.key === "J") e.preventDefault();
+      if (e.ctrlKey && e.key === "U") e.preventDefault(); // Prevent View Source (Ctrl+U)
+    });
+  </script>
+  <style>
+    /* General styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header styling */
+    #header-placeholder {
+      width: 100%;
+      position: fixed;  /* Keeps header fixed at the top */
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      background-color: #fff;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for visual separation */
+    }
+
+    /* Main container for sidebar and content */
+    #main-container {
+      display: flex;
+      flex: 1;
+      width: 100%;
+      margin-top: 60px;  /* Add margin to prevent content from being hidden under the fixed header */
+    }
+    
+    /* Sidebar styling */
+    #sidebar-placeholder {
+      width: 20%;
+      min-width: 250px;
+      position: fixed;  /* Keeps sidebar fixed on the left */
+      top: 60px;  /* Aligns it right below the header */
+      bottom: 0;
+      overflow-y: auto;  /* Allows scrolling within the sidebar */
+      background-color: #f4f4f4;
+      box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      z-index: 999;
+    }
+
+    #sidebar h2 {
+      font-size: 1.2em;
+      color: #0c2e8a;
+      margin-bottom: 15px;
+    }
+
+    #sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .category {
+      font-weight: bold;
+      cursor: pointer;
+      color: #0c2e8a;
+      padding-left: 5px;
+      margin-bottom: 5px;
+    }
+
+    .category ul {
+      display: none;
+      margin-top: 5px;
+      padding-left: 15px;
+    }
+
+    .category ul li {
+      margin: 3px 0;
+      font-size: 0.85em;
+      color: #555;
+      font-weight: normal;
+    }
+
+    .category ul li a {
+      color: #555;
+      text-decoration: none;
+      display: inline-block;
+      max-width: 90%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .category ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Content styling */
+    #main-content {
+      padding: 80px 20px 20px; /* Top padding to account for the fixed header height */
+      width: 80%;
+      margin-left: 20%;  /* Prevents content from overlapping with the fixed sidebar */
+      box-sizing: border-box;
+    }
+
+    h1, h2 {
+      color: #0c2e8a;
+    }
+
+    .header-image {
+      display: block;
+      margin: 0 auto;
+      width: 50%;
+      height: auto;
+      max-width: 600px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    pre, code {
+      background-color: #f8f9fa;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      line-height: 1.8; /* Adjusts line spacing for better readability */
+      font-size: 1em; /* Ensures the font size is appropriate for readability */
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header Placeholder -->
+  <div id="header-placeholder"></div>
+
+  <!-- Main container for sidebar and content -->
+  <div id="main-container">
+    <!-- Sidebar Placeholder -->
+    <div id="sidebar-placeholder"></div>
+
+  <!-- Main Content Area -->
+  <main id="main-content">
+    <h1>VAT Compliance in Nepal</h1>
+
+      <!-- Header Image -->
+      <img src="../img/companies-act.png" alt="Companies Act 2063 Banner" class="header-image">
+    <!-- Table of Contents -->
+    <h2>Table of Contents</h2>
+    <ul>
+      <li><a href="#basics">The Basics of Value Added Tax (VAT)</a></li>
+      <li><a href="#vat_rate">Rate of Value Added Tax (VAT) in Nepal</a></li>
+      <li><a href="#exemptions">VAT Exemptions and Zero-Rated Transactions</a></li>
+      <li><a href="#import_vat">VAT on Import</a></li>
+      <li><a href="#regulation">VAT Regulation and Registration</a></li>
+      <li><a href="#registration_process">VAT Registration Process in Nepal</a></li>
+      <li><a href="#compliance_requirements">Compliance Requirements for VAT Registered Entities</a></li>
+      <li><a href="#vat_return">How to File VAT Return in Nepal</a></li>
+      <li><a href="#adjustment">VAT Adjustment Process</a></li>
+    </ul>
+
+    <section id="basics">
+      <h2>The Basics of Value Added Tax (VAT)</h2>
+      <p>VAT, or Value Added Tax, is a tax applied at each stage of the supply chain in Nepal, from manufacturing to final sale to the consumer. This means that VAT is added each time a product or service is sold until it reaches the end consumer, who is responsible for paying the final amount. In Nepal, VAT is governed by the VAT Act, 2052.</p>
+      <p><em>[Insert Screenshot or Image of VAT Act Here]</em></p>
+    </section>
+
+    <section id="vat_rate">
+      <h2>Rate of Value Added Tax (VAT) in Nepal</h2>
+      <p>In Nepal, the VAT rate for applicable goods and services is set at a single rate of 13%. This is calculated as 13% of the net selling price and is added to the customer’s invoice.</p>
+    </section>
+
+    <section id="exemptions">
+      <h2>VAT Exemptions and Zero-Rated Transactions</h2>
+      
+      <h3>1. VAT Exempt Goods & Services</h3>
+      <p>Goods and services listed in Schedule 1 of the VAT Act are exempt from VAT, covering essentials like agricultural products, medicines, education services, and basic transport services. Businesses that solely trade in these goods or services are exempt from VAT registration.</p>
+
+      <h3>2. Zero-Rated Transactions</h3>
+      <p>Schedule 2 of the Act lists zero-rated transactions, such as exports, which are taxed at a 0% rate. This ensures that exported goods remain competitively priced.</p>
+
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Goods & Services</th>
+            <th>VAT Rate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Items in Schedule 1</td><td>No VAT</td></tr>
+          <tr><td>Items in Schedule 2 (Exports)</td><td>0%</td></tr>
+          <tr><td>All Other Items</td><td>13%</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="import_vat">
+      <h2>VAT on Import</h2>
+      <p>Besides customs duty, VAT also applies to imports of goods not covered in Schedule 1 or 2. Imported goods that match domestic VAT-liable items must also bear VAT.</p>
+    </section>
+
+    <section id="regulation">
+      <h2>VAT Regulation and Registration</h2>
+      <p>Businesses meeting the following criteria must register for VAT:</p>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Nature of Business</th>
+            <th>Criteria</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Physical Goods</td><td>Annual Turnover > NPR 5 million</td></tr>
+          <tr><td>Services</td><td>Annual Turnover > NPR 3 million</td></tr>
+          <tr><td>Both Goods and Services</td><td>Annual Turnover > NPR 3 million</td></tr>
+        </tbody>
+      </table>
+      <p><em>[Insert Image of Registration Process Here]</em></p>
+    </section>
+
+<section id="registration_process">
+  <h2>VAT Registration Process in Nepal</h2>
+  <p>In Nepal, a business entity can register for VAT immediately after its establishment or later, once it meets the VAT applicability criteria based on annual turnover. The process for VAT registration involves several steps, as outlined below.</p>
+
+  <h3>Steps to Register for VAT</h3>
+  <ol>
+    <li><strong>Filling Out the Online VAT Registration Form</strong>
+      <p>Visit the official IRD website and fill out the online VAT registration form. The form will require you to provide important business details, such as:</p>
+      <ul>
+        <li>Business Registration Number</li>
+        <li>Date of Business Registration</li>
+        <li>Registered Business Address</li>
+        <li>Director or Proprietor’s Personal Information (e.g., name, PAN, contact details)</li>
+        <li>Estimated Annual Turnover</li>
+      </ul>
+      <p><em>[Insert Screenshot of Online Registration Form Here]</em></p>
+    </li>
+
+    <li><strong>Submission of Documents to IRD Office</strong>
+      <p>After submitting the online form, you will receive a submission number. This submission number is essential, as you will need it when visiting the IRD office. Gather the following documents and submit them in person at the IRD:</p>
+      <ul>
+        <li>Printed Online VAT Registration Application with Submission Number</li>
+        <li>Photocopy of the Business Registration Certificate and relevant documents</li>
+        <li>Address Proof (e.g., Rent Agreement or Lalpurja for owned property)</li>
+        <li>PAN (Permanent Account Number) of all shareholders involved in the business</li>
+      </ul>
+      <p>Note that one of the directors or the proprietor must visit the IRD in person with these documents to complete the process.</p>
+      <p><em>[Insert Image of Required Documents Here]</em></p>
+    </li>
+
+    <li><strong>Verification and Biometric Process</strong>
+      <p>Once the documents are submitted, an IRD officer will verify the information provided. During this process, the officer will confirm the business details and verify the identity of the director or proprietor present.</p>
+      <p>The IRD officer will then proceed with a biometric process, capturing the director or proprietor’s biometric information as part of the registration process. This is a mandatory step to confirm the physical presence of the applicant.</p>
+      <p><em>[Insert Image Placeholder for Biometric Process Here]</em></p>
+    </li>
+
+    <li><strong>Issuance of VAT Registration Certificate</strong>
+      <p>After verification and successful completion of the biometric step, the IRD will issue the VAT Registration Certificate. This certificate is typically printed and handed over to the business owner on the same day.</p>
+      <p>The VAT registration certificate confirms that the business is now registered under VAT, allowing it to levy VAT on sales and comply with VAT regulations. The VAT number is the same as the PAN number of the business.</p>
+      <p><em>[Insert Image of VAT Registration Certificate Here]</em></p>
+    </li>
+  </ol>
+
+  <p>This VAT registration process ensures that all necessary compliance measures are in place before the business begins collecting VAT from customers. It is also important to note that all shareholders must have their PAN to complete the VAT registration process successfully.</p>
+</section>
+
+    <section id="compliance_requirements">
+      <h2>Compliance Requirements for VAT Registered Entities</h2>
+
+      <h3>A. Levy VAT on Sales and Payment to Government</h3>
+      <p>VAT-registered businesses must levy VAT on every sale of VAT-liable goods and services, calculate monthly VAT liability, file a VAT return, and make payment to the government by the 25th of the following month.</p>
+
+  <h3>B. Invoice Compliance Requirements</h3>
+  <p>Businesses registered under VAT must follow these specific invoice requirements:</p>
+  <ul>
+    <li>The seller's VAT number must be mentioned on each invoice.</li>
+    <li>Invoices should be issued in chronological order, starting from Invoice No. 01.</li>
+    <li>Invoice numbers must be sequential, with no gaps or skipped numbers.</li>
+    <li>Invoices cannot be backdated or issued with future dates.</li>
+    <li>The VAT rate and amount must be clearly displayed on each invoice.</li>
+  </ul>
+
+  <h3>Comparison of Invoice Formats</h3>
+  <p>The table below shows a comparison between the standard VAT invoice and the abbreviated VAT invoice, along with sample formats for each type.</p>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Standard VAT Invoice</th>
+        <th>Abbreviated Invoice</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>VAT Amount Displayed</td>
+        <td>Shown separately in the invoice</td>
+        <td>Included in the final price, not shown separately</td>
+      </tr>
+      <tr>
+        <td>Applicable Businesses</td>
+        <td>All VAT-registered businesses</td>
+        <td>Businesses with high retail traffic, e.g., supermarkets, restaurants</td>
+      </tr>
+      <tr>
+        <td>Approval Requirement</td>
+        <td>Not required</td>
+        <td>Approval from the revenue department required</td>
+      </tr>
+      <tr>
+        <td>Customer Request for Full VAT Invoice</td>
+        <td>Not applicable</td>
+        <td>A standard VAT invoice must be issued if requested by the customer</td>
+      </tr>
+      <tr>
+        <td colspan="3"><strong>Invoice Sample</strong></td>
+      </tr>
+      <tr>
+        <td>Invoice Format</td>
+        <td>
+          <!-- Standard VAT Invoice Sample -->
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th colspan="8" style="text-align: center;">
+                  <strong>XYZ Trading Pvt. Ltd.</strong><br>
+                  Address: Kathmandu, Nepal<br>
+                  PAN: 123456789<br>
+                  Date: 2023-11-01<br>
+                  Bill No: 0001
+                </th>
+              </tr>
+              <tr>
+                <th>S.N.</th>
+                <th>HSN Code</th>
+                <th>Item Description</th>
+                <th>Quantity</th>
+                <th>Unit Price (NPR)</th>
+                <th>Total Price (NPR)</th>
+                <th>VAT (13%)</th>
+                <th>Total with VAT (NPR)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>1001</td>
+                <td>Product A</td>
+                <td>2</td>
+                <td>500</td>
+                <td>1,000</td>
+                <td>130</td>
+                <td>1,130</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>1002</td>
+                <td>Product B</td>
+                <td>1</td>
+                <td>700</td>
+                <td>700</td>
+                <td>91</td>
+                <td>791</td>
+              </tr>
+              <tr>
+                <td colspan="6" class="text-right"><strong>Grand Total (Excluding VAT):</strong></td>
+                <td colspan="2">1,700 NPR</td>
+              </tr>
+              <tr>
+                <td colspan="6" class="text-right"><strong>Total VAT (13%):</strong></td>
+                <td colspan="2">221 NPR</td>
+              </tr>
+              <tr>
+                <td colspan="6" class="text-right"><strong>Grand Total (Including VAT):</strong></td>
+                <td colspan="2">1,921 NPR</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <td>
+          <!-- Abbreviated VAT Invoice Sample -->
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th colspan="5" style="text-align: center;">
+                  <strong>XYZ Mart</strong><br>
+                  Address: Kathmandu, Nepal<br>
+                  PAN: 987654321<br>
+                  Date: 2023-11-01<br>
+                  Bill No: 1001
+                </th>
+              </tr>
+              <tr>
+                <th>S.N.</th>
+                <th>Item Description</th>
+                <th>Quantity</th>
+                <th>Price (Inclusive of VAT)</th>
+                <th>Total (NPR)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Product A</td>
+                <td>2</td>
+                <td>565</td>
+                <td>1,130</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Product B</td>
+                <td>1</td>
+                <td>791</td>
+                <td>791</td>
+              </tr>
+              <tr>
+                <td colspan="4" class="text-right"><strong>Grand Total (Inclusive of VAT):</strong></td>
+                <td>1,921 NPR</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>For businesses with high retail customer volume, such as supermarkets and restaurants, it may not be feasible to issue a full VAT invoice for each transaction. These businesses can seek approval from the revenue department to use an abbreviated VAT invoice format, which shows VAT-inclusive prices. However, if a customer requests a full VAT invoice, the business must provide it.</p>
+</section>
+
+      <h3>C. Maintaining Kharid Khata and Bikri Khata</h3>
+      <ul>
+        <li><strong>Kharid Khata:</strong> Records each month’s purchases, categorized as stock, fixed assets, imports, etc.</li>
+        <li><strong>Bikri Khata:</strong> Records each month’s sales, including domestic, export, or VAT-exempt transactions.</li>
+      </ul>
+      <p><em>[Insert Sample Images of Kharid Khata and Bikri Khata Here]</em></p>
+    </section>
+
+<section id="vat_liability">
+  <h2>Calculation of VAT Liability</h2>
+  <p>VAT Liability is calculated using the following basic formula:</p>
+  <p><strong>VAT Payable = VAT Output - VAT Input + VAT Credit (brought forward from the previous period)</strong></p>
+  <p>Let's break down these components:</p>
+
+  <h3>Understanding VAT Output, VAT Input, and VAT Credit</h3>
+  <ul>
+    <li><strong>VAT Output:</strong> VAT charged on sales. When a business makes a sale, it charges VAT on the sales price, which is recorded as VAT Output in the <em>Bikri Khata</em> (Sales Register).</li>
+    <li><strong>VAT Input:</strong> VAT charged on purchases. When a business purchases goods, assets, or services, it pays VAT on the purchase price, recorded as VAT Input in the <em>Kharid Khata</em> (Purchase Register).</li>
+    <li><strong>VAT Credit:</strong> If VAT Input exceeds VAT Output for a month, the difference is a negative balance, called VAT Credit. This credit can offset future VAT liabilities until it is fully utilized.</li>
+  </ul>
+
+  <h3>Example of VAT Liability Calculation</h3>
+  <p>The following table provides an example calculation of VAT liability for a business in a given month:</p>
+  
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Details</th>
+        <th>Amount (NPR)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Total Sales (including VAT)</strong></td>
+        <td>200,000</td>
+      </tr>
+      <tr>
+        <td><strong>Total Purchases (including VAT)</strong></td>
+        <td>150,000</td>
+      </tr>
+      <tr>
+        <td><strong>Previous VAT Credit</strong></td>
+        <td>3,000</td>
+      </tr>
+      <tr>
+        <td><strong>VAT Output (13% of Sales)</strong></td>
+        <td>26,000</td>
+      </tr>
+      <tr>
+        <td><strong>VAT Input (13% of Purchases)</strong></td>
+        <td>19,500</td>
+      </tr>
+      <tr>
+        <td><strong>VAT Payable Calculation</strong><br>VAT Payable = VAT Output - VAT Input + Previous VAT Credit</td>
+        <td><strong>9,500</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Result:</strong> The VAT Liability for this month is <strong>NPR 9,500</strong>, which should be paid to the government by the 25th of the following month.</p>
+
+  <h3>VAT Liability Scenarios</h3>
+  <p>The table below summarizes possible scenarios for VAT liability:</p>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Scenario</th>
+        <th>Outcome</th>
+        <th>Liability</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>VAT on Sales > VAT on Purchase</td>
+        <td>VAT Payable</td>
+        <td>VAT Payable should be paid to the government by the 25th of the next month.</td>
+      </tr>
+      <tr>
+        <td>VAT on Purchase > VAT on Sales</td>
+        <td>VAT Credit</td>
+        <td>This VAT Credit can be carried forward to offset VAT Payable in future months until fully utilized.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>In this way, businesses calculate their VAT liability each month to ensure compliance with Nepal's VAT regulations.</p>
+</section>
+<section id="vat_return">
+  <h2>How to File VAT Return in Nepal</h2>
+  <p>Filing VAT returns is a monthly obligation for VAT-registered businesses in Nepal. This process involves calculating the monthly VAT liability and submitting the relevant information through the IRD's online portal.</p>
+
+  <h3>Key Details Required for VAT Return Filing</h3>
+  <p>To file a VAT return, businesses need to provide the following information:</p>
+  <ul>
+    <li><strong>Net Sales and VAT Output:</strong> The total sales amount and the VAT charged on these sales (VAT Output).</li>
+    <li><strong>Net Purchase and VAT Input:</strong> The total purchase amount and the VAT paid on these purchases (VAT Input).</li>
+    <li><strong>VAT Adjustments:</strong> Any necessary adjustments to VAT calculations for the period.</li>
+    <li><strong>VAT Credit:</strong> Any VAT credit carried forward from previous periods. VAT Credit can be used to offset future VAT liabilities until fully utilized.</li>
+  </ul>
+
+  <h3>Steps to Fill Out the VAT Return Form</h3>
+  <p>Below are the steps to enter the information from our previous example into the VAT return form:</p>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Details</th>
+        <th>Example Entry</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Total Sales (excluding VAT)</strong></td>
+        <td>200,000 NPR</td>
+        <td>Enter the total sales amount before VAT. In our example, this is the sales revenue generated without VAT.</td>
+      </tr>
+      <tr>
+        <td><strong>VAT Output (Sales VAT)</strong></td>
+        <td>26,000 NPR</td>
+        <td>This is the VAT charged on sales, calculated at 13% of the sales amount. For our example, this amount is 26,000 NPR.</td>
+      </tr>
+      <tr>
+        <td><strong>Total Purchase (excluding VAT)</strong></td>
+        <td>150,000 NPR</td>
+        <td>Enter the total purchase amount before VAT. This includes goods, assets, or services acquired.</td>
+      </tr>
+      <tr>
+        <td><strong>VAT Input (Purchase VAT)</strong></td>
+        <td>19,500 NPR</td>
+        <td>This is the VAT paid on purchases, calculated at 13% of the purchase amount. In our example, this is 19,500 NPR.</td>
+      </tr>
+      <tr>
+        <td><strong>Previous VAT Credit</strong></td>
+        <td>3,000 NPR</td>
+        <td>Enter any VAT credit from previous periods, which will offset this period's VAT liability.</td>
+      </tr>
+      <tr>
+        <td><strong>VAT Adjustments</strong></td>
+        <td>--</td>
+        <td>If any adjustments to VAT calculations are needed, they should be entered here. This can include corrections for previously unreported invoices or adjustments for errors.</td>
+      </tr>
+      <tr>
+        <td><strong>Total VAT Payable</strong></td>
+        <td>9,500 NPR</td>
+        <td>This is the final VAT liability to be paid. In our example, it is calculated as:<br>
+          VAT Payable = VAT Output - VAT Input + Previous VAT Credit<br>
+          = 26,000 - 19,500 + 3,000 = <strong>9,500 NPR</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Additional Notes</h3>
+  <ul>
+    <li><strong>Carry Forward VAT Credit:</strong> Any VAT credit that cannot be fully utilized in the current period can be carried forward to offset future VAT liabilities. This credit will appear as "Previous VAT Credit" in subsequent VAT returns until it is fully applied.</li>
+    <li><strong>Claiming VAT on Past Purchases:</strong> VAT paid on purchases up to one year prior can be claimed in the VAT return, provided these invoices meet IRD requirements.</li>
+    <li><strong>Process for Claiming VAT Credit:</strong> In cases where VAT credit accumulates over time, businesses may have the option to claim the outstanding VAT credit. A detailed guide on this process will be covered in a separate post.</li>
+  </ul>
+
+  <p>By following these steps, businesses can accurately file their VAT return each month, ensuring compliance with Nepal's VAT regulations. The VAT liability calculated must be paid to the IRD by the 25th of the following month to avoid penalties.</p>
+</section>
+
+
+<section id="vat_filing_payment_due_dates">
+  <h2>Due Date for VAT Filing and VAT Payment</h2>
+  <p>The due date for VAT filing and payment depends on the business’s turnover and the filing frequency set by the Inland Revenue Department (IRD). There are two types of VAT filing schedules:</p>
+
+  <h3>1. Trimester (4 monthly) VAT Filing</h3>
+  <p>Businesses with an annual turnover of less than NPR 1 crore are eligible for Trimester VAT filing. This means VAT returns need to be filed every three months. The filing and payment due date is the <strong>25th day of the month following the end of the trimester</strong>.</p>
+
+  <h3>2. Monthly VAT Filing</h3>
+  <p>Businesses with an annual turnover exceeding NPR 1 crore must file VAT returns on a monthly basis. For these businesses, the due date for VAT filing and payment is the <strong>25th day of the following month</strong>.</p>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Filing Frequency</th>
+        <th>Turnover Requirement</th>
+        <th>Filing & Payment Due Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Trimester</td>
+        <td>Annual Turnover less than NPR 1 crore</td>
+        <td>25th of the month after the end of each trimester</td>
+      </tr>
+      <tr>
+        <td>Monthly</td>
+        <td>Annual Turnover greater than NPR 1 crore</td>
+        <td>25th of the following month</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Failure to file VAT returns or make payments by the due date may result in penalties. Therefore, it’s important to adhere to these deadlines to avoid fines and maintain compliance.</p>
+</section>
+
+<section id="how_to_pay_vat">
+  <h2>How to Pay VAT</h2>
+  <p>VAT payments can be made online via the IRD Taxpayer Portal or in-person at authorized banks. Here’s a step-by-step guide for both methods:</p>
+
+  <h3>1. Paying VAT Online</h3>
+  <ol>
+    <li><strong>Login to the IRD Taxpayer Portal:</strong> Use your PAN as your login ID and enter your password to access the portal. If you don’t have an account, visit the IRD office to obtain one.</li>
+    <li><strong>Generate a Payment Voucher:</strong> Click on the "Payment Voucher" option in the portal. A form will appear where you need to enter your payment details.</li>
+    <li><strong>Enter Required Details:</strong>
+      <ul>
+        <li>Select the appropriate bank from the dropdown menu where you wish to deposit the VAT amount.</li>
+        <li>In the first column, select <strong>‘आय कर’ (Income Tax)</strong> as VAT is a type of income tax.</li>
+        <li>Choose the correct VAT-related revenue code for your transaction.</li>
+        <li>Enter the VAT amount to be paid (for example, NPR 9,500 in our earlier example).</li>
+        <li>Select the fiscal year and confirm that the amount is for VAT payment.</li>
+      </ul>
+    </li>
+    <li><strong>Generate Transaction Code:</strong> After completing the form, click on "Generate Transaction Code" and confirm the details. This code will redirect you to the payment gateway of ConnectIPS.</li>
+    <li><strong>Complete the Payment:</strong> You can either print the voucher and pay in cash at the bank you selected or use your ConnectIPS credentials to pay online.</li>
+  </ol>
+
+  <h3>2. Paying VAT at a Bank</h3>
+  <p>If you prefer to pay in person, visit a nearby authorized bank, such as Rashtriya Banijya Bank, Nepal Bank Limited, or Agriculture Development Bank. Present the generated voucher along with the VAT payment in cash. Ensure that you complete this by the 25th of the due date month to avoid penalties.</p>
+
+  <p>Following these steps helps ensure timely VAT payment, which is essential to maintain compliance with Nepal’s VAT regulations.</p>
+</section>
+
+
+<section id="vat_liability_calculation">
+  <h2>Calculation of VAT Liability</h2>
+  <p>VAT Liability is calculated using the following basic formula:</p>
+  <p><strong>VAT Payable = VAT Output - VAT Input + VAT Credit (brought forward from the previous period)</strong></p>
+
+  <h3>Example: VAT Liability Calculation with Late Filing and Late Payment Penalties</h3>
+  <p>Consider a business with the following VAT figures for a given month:</p>
+  
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Details</th>
+        <th>Amount (NPR)</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Total Sales (excluding VAT)</strong></td>
+        <td>200,000</td>
+        <td>Net sales amount before VAT is applied.</td>
+      </tr>
+      <tr>
+        <td><strong>VAT Output (13% of Sales)</strong></td>
+        <td>26,000</td>
+        <td>VAT collected on sales, which is 13% of 200,000 NPR.</td>
+      </tr>
+      <tr>
+        <td><strong>Total Purchases (excluding VAT)</strong></td>
+        <td>150,000</td>
+        <td>Net purchase amount before VAT is applied.</td>
+      </tr>
+      <tr>
+        <td><strong>VAT Input (13% of Purchases)</strong></td>
+        <td>19,500</td>
+        <td>VAT paid on purchases, which is 13% of 150,000 NPR.</td>
+      </tr>
+      <tr>
+        <td><strong>Previous VAT Credit</strong></td>
+        <td>3,000</td>
+        <td>Credit carried forward from previous period.</td>
+      </tr>
+      <tr>
+        <td><strong>VAT Payable Calculation</strong><br>VAT Payable = VAT Output - VAT Input + Previous VAT Credit</td>
+        <td><strong>9,500</strong></td>
+        <td>Total VAT liability after credit, to be paid by the due date.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Scenario: Late Filing and Late Payment by 2 Months</h3>
+  <p>If the business fails to file and pay the VAT liability of NPR 9,500 by the due date and delays both filing and payment by 2 months, the following penalties and interest will apply:</p>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Penalty Type</th>
+        <th>Rate</th>
+        <th>Calculation</th>
+        <th>Penalty Amount (NPR)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Late VAT Payment Interest</strong></td>
+        <td>15% per annum (1.25% per month)</td>
+        <td>1.25% of 9,500 NPR per month<br>1.25% × 9,500 × 2 months</td>
+        <td>237.50</td>
+      </tr>
+      <tr>
+        <td><strong>Late VAT Payment Fine</strong></td>
+        <td>10% per annum (approx. 0.0274% per day)</td>
+        <td>0.0274% of 9,500 NPR per day × 60 days<br>0.0274% × 9,500 × 60 days</td>
+        <td>156.06</td>
+      </tr>
+      <tr>
+        <td><strong>Late VAT Filing Penalty</strong></td>
+        <td>NPR 1,000 per late filing vat return or 0.01% of taxable sales per annum, whichever is higher</td>
+        <td>1,000 NPR</td>
+        <td>1,000</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>Total Penalty and Interest</h4>
+  <p>The total penalty and interest for a 2-month delay in VAT filing and payment is calculated as follows:</p>
+  <p><strong>Total Penalty and Interest = Late VAT Payment Interest + Late VAT Payment Fine + Late VAT Filing Penalty</strong></p>
+  <p><strong>Total = 237.50 + 156.06 + 1,000 = NPR 1,393.56</strong></p>
+
+  <h4>Final VAT Amount Due</h4>
+  <p><strong>Final Amount Due = VAT Payable + Total Penalty and Interest</strong></p>
+  <p><strong>Final Amount Due = 9,500 + 1,393.56 = NPR 10,893.56</strong></p>
+
+  <p>In this example, the business’s final VAT amount due after a 2-month delay is <strong>NPR 10,893.56</strong>. Timely filing and payment are essential to avoid these additional costs.</p>
+</section>
+
+
+<section id="vat_calculator">
+  <h2>VAT Liability and Penalty Calculator</h2>
+  
+  <!-- Input Fields for VAT Calculation -->
+  <label>Taxable Sales (NPR):</label><br>
+  <input type="number" id="taxable_sales" placeholder="Enter amount"><br><br>
+
+  <label>Non-Taxable Sales (NPR):</label><br>
+  <input type="number" id="non_taxable_sales" placeholder="Enter amount"><br><br>
+
+  <label>Taxable Export (NPR):</label><br>
+  <input type="number" id="taxable_export" placeholder="Enter amount"><br><br>
+
+  <label>Non-Taxable Export (NPR):</label><br>
+  <input type="number" id="non_taxable_export" placeholder="Enter amount"><br><br>
+
+  <label>Taxable Purchase (NPR):</label><br>
+  <input type="number" id="taxable_purchase" placeholder="Enter amount"><br><br>
+
+  <label>Taxable Import (NPR):</label><br>
+  <input type="number" id="taxable_import" placeholder="Enter amount"><br><br>
+
+  <label>Non-Taxable Purchase (NPR):</label><br>
+  <input type="number" id="non_taxable_purchase" placeholder="Enter amount"><br><br>
+
+  <label>Non-Taxable Import (NPR):</label><br>
+  <input type="number" id="non_taxable_import" placeholder="Enter amount"><br><br>
+
+  <label>Last Month's VAT Credit (NPR):</label><br>
+  <input type="number" id="last_month_vat_credit" placeholder="Enter amount"><br><br>
+
+  <label>Months Late:</label><br>
+  <input type="number" id="months_late" value="0"><br><br>
+
+  <!-- Dropdowns for Late Filing and Payment Options -->
+  <label>Late VAT Filing:</label>
+  <select id="late_vat_filing">
+    <option value="no">No</option>
+    <option value="yes">Yes</option>
+  </select><br><br>
+
+  <label>Late VAT Payment:</label>
+  <select id="late_vat_payment">
+    <option value="no">No</option>
+    <option value="yes">Yes</option>
+  </select><br><br>
+
+  <!-- Calculate Button -->
+  <button onclick="calculateVAT()">Calculate</button>
+
+  <!-- Display Results -->
+  <h3>Calculation Results</h3>
+  <div id="results"></div>
+
+  <!-- JavaScript for VAT Calculation Logic -->
+  <script>
+    function calculateVAT() {
+      // Input values
+      const taxableSales = parseFloat(document.getElementById('taxable_sales').value) || 0;
+      const taxableExport = parseFloat(document.getElementById('taxable_export').value) || 0;
+      const taxablePurchase = parseFloat(document.getElementById('taxable_purchase').value) || 0;
+      const taxableImport = parseFloat(document.getElementById('taxable_import').value) || 0;
+      const lastMonthVATCredit = parseFloat(document.getElementById('last_month_vat_credit').value) || 0;
+      const monthsLate = parseInt(document.getElementById('months_late').value) || 0;
+
+      const lateVATFiling = document.getElementById('late_vat_filing').value === 'yes';
+      const lateVATPayment = document.getElementById('late_vat_payment').value === 'yes';
+
+      // VAT calculations
+      const vatOutput = (taxableSales + taxableExport) * 0.13;  // 13% VAT on taxable sales and exports
+      const vatInput = (taxablePurchase + taxableImport) * 0.13;  // 13% VAT on taxable purchases and imports
+      const vatPayable = vatOutput - vatInput + lastMonthVATCredit;
+
+      // Penalty calculations
+      let totalPenaltyInterest = 0;
+      
+      if (lateVATPayment) {
+        const latePaymentInterest = vatPayable * 0.0125 * monthsLate;  // 1.25% monthly interest
+        const latePaymentFine = vatPayable * 0.000274 * monthsLate * 30;  // approx 0.0274% daily fine
+        totalPenaltyInterest += latePaymentInterest + latePaymentFine;
+      }
+
+      if (lateVATFiling) {
+        const lateFilingPenalty = Math.max(1000, vatPayable * 0.0001 * monthsLate * 30);
+        totalPenaltyInterest += lateFilingPenalty;
+      }
+
+      // Final amount due
+      const finalAmountDue = vatPayable + totalPenaltyInterest;
+
+      // Display results
+      document.getElementById('results').innerHTML = `
+        <p><strong>VAT Output (Sales VAT):</strong> NPR ${vatOutput.toFixed(2)}</p>
+        <p><strong>VAT Input (Purchase VAT):</strong> NPR ${vatInput.toFixed(2)}</p>
+        <p><strong>VAT Payable:</strong> NPR ${vatPayable.toFixed(2)}</p>
+        ${lateVATPayment || lateVATFiling ? `<p><strong>Total Penalty and Interest:</strong> NPR ${totalPenaltyInterest.toFixed(2)}</p>` : ""}
+        <p><strong>Final Amount Due:</strong> NPR ${finalAmountDue.toFixed(2)}</p>
+      `;
+    }
+  </script>
+</section>
+
+
+    <section id="adjustment">
+      <h2>VAT Adjustment Process</h2>
+      <p>The VAT Adjustment process allows businesses to correct previous errors or omissions, such as unreported invoices, by revising the VAT calculations in the subsequent period.</p>
+    </section>
+
+    <section id="conclusion">
+      <h2>Conclusion</h2>
+      <p>Following VAT compliance requirements is crucial for businesses in Nepal to avoid penalties and ensure smooth financial operations. Understanding VAT basics, maintaining accurate records, and timely filing VAT returns helps businesses maintain compliance with the Inland Revenue Department.</p>
+    </section>
+    </main>
+  </div>
+
+  <!-- Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <!-- JavaScript to Load Header, Footer, and Dynamic Sidebar -->
+  <script src="../knowledgehub/topics_array.js"></script> <!-- Topics data -->
+  <!-- jQuery and Bootstrap JS -->
+  <script src="../lib/jquery/jquery.min.js"></script>
+  <script src="../lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Load header and footer dynamically
+      fetch("../header.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("header-placeholder").innerHTML = data;
+        })
+        .catch(error => console.error("Error loading header:", error));
+
+      fetch("../footer.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+        })
+        .catch(error => console.error("Error loading footer:", error));
+
+      // Populate sidebar categories and topics
+      const sidebarContainer = document.getElementById("sidebar-placeholder");
+
+      // Insert sidebar HTML structure
+      sidebarContainer.innerHTML = `
+        <aside id="sidebar">
+          <h2>Categories</h2>
+          <ul id="category-list"></ul>
+        </aside>
+      `;
+
+      const uniqueCategories = {};
+      topics.forEach(topic => {
+        if (!uniqueCategories[topic.category]) {
+          uniqueCategories[topic.category] = [];
+        }
+        uniqueCategories[topic.category].push(topic);
+      });
+
+      const categoryList = document.getElementById("category-list");
+      Object.keys(uniqueCategories).forEach(category => {
+        const categoryItem = document.createElement("li");
+        categoryItem.classList.add("category");
+        categoryItem.textContent = category;
+
+        const subList = document.createElement("ul");
+        uniqueCategories[category].forEach((topic, index) => {
+          const topicItem = document.createElement("li");
+
+          // Truncate title and add numbering
+          const maxTitleLength = 40;
+          const truncatedTitle = topic.title.length > maxTitleLength
+            ? topic.title.slice(0, maxTitleLength) + "..."
+            : topic.title;
+
+          topicItem.innerHTML = `<a href="../knowledgehub/${topic.file}">${index + 1}. ${truncatedTitle}</a>`;
+          subList.appendChild(topicItem);
+        });
+
+        // Add toggle function to display topics
+        categoryItem.appendChild(subList);
+        categoryItem.addEventListener("click", function () {
+          subList.style.display = subList.style.display === "none" ? "block" : "none";
+        });
+
+        subList.style.display = "none"; // Initially hide topics
+        categoryList.appendChild(categoryItem);
+      });
+    });
+  </script>
+</body>
+</html>

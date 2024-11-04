@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Late VAT Filing Calculation</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nepali-datepicker@2.2.0/css/nepali.datepicker.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/nepali-datepicker@2.2.0/js/nepali.datepicker.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/nepali-date-converter/dist/nepali-date-converter.umd.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        label, input {
+            display: block;
+            margin: 10px 0;
+        }
+        button {
+            margin-top: 20px;
+        }
+        .date-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+.header-image {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: 300px;
+    max-width: 600px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+    <h1>Late VAT Filing Calculation</h1>
+
+      <!-- Header Image -->
+      <img src="../img/vat-payment-calculator.png" alt="Late VAT Payment Calculator Banner" class="header-image">
+    <form id="vatForm">
+        <label for="taxableAmount">Taxable Amount (NPR):</label>
+        <input type="number" id="taxableAmount" required>
+
+        <div class="date-container">
+            <label for="dueDateEnglish">Due Date (English Date):</label>
+            <input type="date" id="dueDateEnglish" required>
+            <span>Converted Due Date (Nepali): <span id="dueDateNepali"></span></span>
+        </div>
+
+        <div class="date-container">
+            <label for="paymentDateEnglish">VAT Payment Date (English Date):</label>
+            <input type="date" id="paymentDateEnglish" required>
+            <span>Converted Payment Date (Nepali): <span id="paymentDateNepali"></span></span>
+        </div>
+
+        <button type="button" onclick="calculateVAT()">Calculate</button>
+    </form>
+
+    <h2>Results</h2>
+    <p>Interest (15% per annum, monthly): NPR <span id="interest"></span></p>
+    <p>Penalty (10% per annum, calculated daily): NPR <span id="penalty"></span></p>
+    <p>Total Payable: NPR <span id="totalPayable"></span></p>
+
+    <script>
+        $(document).ready(function() {
+            // Convert English date to Nepali date and display it
+            $('#dueDateEnglish').on('change', function() {
+                const dueDateEnglish = $('#dueDateEnglish').val();
+                if (dueDateEnglish) {
+                    const [year, month, day] = dueDateEnglish.split('-');
+                    const dueDateNepali = NepaliFunctions.AD2BS({ year: parseInt(year), month: parseInt(month), day: parseInt(day) });
+                    $('#dueDateNepali').text(`${dueDateNepali.year}-${dueDateNepali.month}-${dueDateNepali.day}`);
+                }
+            });
+
+            $('#paymentDateEnglish').on('change', function() {
+                const paymentDateEnglish = $('#paymentDateEnglish').val();
+                if (paymentDateEnglish) {
+                    const [year, month, day] = paymentDateEnglish.split('-');
+                    const paymentDateNepali = NepaliFunctions.AD2BS({ year: parseInt(year), month: parseInt(month), day: parseInt(day) });
+                    $('#paymentDateNepali').text(`${paymentDateNepali.year}-${paymentDateNepali.month}-${paymentDateNepali.day}`);
+                }
+            });
+        });
+
+        function calculateVAT() {
+            const taxableAmount = parseFloat(document.getElementById("taxableAmount").value);
+            const dueDateEnglish = $('#dueDateEnglish').val();
+            const paymentDateEnglish = $('#paymentDateEnglish').val();
+
+            if (isNaN(taxableAmount) || taxableAmount < 0 || !dueDateEnglish || !paymentDateEnglish) {
+                alert("Please enter valid input values.");
+                return;
+            }
+
+            const dueDateObj = new Date(dueDateEnglish);
+            const paymentDateObj = new Date(paymentDateEnglish);
+
+            if (paymentDateObj <= dueDateObj) {
+                alert("Payment date must be after the due date.");
+                return;
+            }
+
+            // Calculate the number of days late
+            const timeDifference = paymentDateObj - dueDateObj;
+            const daysLate = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+
+            // Interest calculation (15% per annum, monthly)
+            const interestRatePerMonth = 0.15 / 12;
+            const interest = (taxableAmount * interestRatePerMonth * (daysLate / 30)).toFixed(2);
+
+            // Penalty calculation (10% per annum, calculated daily)
+            const penaltyRatePerDay = 0.10 / 365;
+            const penalty = (taxableAmount * penaltyRatePerDay * daysLate).toFixed(2);
+
+            // Total Payable
+            const totalPayable = (parseFloat(taxableAmount) + parseFloat(interest) + parseFloat(penalty)).toFixed(2);
+
+            // Display results
+            document.getElementById("interest").innerText = interest;
+            document.getElementById("penalty").innerText = penalty;
+            document.getElementById("totalPayable").innerText = totalPayable;
+        }
+    </script>
+</body>
+</html>

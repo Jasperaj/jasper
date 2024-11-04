@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preeti to Unicode and Unicode to Preeti Converter</title>
+    <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* General styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header styling */
+    #header-placeholder {
+      width: 100%;
+      position: fixed;  /* Keeps header fixed at the top */
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      background-color: #fff;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for visual separation */
+    }
+
+    /* Main container for sidebar and content */
+    #main-container {
+	margin-left: 0%; /* Adjust to match the sidebar width */
+	padding: 80px 20px 20px; /* Ensure this padding starts below the fixed header */
+	box-sizing: border-box; /* Ensures padding is counted in total width */
+	display: flex;
+	flex: 1;
+	width: 100%;
+fixed header */
+    }
+    
+    /* Sidebar styling */
+    #sidebar-placeholder {
+      width: 20%;
+      min-width: 250px;
+      position: fixed;  /* Keeps sidebar fixed on the left */
+      top: 60px;  /* Aligns it right below the header */
+      bottom: 0;
+      overflow-y: auto;  /* Allows scrolling within the sidebar */
+      background-color: #f4f4f4;
+      box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      z-index: 999;
+    }
+
+    #sidebar h2 {
+      font-size: 1.2em;
+      color: #0c2e8a;
+      margin-bottom: 15px;
+    }
+
+    #sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .category {
+      font-weight: bold;
+      cursor: pointer;
+      color: #0c2e8a;
+      padding-left: 5px;
+      margin-bottom: 5px;
+    }
+
+    .category ul {
+      display: none;
+      margin-top: 5px;
+      padding-left: 15px;
+    }
+
+    .category ul li {
+      margin: 3px 0;
+      font-size: 0.85em;
+      color: #555;
+      font-weight: normal;
+    }
+
+    .category ul li a {
+      color: #555;
+      text-decoration: none;
+      display: inline-block;
+      max-width: 90%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .category ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Content styling */
+    #main-content {
+      padding: 30px;/* Top padding to account for the fixed header height */
+      width: 80%;
+      margin-left: 20%;  /* Prevents content from overlapping with the fixed sidebar */
+      box-sizing: border-box;
+    }
+
+    h1, h2 {
+      color: #0c2e8a;
+    }
+        textarea {
+            width: 100%;
+            resize: vertical;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+.nav-tabs .tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+.tab.active {
+    background-color: #5cb85c; /* Green background for the active tab */
+    color: white; /* White text color for the active tab */
+}
+
+.tab.inactive {
+    background-color: #f8f9fa; /* Light gray background for the inactive tab */
+    color: #333; /* Dark text color for readability on light background */
+}
+    .header-image {
+      display: block;
+      margin: 0 auto;
+      width: 50%;
+      height: auto;
+      max-width: 600px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    pre, code {
+      background-color: #f8f9fa;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      line-height: 1.8; /* Adjusts line spacing for better readability */
+      font-size: 1em; /* Ensures the font size is appropriate for readability */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Placeholder -->
+  <div id="header-placeholder"></div>
+
+
+  <!-- Main container for sidebar and content -->
+  <div id="main-container">
+    <!-- Sidebar Placeholder -->
+    <div id="sidebar-placeholder"></div>
+
+  <!-- Main Content Area -->
+  <main id="main-content">
+	<h1>Preeti to Unicode and Unicode to Preeti Converter</h1>
+
+      <!-- Header Image -->
+      <img src="../img/preeti-unicode.png" alt="Companies Act 2063 Banner" class="header-image">
+
+<div class="nav-tabs">
+    <div id="preetiToUnicodeTab" class="tab active" onclick="showConverter('preetiToUnicode')">Preeti to Unicode</div>
+    <div id="unicodeToPreetiTab" class="tab inactive" onclick="showConverter('unicodeToPreeti')">Unicode to Preeti</div>
+</div>
+
+<div id="preetiToUnicode" class="converter">
+    <label for="preetiText">Enter Preeti Text:</label>
+    <textarea id="preetiText" rows="6" placeholder="Type or paste Preeti text here..."></textarea>
+    
+    <label for="unicodeText">Unicode Output:</label>
+    <textarea id="unicodeText" rows="6" placeholder="The converted Unicode text will appear here..." readonly></textarea>
+</div>
+
+<div id="unicodeToPreeti" class="converter" style="display: none;">
+    <label for="unicodeInput">Enter Unicode Text:</label>
+    <textarea id="unicodeInput" rows="6" placeholder="Type or paste Unicode text here..."></textarea>
+    
+    <label for="preetiOutput">Preeti Output:</label>
+    <textarea id="preetiOutput" rows="6" placeholder="The converted Preeti text will appear here..." readonly></textarea>
+</div>
+
+<script>
+function showConverter(converter) {
+    const preetiToUnicodeTab = document.getElementById("preetiToUnicodeTab");
+    const unicodeToPreetiTab = document.getElementById("unicodeToPreetiTab");
+
+    if (converter === 'preetiToUnicode') {
+        document.getElementById("preetiToUnicode").style.display = "block";
+        document.getElementById("unicodeToPreeti").style.display = "none";
+        
+        // Set Preeti to Unicode tab as active
+        preetiToUnicodeTab.classList.add("active");
+        preetiToUnicodeTab.classList.remove("inactive");
+
+        // Set Unicode to Preeti tab as inactive
+        unicodeToPreetiTab.classList.add("inactive");
+        unicodeToPreetiTab.classList.remove("active");
+    } else {
+        document.getElementById("preetiToUnicode").style.display = "none";
+        document.getElementById("unicodeToPreeti").style.display = "block";
+
+        // Set Unicode to Preeti tab as active
+        unicodeToPreetiTab.classList.add("active");
+        unicodeToPreetiTab.classList.remove("inactive");
+
+        // Set Preeti to Unicode tab as inactive
+        preetiToUnicodeTab.classList.add("inactive");
+        preetiToUnicodeTab.classList.remove("active");
+    }
+}
+
+    document.getElementById("preetiText").addEventListener("input", function() {
+        const preetiText = this.value;
+        const unicodeText = preetiToUnicode(preetiText);
+        document.getElementById("unicodeText").value = unicodeText;
+    });
+
+    function preetiToUnicode(text) {
+        const arrayOne = ["ç","˜",".","'m","]m","Fmf","Fm", ")", "!", "@", "#", "$", "%", "^", "&", "*", "(", 
+            "k|m","em","km","Qm","qm","N˜",
+            "¡","¢","1","2","4",">","?","B","I","Q","ß",
+            "q","„","‹","•","›","§","°","¶","¿","Å",
+            "Ë","Ì","Í","Î","Ý","å",
+            "6«","7«","8«","9«",
+            "Ø","|",
+            "8Þ","9Þ",
+            "S","s","V","v","U","u","£","3","ª",
+            "R","r","5","H","h","‰","´","~", "`",
+            "6","7","8","9","0",
+            "T","t","Y","y","b","W","w","G","g",
+            "K","k","ˆ","A","a","E", "e","D","d",
+            "o","/","N","n","J", "j", "Z","z","i",":",";","X","x",
+            "cf‘","c‘f","cf}","cf]","cf","c","O{","O","pm","p","C","P]","P",
+            "f‘","\"","'","+","f","[","\\","]","}","F", "L","M",
+            "्ा","्ो","्ौ","अो","अा","आै","आे","ाो","ाॅ","ाे",
+            "ंु","ेे","अै","ाे","अे","ंा","अॅ","ाै","ैा","ंृ",
+            "ँा","ँू","ेा","ंे"
+        ];
+        const arrayTwo = ["ॐ","ऽ","।","m'","m]","mfF","mF", "०", "१", "२", "३", "४", "५", "६", "७", "८", "९",
+            "फ्र","झ","फ","क्त","क्र","ल",
+            "ज्ञ्","द्घ","ज्ञ","द्द","द्ध","श्र","रु","द्य","क्ष्","त्त","द्म",
+            "त्र","ध्र","ङ्घ","ड्ड","द्र","ट्ट","ड्ढ","ठ्ठ","रू","हृ",
+            "ङ्ग","त्र","ङ्क","ङ्ख","ट्ठ","द्व",
+            "ट्र","ठ्र","ड्र","ढ्र",
+            "्य","्र",
+            "ड़","ढ़",
+            "क्","क","ख्","ख","ग्","ग","घ्","घ", "ङ",
+            "च्","च","छ","ज्","ज","झ्","झ","ञ्", "ञ",
+            "ट","ठ","ड","ढ","ण्",
+            "त्","त","थ्","थ","द","ध्","ध","न्","न",
+            "प्","प","फ्","ब्","ब","भ्","भ","म्","म",
+            "य","र","ल्","ल","व्","व","श्","श","ष्","स्","स","ह्","ह",
+            "ऑ","ऑ","औ","ओ","आ","अ","ई","इ","ऊ","उ","ऋ","ऐ","ए",
+            "ॉ","ू","ु","ं","ा","ृ","्","े","ै","ँ","ी","ः",
+            "","े","ै","ओ","आ","औ","ओ","ो","ॉ","ो",
+            "ुं","े","अ‍ै","ो","अ‍े","ां","अ‍ॅ","ौ","ौ","ृं",
+            "ाँ","ूँ","ो","ें"
+        ];
+
+        function replaceSymbols(modifiedSubstring) {
+            for (let i = 0; i < arrayOne.length; i++) {
+                modifiedSubstring = modifiedSubstring.split(arrayOne[i]).join(arrayTwo[i]);
+            }
+
+            let positionOfI = modifiedSubstring.indexOf('l');
+            while (positionOfI !== -1) {
+                const nextChar = modifiedSubstring[positionOfI + 1];
+                modifiedSubstring = modifiedSubstring.replace("l" + nextChar, nextChar + "ि");
+                positionOfI = modifiedSubstring.indexOf('l', positionOfI + 1);
+            }
+
+            return modifiedSubstring;
+        }
+
+        return replaceSymbols(text);
+    }
+
+    document.getElementById("unicodeInput").addEventListener("input", function() {
+        const unicodeText = this.value;
+        const preetiText = unicodeToPreeti(unicodeText);
+        document.getElementById("preetiOutput").value = preetiText;
+    });
+
+    function unicodeToPreeti(text) {
+        const unicodePreetiMap = {
+            "अ": "c", "आ": "cf", "ा": "f", "इ": "O", "ई": "O{", "र्": "{",
+            "उ": "p", "ए": "P", "े": "]", "ै": "}", "ो": "f]", "ौ": "f}",
+            "ओ": "cf]", "औ": "cf}", "ं": "+", "ँ": "F", "ि": "l", "ी": "L",
+            "ु": "'", "ू": "\"", "क": "s", "ख": "v", "ग": "u", "घ": "3",
+            "ङ": "ª", "च": "r", "छ": "5", "ज": "h", "झ": "´", "ञ": "`",
+            "ट": "6", "ठ": "7", "ड": "8", "ढ": "9", "ण": "0f", "त": "t",
+            "थ": "y", "द": "b", "ध": "w", "न": "g", "प": "k", "फ": "km",
+            "ब": "a", "भ": "e", "म": "d", "य": "o", "र": "/", "रू": "?",
+            "ृ": "[", "ल": "n", "व": "j", "स": ";", "श": "z", "ष": "if",
+            "ज्ञ": "1", "ह": "x", "१": "!", "२": "@", "३": "#", "४": "$",
+            "५": "%", "६": "^", "७": "&", "८": "*", "९": "(", "०": ")",
+            "।": ".", "्": "\\", "ऊ": "pm", "-": " ", "(": "-", ")": "_"
+        };
+
+        function normalizeUnicode(unicodetext) {
+            let normalized = '';
+            for (let i = 0; i < unicodetext.length; i++) {
+                let currentChar = unicodetext[i];
+                if (currentChar !== 'र' && unicodetext[i + 1] === '्' &&
+                    unicodetext[i + 2] !== ' ' && unicodetext[i + 2] !== '।' && unicodetext[i + 2] !== ',') {
+                    if ("wertyuxasdghjkzvn".includes(unicodePreetiMap[unicodetext[i]])) {
+                        normalized += String.fromCharCode(unicodePreetiMap[unicodetext[i]].charCodeAt(0) - 32);
+                        i++;
+                        continue;
+                    }
+                }
+                if (unicodetext[i - 1] !== 'र' && currentChar === '्' && unicodetext[i + 1] === 'र') {
+                    normalized += '|';
+                    i++;
+                    continue;
+                }
+                normalized += currentChar;
+            }
+            return normalized.replaceAll("त|", "q");
+        }
+
+        let normalizedUnicodeText = normalizeUnicode(text);
+        let converted = '';
+        for (let i = 0; i < normalizedUnicodeText.length; i++) {
+            let currentChar = normalizedUnicodeText[i];
+            converted += unicodePreetiMap[currentChar] || currentChar;
+        }
+
+        converted = converted.replaceAll("/'", "?");
+        converted = converted.replace(/([a-zA-Z])l/g, "l$1");
+
+        return converted;
+    }
+</script>
+
+
+  <!-- Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <!-- JavaScript to Load Header, Footer, and Dynamic Sidebar -->
+  <script src="../knowledgehub/topics_array.js"></script> <!-- Topics data -->
+  <!-- jQuery and Bootstrap JS -->
+  <script src="../lib/jquery/jquery.min.js"></script>
+  <script src="../lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+document.querySelectorAll('.category').forEach(category => {
+    category.addEventListener('click', function () {
+        const subList = this.querySelector('ul');
+        if (subList) {
+            subList.style.display = subList.style.display === "none" ? "block" : "none";
+        }
+    });
+});
+    document.addEventListener("DOMContentLoaded", function() {
+      // Load header and footer dynamically
+      fetch("../header.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("header-placeholder").innerHTML = data;
+        })
+        .catch(error => console.error("Error loading header:", error));
+
+      fetch("../footer.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+        })
+        .catch(error => console.error("Error loading footer:", error));
+
+      // Populate sidebar categories and topics
+      const sidebarContainer = document.getElementById("sidebar-placeholder");
+
+      // Insert sidebar HTML structure
+      sidebarContainer.innerHTML = `
+        <aside id="sidebar">
+          <h2>Categories</h2>
+          <ul id="category-list"></ul>
+        </aside>
+      `;
+
+      const uniqueCategories = {};
+      topics.forEach(topic => {
+        if (!uniqueCategories[topic.category]) {
+          uniqueCategories[topic.category] = [];
+        }
+        uniqueCategories[topic.category].push(topic);
+      });
+
+      const categoryList = document.getElementById("category-list");
+      Object.keys(uniqueCategories).forEach(category => {
+        const categoryItem = document.createElement("li");
+        categoryItem.classList.add("category");
+        categoryItem.textContent = category;
+
+        const subList = document.createElement("ul");
+        uniqueCategories[category].forEach((topic, index) => {
+          const topicItem = document.createElement("li");
+
+          // Truncate title and add numbering
+          const maxTitleLength = 40;
+          const truncatedTitle = topic.title.length > maxTitleLength
+            ? topic.title.slice(0, maxTitleLength) + "..."
+            : topic.title;
+
+          topicItem.innerHTML = `<a href="../knowledgehub/${topic.file}">${index + 1}. ${truncatedTitle}</a>`;
+          subList.appendChild(topicItem);
+        });
+
+        // Add toggle function to display topics
+        categoryItem.appendChild(subList);
+        categoryItem.addEventListener("click", function () {
+          subList.style.display = subList.style.display === "none" ? "block" : "none";
+        });
+
+        subList.style.display = "none"; // Initially hide topics
+        categoryList.appendChild(categoryItem);
+      });
+    });
+  </script>
+
+</main>
+</body>
+</html>

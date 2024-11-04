@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Tax Act, 2058 (2002) - Nepal</title>
+    <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Fixed Header styling */
+        #header-placeholder {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background-color: #fff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Main container for sidebar and content */
+        #main-container {
+            display: flex;
+            flex: 1;
+            width: 100%;
+            margin-top: 60px; /* Space for the fixed header */
+        }
+        
+        /* Fixed Sidebar styling */
+        #sidebar-placeholder {
+            width: 20%;
+            min-width: 250px;
+            position: fixed;
+            top: 60px; /* Aligns right below the header */
+            bottom: 0;
+            overflow-y: auto;
+            background-color: #f4f4f4;
+            padding: 15px;
+            box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+        }
+
+        #sidebar h2 {
+            font-size: 1em;
+            color: #0c2e8a;
+            margin-bottom: 15px;
+        }
+
+        #sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .category {
+            font-weight: bold;
+            cursor: pointer;
+            color: #0c2e8a;
+            padding-left: 5px;
+            margin-bottom: 5px;
+        }
+
+        .category ul {
+            display: none;
+            margin-top: 5px;
+            padding-left: 15px;
+        }
+
+        .category ul li {
+            margin: 3px 0;
+            font-size: 0.85em;
+            color: #555;
+            font-weight: normal;
+        }
+
+        .category ul li a {
+            color: #555;
+            text-decoration: none;
+            display: inline-block;
+            max-width: 90%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .category ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Content styling */
+        #content {
+            padding: 20px;
+            width: 80%;
+            margin-left: 20%; /* Adjusts to the sidebar width */
+            overflow-y: auto;
+        }
+
+        h1 {
+            color: #0c2e8a;
+            text-align: center;
+	    margin-top: 40px;
+            margin-bottom: 10px;
+        }
+
+        .table-of-contents {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .table-of-contents h2 {
+            color: #0c2e8a;
+        }
+        
+        .table-of-contents ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .table-of-contents li {
+            margin-bottom: 5px;
+        }
+        
+        .table-of-contents a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        .pdf-viewer {
+            margin-top: 20px;
+        }
+
+        .header-image {
+            display: block;
+            margin: 0 auto;
+            width: 50%;
+            height: auto;
+            max-width: 300px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+  <!-- Header Placeholder -->
+  <div id="header-placeholder"></div>
+
+  <!-- Main container for sidebar and content -->
+  <div id="main-container">
+    <!-- Sidebar Placeholder -->
+    <div id="sidebar-placeholder"></div>
+
+  <!-- Main Content Section -->
+  <main id="content" class="container">
+      <h1>Income Tax Act, 2058 (2002) - Nepal</h1>
+
+      <!-- Header Image -->
+      <img src="../img/income-tax-act.png" alt="The Income Tax Act Banner" class="header-image">
+
+      <p>The Income Tax Act, 2058 (2002) outlines the regulations, definitions, and tax obligations for residents and businesses in Nepal. Below, you can access the full document and explore key sections through the table of contents for easier navigation.</p>
+
+      <!-- Table of Contents -->
+      <div class="table-of-contents">
+          <h2>Table of Contents</h2>
+    <h1>Table of Contents</h1>
+    <ul>
+        <li>Chapter 1: Preliminary</li>
+        <li>Chapter 2: Tax Bases</li>
+        <li>Chapter 3: Computation of Tax</li>
+        <li>Chapter 4: Exemptible Amounts and Other Exemptions</li>
+        <li>Chapter 5: Deductible Amounts</li>
+        <li>Chapter 6: Tax Accounting and Time</li>
+        <li>Chapter 7: Quantification, Allocation, and Characterization of Amounts</li>
+        <li>Chapter 8: Assessment of Net Profit from Property and Liability</li>
+        <li>Chapter 9: Special Provisions Relating to Individuals</li>
+        <li>Chapter 10: Special Provisions for Entities</li>
+        <li>Chapter 11: Special Provisions on Banking and Insurance Business </li>
+        <li>Chapter 12: Special Provisions on Retirement Saving </li>
+        <li>Chapter 13: International Tax </li>
+        <li>Chapter 14: Tax Administration and Authentic Documents</li>
+        <li>Chapter 15: Records and Information Collection</li>
+        <li>Chapter 16: Tax Payment and Collection</li>
+        <li>Chapter 17: Tax Withholding</li>
+        <li>Chapter 18: Assessment of Tax</li>
+        <li>Chapter 19: Income Return and Assessment of Tax</li>
+        <li>Chapter 20: Losses and Their Carry-Forward</li>
+        <li>Chapter 21: Review and Appeal</li>
+        <li>Chapter 22: Fees and Interest</li>
+        <li>Chapter 23: Offense and Punishment</li>
+        <li>Chapter 24: Miscellaneous</li>
+    </ul>
+    </ul>
+      </div>
+
+      <!-- Embedded PDF Viewer -->
+      <div class="pdf-viewer">
+          <iframe src="https://ird.gov.np/public/pdf/2043238011.pdf" width="100%" height="800px" style="border: none;">
+              Your browser does not support PDF viewing. Please download the document instead:
+              <a href="https://ird.gov.np/public/pdf/2043238011.pdf">Download PDF</a>
+          </iframe>
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <!-- JavaScript to Load Sidebar and Dynamic Categories -->
+  <script src="../knowledgehub/topics_array.js"></script> <!-- Topics data -->
+  <script src="../lib/jquery/jquery.min.js"></script>
+  <script src="../lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Load header and footer dynamically
+      fetch("../header.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("header-placeholder").innerHTML = data;
+        })
+        .catch(error => console.error("Error loading header:", error));
+      
+      fetch("../footer.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+        })
+        .catch(error => console.error("Error loading footer:", error));
+
+      // Populate sidebar categories and topics
+      const sidebarContainer = document.getElementById("sidebar-placeholder");
+
+      // Insert sidebar HTML structure
+      sidebarContainer.innerHTML = `
+        <aside id="sidebar">
+          <h2>Categories</h2>
+          <ul id="category-list"></ul>
+        </aside>
+      `;
+
+      const uniqueCategories = {};
+      topics.forEach(topic => {
+        if (!uniqueCategories[topic.category]) {
+          uniqueCategories[topic.category] = [];
+        }
+        uniqueCategories[topic.category].push(topic);
+      });
+
+      const categoryList = document.getElementById("category-list");
+      Object.keys(uniqueCategories).forEach(category => {
+        const categoryItem = document.createElement("li");
+        categoryItem.classList.add("category");
+        categoryItem.textContent = category;
+
+        const subList = document.createElement("ul");
+        uniqueCategories[category].forEach((topic, index) => {
+          const topicItem = document.createElement("li");
+
+          // Truncate title and add numbering
+          const maxTitleLength = 40;
+          const truncatedTitle = topic.title.length > maxTitleLength
+            ? topic.title.slice(0, maxTitleLength) + "..."
+            : topic.title;
+
+          topicItem.innerHTML = `<a href="../knowledgehub/${topic.file}">${index + 1}. ${truncatedTitle}</a>`;
+          subList.appendChild(topicItem);
+        });
+
+        // Add toggle function to display topics
+        categoryItem.appendChild(subList);
+        categoryItem.addEventListener("click", function () {
+          subList.style.display = subList.style.display === "none" ? "block" : "none";
+        });
+
+        subList.style.display = "none"; // Initially hide topics
+        categoryList.appendChild(categoryItem);
+      });
+    });
+  </script>
+
+</body>
+</html>
