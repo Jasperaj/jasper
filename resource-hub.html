@@ -15,13 +15,17 @@
       flex-direction: column;
     }
 
+    #main-container {
+      display: flex;
+      flex: 1;
+    }
+
     #content {
       flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-height: 125vh; /* Increased to ensure more space */
-      padding-bottom: 50px; /* Extra padding for pagination and footer space */
+      padding-bottom: 50px;
     }
 
     h1 {
@@ -79,25 +83,23 @@
     .content-box {
       border: 1px solid #ddd;
       border-radius: 8px;
-      padding: 0; /* Remove padding here, so it's inside <a> */
       background-color: #fff;
       width: 280px;
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
       text-align: center;
       transition: transform 0.2s;
-      position: relative;
     }
 
     .content-box a {
       display: block;
       text-decoration: none;
       color: inherit;
-      padding: 15px; /* Add padding inside <a> */
+      padding: 15px;
     }
 
     .content-box img {
-      width: 90px;
-      height: 90px;
+      width: 100%;
+      height: 150px;
       object-fit: cover;
       border-radius: 8px 8px 0 0;
     }
@@ -113,48 +115,119 @@
       color: #666;
     }
 
+    /* Sidebar styling */
+    #sidebar {
+      width: 20%;
+      background-color: #f4f4f4;
+      padding: 15px;
+      box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
+      font-size: 0.9em;
+    }
+
+    #sidebar h2 {
+      font-size: 1em;
+      color: #0c2e8a;
+      margin-bottom: 15px;
+    }
+
+    #sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #sidebar ul li {
+      margin: 5px 0;
+    }
+
+    .category {
+      font-weight: bold;
+      cursor: pointer;
+      color: #0c2e8a;
+      padding-left: 5px;
+      margin-bottom: 5px;
+    }
+
+    .category ul {
+      display: none;
+      margin-top: 5px;
+      padding-left: 15px;
+    }
+
+    /* Topic item styling */
+    .category ul li {
+      margin: 3px 0;
+      font-size: 0.85em; /* Smaller font size */
+      color: #555;
+      font-weight: normal; /* Plain (not bold) */
+    }
+
+    .category ul li a {
+      color: #555;
+      text-decoration: none;
+      display: inline-block;
+      max-width: 90%; /* Limit width to control text overflow */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .category ul li a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
+
 <body>
 
   <!-- Placeholder for Header -->
   <div id="header-placeholder"></div>
 
-  <div id="content">
-    <!-- Page Title -->
-    <h1>Welcome to the knowledgehub</h1>
+  <!-- Main container for sidebar and content -->
+  <div id="main-container">
+    <!-- Sidebar with Categories -->
+    <aside id="sidebar">
+      <h2>Categories</h2>
+      <ul id="category-list">
+        <!-- Categories and topics will be dynamically generated here -->
+      </ul>
+    </aside>
 
-    <!-- Filter Bar for Categories -->
-    <div id="filter-bar">
-      <button data-category="All" class="active">All</button>
-      <button data-category="Taxation">Taxation</button>
-      <button data-category="Accounting">Accounting</button>
-      <button data-category="Finance">Finance</button>
-      <button data-category="Technology">Technology</button>
-      <button data-category="Business">Business</button>
-      <button data-category="Resources">Resources</button>
-    </div>
+    <div id="content">
+      <!-- Page Title -->
+      <h1>Welcome to the knowledgehub</h1>
 
-    <!-- Search and Sort Bar -->
-    <div id="search-sort-bar">
-      <input type="text" id="search-input" placeholder="Search by title...">
-      <select id="sort-select">
-        <option value="title-asc">Sort by Title (A-Z)</option>
-        <option value="title-desc">Sort by Title (Z-A)</option>
-        <option value="category-asc">Sort by Category (A-Z)</option>
-        <option value="category-desc">Sort by Category (Z-A)</option>
-      </select>
-    </div>
+      <!-- Filter Bar for Categories -->
+      <div id="filter-bar">
+        <button data-category="All" class="active">All</button>
+        <button data-category="Taxation">Taxation</button>
+        <button data-category="Accounting">Accounting</button>
+        <button data-category="Finance">Finance</button>
+        <button data-category="Technology">Technology</button>
+        <button data-category="Business">Business</button>
+        <button data-category="Resources">Resources</button>
+      </div>
 
-    <!-- Content Boxes for Each Topic -->
-    <div id="topic-boxes">
-      <!-- Topic boxes will be dynamically generated here -->
-    </div>
+      <!-- Search and Sort Bar -->
+      <div id="search-sort-bar">
+        <input type="text" id="search-input" placeholder="Search by title...">
+        <select id="sort-select">
+          <option value="title-asc">Sort by Title (A-Z)</option>
+          <option value="title-desc">Sort by Title (Z-A)</option>
+          <option value="category-asc">Sort by Category (A-Z)</option>
+          <option value="category-desc">Sort by Category (Z-A)</option>
+        </select>
+      </div>
 
-    <!-- Pagination Controls -->
-    <div id="pagination-controls">
-      <button id="prev-page" disabled>Previous</button>
-      <button id="next-page" disabled>Next</button>
+      <!-- Content Boxes for Each Topic -->
+      <div id="topic-boxes">
+        <!-- Topic boxes will be dynamically generated here -->
+      </div>
+
+      <!-- Pagination Controls -->
+      <div id="pagination-controls">
+        <button id="prev-page" disabled>Previous</button>
+        <button id="next-page" disabled>Next</button>
+      </div>
     </div>
   </div>
 
@@ -164,7 +237,7 @@
   <!-- Import topics array from the knowledgehub folder -->
   <script src="knowledgehub/topics_array.js"></script>
 
-  <!-- Main JavaScript code for filtering, searching, sorting, and pagination -->
+  <!-- Main JavaScript code for loading header, footer, sidebar, filtering, sorting, and pagination -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const topicBoxesContainer = document.getElementById("topic-boxes");
@@ -180,16 +253,63 @@
       let filteredTopics = topics;
 
       // Load header and footer dynamically
-      fetch("header.html")
+      fetch("../header.html")
         .then(response => response.text())
         .then(data => {
           document.getElementById("header-placeholder").innerHTML = data;
         });
-      fetch("footer.html")
+      fetch("../footer.html")
         .then(response => response.text())
         .then(data => {
           document.getElementById("footer-placeholder").innerHTML = data;
         });
+
+      // Populate sidebar with categories and topics
+      function populateSidebar() {
+        const uniqueCategories = {};
+
+        // Organize topics by category
+        topics.forEach(topic => {
+          if (!uniqueCategories[topic.category]) {
+            uniqueCategories[topic.category] = [];
+          }
+          uniqueCategories[topic.category].push(topic);
+        });
+
+        // Generate HTML for each category and its topics
+        Object.keys(uniqueCategories).forEach(category => {
+          const categoryItem = document.createElement("li");
+          categoryItem.classList.add("category");
+          categoryItem.textContent = category;
+
+          const subList = document.createElement("ul");
+          uniqueCategories[category].forEach((topic, index) => {
+            const topicItem = document.createElement("li");
+            
+            // Format topic title: Truncate and add index
+            const maxTitleLength = 40;
+            const truncatedTitle = topic.title.length > maxTitleLength 
+              ? topic.title.slice(0, maxTitleLength) + "..." 
+              : topic.title;
+
+            topicItem.innerHTML = `<a href="knowledgehub/${topic.file}">${index + 1}. ${truncatedTitle}</a>`;
+            subList.appendChild(topicItem);
+          });
+
+          // Append sublist to category and add click event for toggling
+          categoryItem.appendChild(subList);
+          categoryItem.addEventListener("click", function() {
+            subList.style.display = subList.style.display === "none" ? "block" : "none";
+          });
+
+          // Initially hide the topics under each category
+          subList.style.display = "none";
+          document.getElementById("category-list").appendChild(categoryItem);
+        });
+      }
+
+      // Populate sidebar after topics_array.js is loaded
+      window.addEventListener("load", populateSidebar);
 
       // Function to display topics based on current page
       function displayTopics() {
