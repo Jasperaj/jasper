@@ -79,6 +79,23 @@
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        #main-nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease-in-out;
+        }
+
+        #main-nav ul li a:hover::after {
+            width: 100%;
         }
 
         #main-nav ul li a:hover {
