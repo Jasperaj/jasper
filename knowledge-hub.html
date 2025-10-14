@@ -1,282 +1,520 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>knowledgehub - Knowledge Center</title>
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    /* Basic Styling */
-    body, html {
-      font-family: Arial, sans-serif;
-      height: 100%;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Hub | Unifour Consultancy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #009688;
+            --bg-light: #ffffff;
+            --bg-off-white: #f8f9fa;
+            --text-dark: #212529;
+            --text-muted: #6c757d;
+            --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+            --border-color: #e9ecef;
+        }
 
-    #content {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 125vh; /* Increased to ensure more space */
-      padding-bottom: 50px; /* Extra padding for pagination and footer space */
-    }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-muted);
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            line-height: 1.6;
+        }
 
-    h1 {
-      color: #0c2e8a;
-      text-align: center;
-      margin-top: 20px;
-      font-weight: bold;
-    }
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--text-dark);
+        }
 
-    #filter-bar, #pagination-controls, #search-sort-bar {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin: 20px;
-      flex-wrap: wrap;
-    }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
 
-    #filter-bar button, #pagination-controls button {
-      background-color: #f8f9fa;
-      border: 1px solid #ddd;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      font-weight: bold;
-    }
+        /* Header */
+        #main-header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
 
-    #filter-bar button.active, #filter-bar button:hover, #pagination-controls button:hover {
-      background-color: #0c2e8a;
-      color: #fff;
-    }
+        #main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    #search-sort-bar input[type="text"] {
-      padding: 8px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      width: 200px;
-    }
+        #logo {
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
 
-    #search-sort-bar select {
-      padding: 8px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
+        #main-nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
 
-    #topic-boxes {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 0 20px;
-      width: 100%;
-    }
+        #main-nav ul li {
+            margin-left: 25px;
+        }
 
-    .content-box {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 0; /* Remove padding here, so it's inside <a> */
-      background-color: #fff;
-      width: 280px;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
-      text-align: center;
-      transition: transform 0.2s;
-      position: relative;
-    }
+        #main-nav ul li a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
 
-    .content-box a {
-      display: block;
-      text-decoration: none;
-      color: inherit;
-      padding: 15px; /* Add padding inside <a> */
-    }
+        #main-nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: var(--bg-off-white);
+            padding: 8rem 0 4rem 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: auto;
+        }
 
-    .content-box img {
-      width: 90px;
-      height: 90px;
-      object-fit: cover;
-      border-radius: 8px 8px 0 0;
-    }
+        /* Filter and Search Controls */
+        .hub-controls {
+            padding: 40px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 40px;
+        }
 
-    .content-box h3 {
-      font-size: 1em;
-      color: #0c2e8a;
-      margin-top: 10px;
-    }
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
 
-    .content-box p {
-      font-size: 0.9em;
-      color: #666;
-    }
+        .filter-btn {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
 
-  </style>
+        .filter-btn:hover {
+            background: var(--bg-off-white);
+            color: var(--primary-color);
+        }
+
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: #fff;
+            border-color: var(--primary-color);
+        }
+
+        .search-container {
+            position: relative;
+            min-width: 300px;
+        }
+
+        #search-bar {
+            width: 100%;
+            padding: 10px 40px 10px 20px;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+            font-size: 1rem;
+        }
+        
+        .search-container i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px 0 80px 0;
+        }
+        
+        .hub-section {
+            margin-bottom: 60px;
+        }
+        
+        .hub-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .resource-card {
+            background: var(--bg-light);
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .resource-card.hidden {
+            display: none;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .resource-card-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .resource-card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .resource-card-content h3 {
+            margin-top: 0;
+            font-size: 1.3rem;
+        }
+        
+        .resource-card-content p {
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .btn-read-more {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background 0.3s;
+            text-align: center;
+        }
+        
+        .btn-read-more:hover {
+            background: #00418a;
+        }
+
+        #no-results {
+            text-align: center;
+            padding: 40px;
+            font-size: 1.2rem;
+            display: none;
+        }
+
+        /* Footer */
+        #main-footer {
+            background: var(--bg-off-white);
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Placeholder for Header -->
-  <div id="header-placeholder"></div>
+    <header id="main-header">
+        <div class="container">
+            <a href="redesigned-index.html" id="logo">UNIFOUR</a>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="redesigned-index.html">Home</a></li>
+                    <li><a href="redesigned-index.html#services">Services</a></li>
+                    <li><a href="knowledge-hub.html">Knowledge Hub</a></li>
+                    <li><a href="redesigned-index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <header class="page-header">
+        <div class="container">
+            <h1>Knowledge Hub</h1>
+            <p>Your central resource for financial guides, industry regulations, powerful tools, and technology insights in Nepal.</p>
+        </div>
+    </header>
 
-  <div id="content">
-    <!-- Page Title -->
-    <h1>Welcome to the knowledgehub</h1>
-
-    <!-- Filter Bar for Categories -->
-    <div id="filter-bar">
-      <button data-category="All" class="active">All</button>
-      <button data-category="Taxation">Taxation</button>
-      <button data-category="Accounting">Accounting</button>
-      <button data-category="Finance">Finance</button>
-      <button data-category="Technology">Technology</button>
-      <button data-category="Business">Business</button>
-      <button data-category="Resources">Resources</button>
+    <div class="container">
+        <div class="hub-controls">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="business">Business</button>
+                <button class="filter-btn" data-filter="taxation">Taxation</button>
+                <button class="filter-btn" data-filter="technology">Technology</button>
+                <button class="filter-btn" data-filter="tools">Tools</button>
+            </div>
+            <div class="search-container">
+                <input type="text" id="search-bar" placeholder="Search for an article or tool...">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
     </div>
 
-    <!-- Search and Sort Bar -->
-    <div id="search-sort-bar">
-      <input type="text" id="search-input" placeholder="Search by title...">
-      <select id="sort-select">
-        <option value="title-asc">Sort by Title (A-Z)</option>
-        <option value="title-desc">Sort by Title (Z-A)</option>
-        <option value="category-asc">Sort by Category (A-Z)</option>
-        <option value="category-desc">Sort by Category (Z-A)</option>
-      </select>
-    </div>
+    <main class="container" id="resource-container">
 
-    <!-- Content Boxes for Each Topic -->
-    <div id="topic-boxes">
-      <!-- Topic boxes will be dynamically generated here -->
-    </div>
+        <!-- Business & Registration Section -->
+        <section id="business-section" class="hub-section">
+            <h2><i class="fas fa-briefcase"></i> Business & Registration</h2>
+            <div class="resource-grid">
+                <div class="resource-card" data-category="business">
+                    <div class="resource-card-image" style="background-image: url('img/company-registration.png');"></div>
+                    <div class="resource-card-content">
+                        <h3>Company Registration Guide</h3>
+                        <p>A step-by-step guide to registering your private limited company in Nepal.</p>
+                        <a href="knowledgehub/Business - company-registration.html" class="btn-read-more">Read Guide &rarr;</a>
+                    </div>
+                </div>
+                <div class="resource-card" data-category="business">
+                     <div class="resource-card-image" style="background-image: url('img/post-company-registration.png');"></div>
+                    <div class="resource-card-content">
+                        <h3>Post-Registration Compliances</h3>
+                        <p>Understand the necessary legal and financial steps after your company is registered.</p>
+                        <a href="knowledgehub/Business - post-company-registration.html" class="btn-read-more">Learn More &rarr;</a>
+                    </div>
+                </div>
+                <div class="resource-card" data-category="business">
+                     <div class="resource-card-image" style="background-image: url('img/trademark/trademark-flowchart.png');"></div>
+                    <div class="resource-card-content">
+                        <h3>Trademark Registration</h3>
+                        <p>Learn the process and importance of protecting your brand by registering a trademark.</p>
+                        <a href="knowledgehub/Business - trademark-registration.html" class="btn-read-more">View Process &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Pagination Controls -->
-    <div id="pagination-controls">
-      <button id="prev-page" disabled>Previous</button>
-      <button id="next-page" disabled>Next</button>
-    </div>
-  </div>
+        <!-- Taxation & Compliance Section -->
+        <section id="taxation-section" class="hub-section">
+            <h2><i class="fas fa-balance-scale"></i> Taxation & Compliance</h2>
+            <div class="resource-grid">
+                 <div class="resource-card" data-category="taxation">
+                    <div class="resource-card-image" style="background-image: url('img/vat-compliance.png');"></div>
+                    <div class="resource-card-content">
+                        <h3>VAT Compliance in Nepal</h3>
+                        <p>An overview of Value Added Tax (VAT) regulations, filings, and compliance procedures.</p>
+                        <a href="knowledgehub/Taxation - vat-compliance.html" class="btn-read-more">Read More &rarr;</a>
+                    </div>
+                </div>
+                <div class="resource-card" data-category="taxation">
+                    <div class="resource-card-image" style="background-image: url('img/tds-compliance.png');"></div>
+                    <div class="resource-card-content">
+                        <h3>TDS Compliance Rules</h3>
+                        <p>A guide to understanding and complying with Tax Deducted at Source (TDS) in Nepal.</p>
+                        <a href="knowledgehub/Taxation - tds-compliance.html" class="btn-read-more">Learn Rules &rarr;</a>
+                    </div>
+                </div>
+                <div class="resource-card" data-category="taxation">
+                    <div class="resource-card-image" style="background-image: url('img/income-tax-act.png');"></div>
+                    <div class="resource-card-content">
+                        <h3>Income Tax Act</h3>
+                        <p>Access the official English translation of Nepal's Income Tax Act, 2058.</p>
+                        <a href="knowledgehub/Resources - income-tax-english.html" class="btn-read-more">View Act &rarr;</a>
+                    </div>
+                </div>
+                 <div class="resource-card" data-category="taxation">
+                    <div class="resource-card-image" style="background-image: url('img/companies-act.png');"></div>
+                    <div class="resource-card-content">
+                        <h3>Companies Act</h3>
+                        <p>Read the English version of the Companies Act, 2063, governing company operations.</p>
+                        <a href="knowledgehub/Resources - company-act-english.html" class="btn-read-more">View Act &rarr;</a>
+                    </div>
+                </div>
+                 <div class="resource-card" data-category="taxation">
+                    <div class="resource-card-image" style="background-image: url('img/labour-act.png');"></div>
+                    <div class="resource-card-content">
+                        <h3>Labour Act</h3>
+                        <p>An essential resource covering employment laws and regulations in Nepal.</p>
+                        <a href="knowledgehub/Resources - labour-act.html" class="btn-read-more">View Act &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- Placeholder for Footer -->
-  <div id="footer-placeholder"></div>
+        <!-- Tech for Finance Section -->
+        <section id="technology-section" class="hub-section">
+            <h2><i class="fas fa-code"></i> Tech for Finance</h2>
+            <div class="resource-grid">
+                <div class="resource-card" data-category="technology">
+                    <div class="resource-card-image" style="background-image: url('img/python.png');"></div>
+                    <div class="resource-card-content">
+                        <h3>Intro to Python for Finance</h3>
+                        <p>Discover how Python can be a powerful tool for financial analysis and automation.</p>
+                        <a href="knowledgehub/Technology - intro-to-python.html" class="btn-read-more">Get Started &rarr;</a>
+                    </div>
+                </div>
+                <div class="resource-card" data-category="technology">
+                    <div class="resource-card-image" style="background-image: url('img/bs-pdf-to-excel.png');"></div>
+                    <div class="resource-card-content">
+                        <h3>Automate Bank Statements</h3>
+                        <p>Learn to convert PDF bank statements into structured Excel data using Python.</p>
+                        <a href="knowledgehub/Technology - bank-statement-pdf-to-excel.html" class="btn-read-more">Learn How &rarr;</a>
+                    </div>
+                </div>
+                <div class="resource-card" data-category="technology">
+                    <div class="resource-card-image" style="background-image: url('img/python-with-colab.png');"></div>
+                    <div class="resource-card-content">
+                        <h3>Python with Google Colab</h3>
+                        <p>A beginner's guide to setting up and using Python for finance in Google Colab.</p>
+                        <a href="knowledgehub/Technology - python-with-colab.html" class="btn-read-more">View Guide &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- Import topics array from the knowledgehub folder -->
-  <script src="knowledgehub/topics_array.js"></script>
+        <!-- Tools & Resources Section -->
+        <section id="tools-section" class="hub-section">
+            <h2><i class="fas fa-tools"></i> Tools & Resources</h2>
+            <div class="resource-grid">
+                <div class="resource-card" data-category="tools">
+                    <div class="resource-card-image" style="background-image: url('img/emi-calculator.png');"></div>
+                    <div class="resource-card-content">
+                        <h3>EMI Calculator</h3>
+                        <p>Calculate your Equated Monthly Installments for loans with this easy-to-use tool.</p>
+                        <a href="knowledgehub/Resources - emi-calculator.html" class="btn-read-more">Use Calculator &rarr;</a>
+                    </div>
+                </div>
+                <div class="resource-card" data-category="tools">
+                    <div class="resource-card-image" style="background-image: url('img/vat-payment-calculator.png');"></div>
+                    <div class="resource-card-content">
+                        <h3>Late VAT Payment Calculator</h3>
+                        <p>Determine the fees and penalties for late VAT submissions in Nepal.</p>
+                        <a href="knowledgehub/Resources - late-vat-payment-calculator.html" class="btn-read-more">Use Calculator &rarr;</a>
+                    </div>
+                </div>
+                <div class="resource-card" data-category="tools">
+                    <div class="resource-card-image" style="background-image: url('img/preeti-unicode.png');"></div>
+                    <div class="resource-card-content">
+                        <h3>Preeti to Unicode Converter</h3>
+                        <p>An essential tool for converting traditional Preeti Nepali font to standard Unicode.</p>
+                        <a href="knowledgehub/Resources - Preeti to Unicode.html" class="btn-read-more">Use Converter &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- Main JavaScript code for filtering, searching, sorting, and pagination -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const topicBoxesContainer = document.getElementById("topic-boxes");
-      const filterButtons = document.querySelectorAll("#filter-bar button");
-      const searchInput = document.getElementById("search-input");
-      const sortSelect = document.getElementById("sort-select");
-      const prevPageButton = document.getElementById("prev-page");
-      const nextPageButton = document.getElementById("next-page");
+        <div id="no-results">
+            <h3>No Results Found</h3>
+            <p>Please try a different search term or filter.</p>
+        </div>
 
-      let currentPage = 1;
-      const itemsPerPage = 8;
-      let currentCategory = "All";
-      let filteredTopics = topics;
+    </main>
 
-      // Load header and footer dynamically
-      fetch("header.html")
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById("header-placeholder").innerHTML = data;
+    <footer id="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Unifour Consultancy. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchBar = document.getElementById('search-bar');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const resourceCards = document.querySelectorAll('.resource-card');
+            const sections = document.querySelectorAll('.hub-section');
+            const noResultsMessage = document.getElementById('no-results');
+
+            function filterAndSearch() {
+                const searchTerm = searchBar.value.toLowerCase();
+                const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+                let resultsFound = false;
+
+                // Filter cards
+                resourceCards.forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const description = card.querySelector('p').textContent.toLowerCase();
+                    const category = card.dataset.category;
+
+                    const categoryMatch = activeFilter === 'all' || category === activeFilter;
+                    const searchMatch = title.includes(searchTerm) || description.includes(searchTerm);
+
+                    if (categoryMatch && searchMatch) {
+                        card.classList.remove('hidden');
+                        resultsFound = true;
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+
+                // Hide or show section titles based on visible cards
+                sections.forEach(section => {
+                    const visibleCardsInSection = section.querySelectorAll('.resource-card:not(.hidden)');
+                    if (visibleCardsInSection.length > 0) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+                
+                // Show or hide the no results message
+                if (resultsFound) {
+                    noResultsMessage.style.display = 'none';
+                } else {
+                    noResultsMessage.style.display = 'block';
+                }
+            }
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    filterAndSearch();
+                });
+            });
+
+            searchBar.addEventListener('keyup', filterAndSearch);
         });
-      fetch("footer.html")
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById("footer-placeholder").innerHTML = data;
-        });
-
-      // Function to display topics based on current page
-      function displayTopics() {
-        topicBoxesContainer.innerHTML = ""; // Clear existing content
-
-        const start = (currentPage - 1) * itemsPerPage;
-        const end = start + itemsPerPage;
-        const topicsToDisplay = filteredTopics.slice(start, end);
-
-        // Generate content boxes for the current page
-        topicsToDisplay.forEach(topic => {
-          const box = document.createElement("div");
-          box.classList.add("content-box");
-          box.innerHTML = `
-            <a href="knowledgehub/${topic.file}">
-              <img src="${topic.image}" alt="${topic.title}">
-              <h3>${topic.title}</h3>
-              <p>${topic.description}</p>
-            </a>
-          `;
-          topicBoxesContainer.appendChild(box);
-        });
-
-        // Update pagination button states
-        prevPageButton.disabled = currentPage === 1;
-        nextPageButton.disabled = end >= filteredTopics.length;
-      }
-
-      // Function to filter topics by category and search term
-      function filterTopics() {
-        const searchTerm = searchInput.value.toLowerCase();
-        filteredTopics = topics.filter(topic => {
-          const matchesCategory = currentCategory === "All" || topic.category === currentCategory;
-          const matchesSearch = topic.title.toLowerCase().includes(searchTerm);
-          return matchesCategory && matchesSearch;
-        });
-        sortTopics();
-      }
-
-      // Function to sort topics
-      function sortTopics() {
-        const sortOption = sortSelect.value;
-        filteredTopics.sort((a, b) => {
-          if (sortOption === "title-asc") return a.title.localeCompare(b.title);
-          if (sortOption === "title-desc") return b.title.localeCompare(a.title);
-          if (sortOption === "category-asc") return a.category.localeCompare(b.category);
-          if (sortOption === "category-desc") return b.category.localeCompare(a.category);
-          return 0;
-        });
-        currentPage = 1;
-        displayTopics();
-      }
-
-      // Event listeners for filter buttons
-      filterButtons.forEach(button => {
-        button.addEventListener("click", () => {
-          filterButtons.forEach(btn => btn.classList.remove("active"));
-          button.classList.add("active");
-          currentCategory = button.getAttribute("data-category");
-          currentPage = 1;
-          filterTopics();
-        });
-      });
-
-      // Event listeners for search and sort
-      searchInput.addEventListener("input", filterTopics);
-      sortSelect.addEventListener("change", sortTopics);
-
-      // Event listeners for pagination buttons
-      prevPageButton.addEventListener("click", () => {
-        if (currentPage > 1) {
-          currentPage--;
-          displayTopics();
-        }
-      });
-
-      nextPageButton.addEventListener("click", () => {
-        if (currentPage * itemsPerPage < filteredTopics.length) {
-          currentPage++;
-          displayTopics();
-        }
-      });
-
-      // Initial display
-      filterTopics();
-    });
-  </script>
+    </script>
 
 </body>
 </html>
+
