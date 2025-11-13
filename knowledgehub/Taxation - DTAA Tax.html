@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- Chosen Palette: Warm Neutrals (White/Gray, Dark Gray Text, Blue Accent) -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nepal's Evolving Tax Landscape</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .tab-button.active {
+            border-bottom: 2px solid #2563EB;
+            color: #2563EB;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <!-- Sticky Header Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold text-blue-700">Nepal's Tax Policy</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#overview" class="nav-link text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Overview</a>
+                        <a href="#dolma-case" class="nav-link text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">The Dolma Case</a>
+                        <a href="#legal-framework" class="nav-link text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Legal Framework</a>
+                        <a href="#ird-action" class="nav-link text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">IRD's Action</a>
+                        <a href="#impact" class="nav-link text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Impact</a>
+                        <a href="#sources" class="nav-link text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Sources</a>
+                    </div>
+                </div>
+                <!-- Mobile Menu (Dropdown) -->
+                <div class="md:hidden">
+                    <select id="mobile-nav" class="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
+                        <option value="#overview">Overview</option>
+                        <option value="#dolma-case">The Dolma Case</option>
+                        <option value="#legal-framework">Legal Framework</option>
+                        <option value="#ird-action">IRD's Action</option>
+                        <option value="#impact">Impact</option>
+                        <option value="#sources">Sources</option>
+                    </select>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="max-w-5xl mx-auto p-4 md:p-8 mt-8">
+
+        <!-- Overview Section -->
+        <section id="overview" class="bg-white p-6 md:p-8 rounded-xl shadow-lg mb-12">
+            <h2 class="text-3xl font-bold text-blue-800 mb-4">A New Chapter in Nepal's Tax Policy</h2>
+            <p class="text-lg text-gray-600 mb-8">
+                A high-profile debate over a foreign investment fund has triggered a major clarification in Nepal's international tax policy. The Inland Revenue Department (IRD) has taken a decisive step to combat "treaty shopping," signaling a new era for foreign investors. This page breaks down the case, the complex legal arguments, and the significant new developments.
+            </p>
+
+            <!-- Visual Flowchart -->
+            <div class="w-full overflow-x-auto">
+                <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-4 p-4 min-w-max">
+                    <div class="text-center p-4 bg-gray-100 rounded-lg shadow-sm">
+                        <h3 class="font-semibold text-gray-700">The Catalyst</h3>
+                        <p class="text-sm text-blue-700">Dolma Impact Fund Case</p>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-400 transform rotate-90 md:rotate-0">&darr;</span>
+                    <div class="text-center p-4 bg-gray-100 rounded-lg shadow-sm">
+                        <h3 class="font-semibold text-gray-700">The Conflict</h3>
+                        <p class="text-sm text-blue-700">DTAA vs. Domestic Law</p>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-400 transform rotate-90 md:rotate-0">&darr;</span>
+                    <div class="text-center p-4 bg-blue-100 rounded-lg shadow-sm ring-2 ring-blue-500">
+                        <h3 class="font-semibold text-blue-800">The Response</h3>
+                        <p class="text-sm text-blue-700">IRD Formal Notification</p>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-400 transform rotate-90 md:rotate-0">&darr;</span>
+                    <div class="text-center p-4 bg-gray-100 rounded-lg shadow-sm">
+                        <h3 class="font-semibold text-gray-700">The Outcome</h3>
+                        <p class="text-sm text-blue-700">New Tax Landscape</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dolma Case Section -->
+        <section id="dolma-case" class="bg-white p-6 md:p-8 rounded-xl shadow-lg mb-12">
+            <h2 class="text-3xl font-bold text-blue-800 mb-4">The Catalyst: The Dolma Impact Fund Case</h2>
+            <p class="text-lg text-gray-600 mb-8">
+                The entire debate was sparked by one central question: could Nepal tax the capital gains of the Dolma Impact Fund, a fund registered in Mauritius, from its investments in Nepal? This created a direct conflict between the fund's claims and Nepal's domestic law.
+            </p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-red-500">
+                    <h3 class="text-xl font-semibold text-red-700 mb-3">Dolma Impact Fund's Position</h3>
+                    <p class="text-gray-700">
+                        The fund claimed exemption under the Nepal-Mauritius Double Taxation Avoidance Agreement (DTAA). They argued that the treaty clearly gives the taxing rights for capital gains to the country of residence, which is Mauritius. Therefore, Nepal had no jurisdiction to tax the gains.
+                    </p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-green-500">
+                    <h3 class="text-xl font-semibold text-green-700 mb-3">Nepal's Counter-Argument</h3>
+                    <p class="text-gray-700">
+                        Nepal's authorities pointed to Section 73(5) of the Income Tax Act, 2002. This domestic law restricts treaty benefits if 50% or more of the entity is owned by persons who are not residents of either Nepal or Mauritius. The implication was that Dolma's ownership structure disqualified it from the exemption.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legal Framework Section (Interactive Tabs) -->
+        <section id="legal-framework" class="bg-white p-6 md:p-8 rounded-xl shadow-lg mb-12">
+            <h2 class="text-3xl font-bold text-blue-800 mb-4">The Legal Framework: A Conflict of Laws</h2>
+            <p class="text-lg text-gray-600 mb-8">
+                The Dolma case exposed a deep legal ambiguity stemming from three key pieces of legislation. This created a "loophole" that was central to the debate. Explore the conflicting arguments by clicking the tabs below.
+            </p>
+            
+            <div>
+                <!-- Tab Headers -->
+                <div class="border-b border-gray-200">
+                    <nav class="-mb-px flex space-x-8" aria-label="Tabs">
+                        <button class="tab-button active whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" data-target="panel-dtaa">
+                            1. The DTAA (1999)
+                        </button>
+                        <button class="tab-button whitespace-nowrap py-4 px-1 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 font-medium text-sm" data-target="panel-ita">
+                            2. Income Tax Act (2002) - Sec 73(5)
+                        </button>
+                        <button class="tab-button whitespace-nowrap py-4 px-1 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 font-medium text-sm" data-target="panel-debate">
+                            3. The Treaty Act (1990) & The Debate
+                        </button>
+                    </nav>
+                </div>
+
+                <!-- Tab Panels -->
+                <div class="py-6">
+                    <div id="panel-dtaa" class="tab-panel">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Nepal-Mauritius DTAA (1999)</h3>
+                        <p class="text-gray-700">
+                            This was the primary legal basis for the investor's claim. The agreement was designed to prevent double taxation and encourage investment. Its provisions explicitly state that capital gains are to be taxed in the country where the investor (the fund) is a resident. Since Dolma Fund is registered in Mauritius, this treaty provision, on its face, exempts it from capital gains tax in Nepal.
+                        </p>
+                    </div>
+                    <div id="panel-ita" class="tab-panel hidden">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Income Tax Act (2002) - Section 73(5)</h3>
+                        <p class="text-gray-700">
+                            This is Nepal's domestic "anti-treaty-shopping" rule. It was enacted in 2002, *after* the DTAA. It specifically states that treaty benefits (like tax exemptions) will be denied to an entity if 50% or more of its underlying ownership is held by individuals or entities who are not residents of either of the two contracting countries. This law is intended to prevent shell companies from third countries from using the treaty to avoid taxes.
+                        </D>
+                    </div>
+                    <div id="panel-debate" class="tab-panel hidden">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">The Treaty Act (1990) & The Core Debate</h3>
+                        <p class="text-gray-700 mb-4">
+                            This is where the loophole appeared. Legal arguments against applying Section 73(5) were based on two main points:
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li><strong>Retroactive Application:</strong> It was argued that Section 73(5) (from 2002) could not retroactively constrain a treaty that was signed and ratified earlier in 1999.</li>
+                            <li><strong>Supremacy of Treaties:</strong> Section 9 of Nepal's Treaty Act, 1990, states that in the event of a conflict between a domestic law and a ratified treaty, the provisions of the treaty will prevail.</li>
+                        </ul>
+                        <p class="text-gray-700 mt-4">
+                            This conflict—between a specific treaty and a domestic anti-abuse law—left the taxability of the gains in a state of legal uncertainty.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- IRD Action Section -->
+        <section id="ird-action" class="bg-white p-6 md:p-8 rounded-xl shadow-lg mb-12">
+            <h2 class="text-3xl font-bold text-blue-800 mb-4">The Resolution: IRD's Formal Notification</h2>
+            <p class="text-lg text-gray-600 mb-8">
+                In response to this ambiguity, Nepal's Inland Revenue Department (IRD) took a formal, decisive step on November 12, 2025. This action, detailed in a press release, is designed to close the perceived loophole and clarify Nepal's legal position for all future investments.
+            </p>
+            <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Key Takeaways from the IRD Notice:</h3>
+                <ul class="space-y-3 text-gray-700">
+                    <li class="flex items-start">
+                        <span class="text-green-600 font-bold text-xl mr-3">&#10004;</span>
+                        <span><strong>Formal Notification:</strong> The IRD has formally notified seven of its DTAA partner countries, including Mauritius, of a "substantive change" in its domestic tax laws.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-600 font-bold text-xl mr-3">&#10004;</span>
+                        <span><strong>The "Change" is Sec 73(5):</strong> The notification explicitly identifies the Income Tax Act, 2002, and its anti-abuse provision (Section 73(5)) as this substantive change.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-600 font-bold text-xl mr-3">&#10004;</span>
+                        <span><strong>Combating "Treaty Shopping":</strong> The IRD stated the policy rationale is to prevent "the unintended exploitation of treaty benefits" by third-country residents and to stop "treaty shopping."</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-600 font-bold text-xl mr-3">&#10004;</span>
+                        <span><strong>Closing the Loophole:</strong> This formal communication serves as Nepal's official assertion that Section 73(5) is a valid and enforceable part of its tax framework, effectively overriding the previous legal ambiguities.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <blockquote class="mt-8 p-4 border-l-4 border-gray-300 bg-gray-50 text-gray-600 italic">
+                "Nepal is firmly committed to maintaining the integrity of its bilateral tax agreements and ensuring that they benefit only Bonafide investors and taxpayers of the respective countries... This notification highlights Nepal's dedication to preventing fiscal evasion and upholding a fair, stable, and transparent international tax environment."
+                <cite class="block text-right not-italic text-sm text-gray-500 mt-2">&mdash; IRD Press Release, Nov 12, 2025</cite>
+            </blockquote>
+        </section>
+
+        <!-- Impact Section -->
+        <section id="impact" class="mb-12">
+            <h2 class="text-3xl font-bold text-blue-800 mb-4 text-center">Impact & The New Landscape</h2>
+            <p class="text-lg text-gray-600 mb-8 text-center max-w-3xl mx-auto">
+                The IRD's action, combined with related developments, has fundamentally altered the landscape for foreign investment in Nepal. The era of relying on older treaty structures for tax exemption is ending.
+            </D>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-800 text-white p-8 rounded-xl shadow-2xl">
+                    <h3 class="text-2xl font-bold mb-3">Imminent: DTAA Suspension</h3>
+                    <p class="text-gray-300">
+                        Compounding the IRD's notice, the Nepal-Mauritius DTAA—the very treaty at the heart of the Dolma case—is reportedly set to be suspended within a six-month period. This move effectively removes the primary legal instrument used for such tax exemptions.
+                    </p>
+                </div>
+                <div class="bg-blue-700 text-white p-8 rounded-xl shadow-2xl">
+                    <h3 class="text-2xl font-bold mb-3">A New Era for Investors</h3>
+                    <p class="text-gray-200">
+                        For all foreign investors, private equity funds, and advisors, the message is clear: Nepal is prioritizing the enforcement of its domestic anti-abuse laws. Tax structures must now be re-evaluated to ensure compliance with provisions like Section 73(5), as treaty benefits will only be extended to *Bonafide* investors.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sources Section (NEW) -->
+        <section id="sources" class="bg-white p-6 md:p-8 rounded-xl shadow-lg mb-12">
+            <h2 class="text-3xl font-bold text-blue-800 mb-6">Sources & Official Documents</h2>
+            <p class="text-lg text-gray-600 mb-6">
+                This analysis is based on the following key documents and reports:
+            </p>
+            <ul class="space-y-4">
+                <li class="flex items-start">
+                    <span class="text-blue-600 font-bold text-xl mr-3">&rarr;</span>
+                    <div>
+                        <h3 class="font-semibold text-gray-900">IRD Press Release (Primary Source)</h3>
+                        <p class="text-gray-600 text-sm">"Press Release Regarding the Formal Notification of Amendment in Domestic Tax Legislation..." (Ref: IRD Notice Regarding DTAA Amendment.pdf)</p>
+                        <p class="text-gray-500 text-sm">Date: November 12, 2025</p>
+                    </div>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-blue-600 font-bold text-xl mr-3">&rarr;</span>
+                    <div>
+                        <h3 class="font-semibold text-gray-900">Nepal–Mauritius DTAA (1999)</h3>
+                        <p class="text-gray-600 text-sm">The bilateral treaty whose provisions on capital gains were central to the debate.</p>
+                    </div>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-blue-600 font-bold text-xl mr-3">&rarr;</span>
+                    <div>
+                        <h3 class="font-semibold text-gray-900">Income Tax Act, 2002</h3>
+                        <p class="text-gray-600 text-sm">Specifically Section 73(5), the domestic anti-treaty-shopping provision.</p>
+                    </div>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-blue-600 font-bold text-xl mr-3">&rarr;</span>
+                    <div>
+                        <h3 class="font-semibold text-gray-900">Treaty Act, 1990</h3>
+                        <p class="text-gray-600 text-sm">Specifically Section 9, concerning the supremacy of ratified treaties over domestic laws.</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-white mt-12 border-t border-gray-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <p class="text-center text-sm text-gray-500">
+                This page is an interactive summary of recent developments in Nepal's tax policy. It is not legal or financial advice.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const mobileNav = document.getElementById('mobile-nav');
+
+            // --- Smooth Scroll Function ---
+            const smoothScroll = (targetId) => {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerOffset = 70; // Height of the sticky header
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            };
+
+            // --- Event Listeners for Desktop Nav ---
+            navLinks.forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    smoothScroll(this.getAttribute('href'));
+                });
+            });
+
+            // --- Event Listener for Mobile Nav ---
+            mobileNav.addEventListener('change', function(e) {
+                smoothScroll(e.target.value);
+            });
+
+            // --- Tab Switching Logic ---
+            const tabs = document.querySelectorAll('.tab-button');
+            const panels = document.querySelectorAll('.tab-panel');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const target = tab.getAttribute('data-target');
+
+                    // Deactivate all tabs
+                    tabs.forEach(t => {
+                        t.classList.remove('active');
+                        t.classList.add('text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300', 'border-transparent');
+                    });
+
+                    // Activate clicked tab
+                    tab.classList.add('active');
+                    tab.classList.remove('text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300', 'border-transparent');
+
+                    // Hide all panels
+                    panels.forEach(panel => {
+                        if (panel.id === target) {
+                            panel.classList.remove('hidden');
+                        } else {
+                            panel.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
