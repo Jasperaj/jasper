@@ -48,6 +48,8 @@
             width: 100%;
             z-index: 1000;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky; /* Added for better usability */
+            top: 0; /* Added for sticky header */
         }
 
         #main-header .container {
@@ -94,7 +96,8 @@
             transition: width 0.3s ease-in-out;
         }
 
-        #main-nav ul li a:hover::after {
+        #main-nav ul li a:hover::after,
+        #main-nav ul li a.active::after { /* Style for active page */
             width: 100%;
         }
 
@@ -105,7 +108,7 @@
         /* Page Header */
         .page-header {
             background: var(--bg-off-white);
-            padding: 8rem 0 4rem 0;
+            padding: 6rem 0 4rem 0; /* Adjusted padding due to sticky header */
             text-align: center;
             border-bottom: 1px solid var(--border-color);
         }
@@ -227,6 +230,7 @@
             height: 180px;
             background-size: cover;
             background-position: center;
+            background-color: var(--bg-off-white); /* Fallback bg */
         }
         
         .resource-card-content {
@@ -287,7 +291,7 @@
                 <ul>
                     <li><a href="">Home</a></li>
                     <li><a href="index.html#services">Services</a></li>
-                    <li><a href="knowledge-hub.html">Knowledge Hub</a></li>
+                    <li><a href="knowledge-hub.html" class="active">Knowledge Hub</a></li> <!-- Added active class -->
                     <li><a href="index.html#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -370,6 +374,21 @@
                         <a href="knowledgehub/Taxation - tds-compliance.html" class="btn-read-more">Learn Rules &rarr;</a>
                     </div>
                 </div>
+
+                <!-- NEW ARTICLE CARD ADDED HERE -->
+                <div class="resource-card" data-category="taxation">
+                    <!-- Using a placeholder image. Replace '...' with your actual image path, e.g., 'img/dtaa-update.png' -->
+                    <div class="resource-card-image" style="background-image: url('https://placehold.co/600x400/e9ecef/212529?text=Tax+Policy+Update');" 
+                         onerror="this.style.backgroundImage='url(\'https://placehold.co/600x400/e9ecef/212529?text=Image+Not+Found\')'"></div>
+                    <div class="resource-card-content">
+                        <h3>DTAA & Tax Policy Update</h3>
+                        <p>An analysis of the Dolma case, DTAA conflicts, and the IRD's formal notification.</p>
+                        <!-- This link points to the file you provided, assuming you place it in the 'knowledgehub' folder -->
+                        <a href="knowledgehub/Taxation - DTAA Tax.html" class="btn-read-more">Read Analysis &rarr;</a>
+                    </div>
+                </div>
+                <!-- END OF NEW ARTICLE CARD -->
+
                 <div class="resource-card" data-category="taxation">
                     <div class="resource-card-image" style="background-image: url('img/income-tax-act.png');"></div>
                     <div class="resource-card-content">
@@ -534,4 +553,3 @@
 
 </body>
 </html>
-
