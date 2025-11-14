@@ -10,6 +10,7 @@ const topics = [
   { "file": "Business - post-company-registration.html", "title": "Post Company Registration in Nepal", "description": "Description not available.", "category": "Business", "image": "../img/post-company-registration.png" },
   { "file": "Taxation - tds-compliance.html", "title": "TDS Compliance in Nepal", "description": "Description not available.", "category": "Taxation", "image": "../img/tds-compliance.png" },
   { "file": "Taxation - vat-compliance.html", "title": "VAT Compliance in Nepal", "description": "Description not available.", "category": "Taxation", "image": "../img/vat-compliance.png" },
+  { "file": "Taxation - Invoice Format for Luxury Tax.html", "title": "Invoice Format for Luxury Tax", "description": "Detailed guide to the mandated luxury tax invoice layout, policy background, and compliance updates.", "category": "Taxation", "image": "../img/compliance.jpg" },
   { "file": "Resources - income-tax-english.html", "title": "Income Tax Act, 2058 (2002) - Nepal", "description": "Description not available.", "category": "Resources", "image": "../img/income-tax-act.png" },
   { "file": "Resources - vat-english.html", "title": "Value Added Tax Act - Nepal", "description": "Description not available.", "category": "Taxation", "image": "../img/companies-act.png" },
   { "file": "Resources - company-act-english.html", "title": "Companies Act 2063 BS (2006 AD) - Nepal", "description": "Description not available.", "category": "Resources", "image": "../img/companies-act.png" },
