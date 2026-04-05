@@ -159,6 +159,7 @@
     <h1>Extracting Nepali Bank Statement Data from PDF to Excel</h1>
       <!-- Header Image -->
       <img src="../img/bs-pdf-to-excel.png" alt="Companies Act 2063 Banner" class="header-image" loading="lazy">
+      <img src="../img/bs-pdf-to-excel.png" alt="Companies Act 2063 Banner" class="header-image">
     <section>
       <h2>Introduction</h2>
       <p>This guide explains how to extract table data from NIC Asia Bank PDF bank statements and save it as an Excel file. Using Google Colab for this process avoids the need to install anything on your local machine, allowing you to upload the bank statement PDF or connect a Google Drive folder to save the output file.</p>
@@ -287,6 +288,7 @@ files.download(output_file)</code></pre>
           if (!response.ok) throw new Error(`Request failed: ${response.status}`);
           return response.text();
         })
+        .then(response => response.text())
         .then(data => {
           document.getElementById("header-placeholder").innerHTML = data;
         })
@@ -297,6 +299,7 @@ files.download(output_file)</code></pre>
           if (!response.ok) throw new Error(`Request failed: ${response.status}`);
           return response.text();
         })
+        .then(response => response.text())
         .then(data => {
           document.getElementById("footer-placeholder").innerHTML = data;
         })

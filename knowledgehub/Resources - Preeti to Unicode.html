@@ -190,6 +190,7 @@ fixed header */
 
       <!-- Header Image -->
       <img src="../img/preeti-unicode.png" alt="Companies Act 2063 Banner" class="header-image" loading="lazy">
+      <img src="../img/preeti-unicode.png" alt="Companies Act 2063 Banner" class="header-image">
 
 <div class="nav-tabs">
     <div id="preetiToUnicodeTab" class="tab active" onclick="showConverter('preetiToUnicode')">Preeti to Unicode</div>
@@ -392,6 +393,7 @@ document.querySelectorAll('.category').forEach(category => {
           if (!response.ok) throw new Error(`Request failed: ${response.status}`);
           return response.text();
         })
+        .then(response => response.text())
         .then(data => {
           document.getElementById("header-placeholder").innerHTML = data;
         })
@@ -402,6 +404,7 @@ document.querySelectorAll('.category').forEach(category => {
           if (!response.ok) throw new Error(`Request failed: ${response.status}`);
           return response.text();
         })
+        .then(response => response.text())
         .then(data => {
           document.getElementById("footer-placeholder").innerHTML = data;
         })

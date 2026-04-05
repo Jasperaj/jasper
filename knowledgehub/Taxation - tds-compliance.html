@@ -159,6 +159,7 @@
     <h1>TDS Compliance in Nepal</h1>
       <!-- Header Image -->
       <img src="../img/tds-compliance.png" alt="TDS Compliance Banner" class="header-image" loading="lazy">	
+      <img src="../img/tds-compliance.png" alt="TDS Compliance Banner" class="header-image">	
     <!-- Summary Table -->
     <table class="summary-table table table-bordered">
       <thead>
@@ -569,6 +570,7 @@ Equipment Rental Expense      Dr   120,000
           if (!response.ok) throw new Error(`Request failed: ${response.status}`);
           return response.text();
         })
+        .then(response => response.text())
         .then(data => {
           document.getElementById("header-placeholder").innerHTML = data;
         })
@@ -579,6 +581,7 @@ Equipment Rental Expense      Dr   120,000
           if (!response.ok) throw new Error(`Request failed: ${response.status}`);
           return response.text();
         })
+        .then(response => response.text())
         .then(data => {
           document.getElementById("footer-placeholder").innerHTML = data;
         })

@@ -118,6 +118,7 @@
 
       <!-- Header Image -->
       <img src="../img/companies-act.png" alt="Companies Act 2063 Banner" class="header-image" loading="lazy">
+      <img src="../img/companies-act.png" alt="Companies Act 2063 Banner" class="header-image">
     <section>
       <h2>The Basic Concept of Trademark</h2>
       <p>In a competitive economy, unique branding is crucial for distinguishing a business from its competitors. A trademark serves as a unique identifier for products, services, or the business entity itself, protecting them from imitation. It preserves a business’s brand, helping customers recognize and trust its offerings.</p>
@@ -144,6 +145,19 @@
       </div>
       <div class="trademark-item">
         <img src="../img/trademark/image4.png" alt="Shapes and Other Identifiers" loading="lazy">
+        <img src="../img/trademark/image1.png" alt="Product or Business Name">
+        <p><strong>Product or Business Name:</strong> Names like "Pepsi" or "Sony" can be registered as trademarks to identify a company or product.</p>
+      </div>
+      <div class="trademark-item">
+        <img src="../img/trademark/image2.png" alt="Logo or Symbol">
+        <p><strong>Logo or Symbol:</strong> Logos serve as visual representations, such as McDonald's golden arches or Mercedes-Benz's three-pointed star.</p>
+      </div>
+      <div class="trademark-item">
+        <img src="../img/trademark/image3.png" alt="Business Tagline">
+        <p><strong>Business Tagline:</strong> Taglines like "The Ultimate Driving Machine" by BMW or "Finger Lickin' Good" by KFC can be trademarked to reinforce brand identity.</p>
+      </div>
+      <div class="trademark-item">
+        <img src="../img/trademark/image4.png" alt="Shapes and Other Identifiers">
         <p><strong>Shapes and Other Identifiers:</strong> Shapes, colors, scents, and packaging styles can also be trademarked.</p>
       </div>
     </section>
@@ -184,6 +198,7 @@
       <section class="flowchart">
         <h2>Trademark Registration Process Flowchart</h2>
         <img src="../img/trademark/trademark-flowchart.png" alt="Trademark Registration Process Flowchart" loading="lazy">
+        <img src="../img/trademark/trademark-flowchart.png" alt="Trademark Registration Process Flowchart">
       </section>
       <ol>
         <li><strong>Submission of Application:</strong> Submit an application to the DOI with the necessary documents:
@@ -249,6 +264,7 @@
           if (!response.ok) throw new Error(`Request failed: ${response.status}`);
           return response.text();
         })
+        .then(response => response.text())
         .then(data => {
           document.getElementById("header-placeholder").innerHTML = data;
         })
@@ -259,6 +275,7 @@
           if (!response.ok) throw new Error(`Request failed: ${response.status}`);
           return response.text();
         })
+        .then(response => response.text())
         .then(data => {
           document.getElementById("footer-placeholder").innerHTML = data;
         })

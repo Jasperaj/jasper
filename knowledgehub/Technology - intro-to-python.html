@@ -152,6 +152,7 @@
     <h1>Technology - Lesson 1: Introduction to Python</h1>
       <!-- Header Image -->
       <img src="../img/python.png" alt="Python Banner" class="header-image" loading="lazy">
+      <img src="../img/python.png" alt="Python Banner" class="header-image">
     <section>
       <h2>Introduction</h2>
       <p>Python is a powerful, high-level programming language widely used for web development, data analysis, artificial intelligence, scientific computing, and automation. Known for its readability and simplicity, Python is often the first language new programmers learn due to its extensive support libraries and community.</p>
@@ -259,6 +260,7 @@
           if (!response.ok) throw new Error(`Request failed: ${response.status}`);
           return response.text();
         })
+        .then(response => response.text())
         .then(data => {
           document.getElementById("header-placeholder").innerHTML = data;
         })
@@ -269,6 +271,7 @@
           if (!response.ok) throw new Error(`Request failed: ${response.status}`);
           return response.text();
         })
+        .then(response => response.text())
         .then(data => {
           document.getElementById("footer-placeholder").innerHTML = data;
         })

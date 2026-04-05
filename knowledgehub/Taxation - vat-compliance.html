@@ -180,6 +180,7 @@
 
       <!-- Header Image -->
       <img src="../img/vat-compliance.png" alt="VAT Compliance Banner" class="header-image" loading="lazy">
+      <img src="../img/vat-compliance.png" alt="VAT Compliance Banner" class="header-image">
     <!-- Table of Contents -->
     <h2>Table of Contents</h2>
     <ul>
@@ -918,6 +919,7 @@
           if (!response.ok) throw new Error(`Request failed: ${response.status}`);
           return response.text();
         })
+        .then(response => response.text())
         .then(data => {
           document.getElementById("header-placeholder").innerHTML = data;
         })
@@ -928,6 +930,7 @@
           if (!response.ok) throw new Error(`Request failed: ${response.status}`);
           return response.text();
         })
+        .then(response => response.text())
         .then(data => {
           document.getElementById("footer-placeholder").innerHTML = data;
         })

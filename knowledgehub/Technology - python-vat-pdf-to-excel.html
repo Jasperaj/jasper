@@ -159,6 +159,7 @@
 
       <!-- Header Image -->
       <img src="../img/python-vat-pdf-excel.png" alt="Python VAT PDF to Excel" class="header-image" loading="lazy">
+      <img src="../img/python-vat-pdf-excel.png" alt="Python VAT PDF to Excel" class="header-image">
 
     <section>
       <h2>Introduction</h2>
@@ -327,6 +328,7 @@ for file in glob.glob("*.pdf"):
           if (!response.ok) throw new Error(`Request failed: ${response.status}`);
           return response.text();
         })
+        .then(response => response.text())
         .then(data => {
           document.getElementById("header-placeholder").innerHTML = data;
         })
@@ -337,6 +339,7 @@ for file in glob.glob("*.pdf"):
           if (!response.ok) throw new Error(`Request failed: ${response.status}`);
           return response.text();
         })
+        .then(response => response.text())
         .then(data => {
           document.getElementById("footer-placeholder").innerHTML = data;
         })

@@ -153,6 +153,7 @@
 
       <!-- Header Image -->
       <img src="../img/python-in-finance.png" alt="Python in Finance Banner" class="header-image" loading="lazy">
+      <img src="../img/python-in-finance.png" alt="Python in Finance Banner" class="header-image">
 
       <section>
         <h2>Importance of Python in Finance</h2>
@@ -253,6 +254,7 @@ print("Portfolio Risk:", portfolio_risk)</code></pre>
           if (!response.ok) throw new Error(`Request failed: ${response.status}`);
           return response.text();
         })
+        .then(response => response.text())
         .then(data => {
           document.getElementById("header-placeholder").innerHTML = data;
         })
@@ -263,6 +265,7 @@ print("Portfolio Risk:", portfolio_risk)</code></pre>
           if (!response.ok) throw new Error(`Request failed: ${response.status}`);
           return response.text();
         })
+        .then(response => response.text())
         .then(data => {
           document.getElementById("footer-placeholder").innerHTML = data;
         })
