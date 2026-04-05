@@ -119,6 +119,22 @@
       line-height: 1.8; /* Adjusts line spacing for better readability */
       font-size: 1em; /* Ensures the font size is appropriate for readability */
     }
+  
+
+    @media (max-width: 768px) {
+      #sidebar,
+      #sidebar-placeholder,
+      #main-content {
+        width: 100% !important;
+        float: none !important;
+        height: auto !important;
+      }
+
+      #main-content {
+        padding: 15px;
+      }
+    }
+
   </style>
 </head>
 
@@ -135,7 +151,7 @@
   <main id="main-content">
     <h1>Technology - Lesson 1: Introduction to Python</h1>
       <!-- Header Image -->
-      <img src="../img/python.png" alt="Python Banner" class="header-image">
+      <img src="../img/python.png" alt="Python Banner" class="header-image" loading="lazy">
     <section>
       <h2>Introduction</h2>
       <p>Python is a powerful, high-level programming language widely used for web development, data analysis, artificial intelligence, scientific computing, and automation. Known for its readability and simplicity, Python is often the first language new programmers learn due to its extensive support libraries and community.</p>
@@ -239,14 +255,20 @@
     document.addEventListener("DOMContentLoaded", function() {
       // Load header and footer dynamically
       fetch("../header.html")
-        .then(response => response.text())
+        .then(response => {
+          if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+          return response.text();
+        })
         .then(data => {
           document.getElementById("header-placeholder").innerHTML = data;
         })
         .catch(error => console.error("Error loading header:", error));
 
       fetch("../footer.html")
-        .then(response => response.text())
+        .then(response => {
+          if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+          return response.text();
+        })
         .then(data => {
           document.getElementById("footer-placeholder").innerHTML = data;
         })

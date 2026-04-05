@@ -167,7 +167,7 @@
       <h1>Industrial Enterprises Act, 2076 (2020 AD) - Nepal</h1>
 
       <!-- Header Image -->
-      <img src="../img/IEA.png" alt="Industrial Enterprises Act Banner" class="header-image">
+      <img src="../img/IEA.png" alt="Industrial Enterprises Act Banner" class="header-image" loading="lazy">
       <p>The Industrial Enterprises Act, 2076 (2020 AD), provides a framework for the promotion, regulation, and management of industrial enterprises in Nepal. The document is available below, with a table of contents to navigate key sections of the Act.</p>
 
       <!-- Table of Contents -->
@@ -208,14 +208,20 @@
     document.addEventListener("DOMContentLoaded", function () {
       // Load header and footer dynamically
       fetch("../header.html")
-        .then(response => response.text())
+        .then(response => {
+          if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+          return response.text();
+        })
         .then(data => {
           document.getElementById("header-placeholder").innerHTML = data;
         })
         .catch(error => console.error("Error loading header:", error));
       
       fetch("../footer.html")
-        .then(response => response.text())
+        .then(response => {
+          if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+          return response.text();
+        })
         .then(data => {
           document.getElementById("footer-placeholder").innerHTML = data;
         })

@@ -52,6 +52,22 @@
     margin-bottom: 20px;
     text-align: center;
 }
+  
+
+    @media (max-width: 768px) {
+      #sidebar,
+      #sidebar-placeholder,
+      #main-content {
+        width: 100% !important;
+        float: none !important;
+        height: auto !important;
+      }
+
+      #main-content {
+        padding: 15px;
+      }
+    }
+
   </style>
 </head>
 
@@ -75,7 +91,7 @@
     <h1>Post Company Registration in Nepal</h1>
 
       <!-- Header Image -->
-      <img src="../img/post-company-registration.png" alt="Post Company Registration Banner" class="header-image">
+      <img src="../img/post-company-registration.png" alt="Post Company Registration Banner" class="header-image" loading="lazy">
     <section>
       <h2>Introduction</h2>
       <p>Once a company is registered in Nepal, it must adhere to specific post-registration compliance requirements. These include obtaining licenses, setting up financial systems, filing regular reports, and maintaining accurate records. Compliance is essential for the smooth operation and legal standing of the business.</p>
@@ -211,14 +227,20 @@
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       fetch("../header.html")
-        .then(response => response.text())
+        .then(response => {
+          if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+          return response.text();
+        })
         .then(data => {
           document.getElementById("header-placeholder").innerHTML = data;
         })
         .catch(error => console.error("Error loading header:", error));
 
       fetch("../footer.html")
-        .then(response => response.text())
+        .then(response => {
+          if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+          return response.text();
+        })
         .then(data => {
           document.getElementById("footer-placeholder").innerHTML = data;
         })

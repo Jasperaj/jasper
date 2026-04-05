@@ -146,6 +146,22 @@
       line-height: 1.8; /* Adjusts line spacing for better readability */
       font-size: 1em; /* Ensures the font size is appropriate for readability */
     }
+  
+
+    @media (max-width: 768px) {
+      #sidebar,
+      #sidebar-placeholder,
+      #main-content {
+        width: 100% !important;
+        float: none !important;
+        height: auto !important;
+      }
+
+      #main-content {
+        padding: 15px;
+      }
+    }
+
   </style>
 </head>
 
@@ -163,7 +179,7 @@
     <h1>VAT Compliance in Nepal</h1>
 
       <!-- Header Image -->
-      <img src="../img/vat-compliance.png" alt="VAT Compliance Banner" class="header-image">
+      <img src="../img/vat-compliance.png" alt="VAT Compliance Banner" class="header-image" loading="lazy">
     <!-- Table of Contents -->
     <h2>Table of Contents</h2>
     <ul>
@@ -898,14 +914,20 @@
     document.addEventListener("DOMContentLoaded", function() {
       // Load header and footer dynamically
       fetch("../header.html")
-        .then(response => response.text())
+        .then(response => {
+          if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+          return response.text();
+        })
         .then(data => {
           document.getElementById("header-placeholder").innerHTML = data;
         })
         .catch(error => console.error("Error loading header:", error));
 
       fetch("../footer.html")
-        .then(response => response.text())
+        .then(response => {
+          if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+          return response.text();
+        })
         .then(data => {
           document.getElementById("footer-placeholder").innerHTML = data;
         })

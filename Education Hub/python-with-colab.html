@@ -51,6 +51,22 @@
     h1, h2 {
       color: #0c2e8a;
     }
+  
+
+    @media (max-width: 768px) {
+      #sidebar,
+      #sidebar-placeholder,
+      #main-content {
+        width: 100% !important;
+        float: none !important;
+        height: auto !important;
+      }
+
+      #main-content {
+        padding: 15px;
+      }
+    }
+
   </style>
 </head>
 
@@ -163,14 +179,20 @@ plt.show()</code></pre>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       fetch("../header.html")
-        .then(response => response.text())
+        .then(response => {
+          if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+          return response.text();
+        })
         .then(data => {
           document.getElementById("header-placeholder").innerHTML = data;
         })
         .catch(error => console.error("Error loading header:", error));
 
       fetch("../footer.html")
-        .then(response => response.text())
+        .then(response => {
+          if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+          return response.text();
+        })
         .then(data => {
           document.getElementById("footer-placeholder").innerHTML = data;
         })

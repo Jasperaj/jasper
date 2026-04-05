@@ -81,6 +81,22 @@
     margin-bottom: 20px;
     text-align: center;
 }
+  
+
+    @media (max-width: 768px) {
+      #sidebar,
+      #sidebar-placeholder,
+      #main-content {
+        width: 100% !important;
+        float: none !important;
+        height: auto !important;
+      }
+
+      #main-content {
+        padding: 15px;
+      }
+    }
+
   </style>
 </head>
 
@@ -101,7 +117,7 @@
     <h1>Trademark Registration Process in Nepal</h1>
 
       <!-- Header Image -->
-      <img src="../img/companies-act.png" alt="Companies Act 2063 Banner" class="header-image">
+      <img src="../img/companies-act.png" alt="Companies Act 2063 Banner" class="header-image" loading="lazy">
     <section>
       <h2>The Basic Concept of Trademark</h2>
       <p>In a competitive economy, unique branding is crucial for distinguishing a business from its competitors. A trademark serves as a unique identifier for products, services, or the business entity itself, protecting them from imitation. It preserves a business’s brand, helping customers recognize and trust its offerings.</p>
@@ -115,19 +131,19 @@
     <section>
       <h2>What Can Be Registered as a Trademark?</h2>
       <div class="trademark-item">
-        <img src="../img/trademark/image1.png" alt="Product or Business Name">
+        <img src="../img/trademark/image1.png" alt="Product or Business Name" loading="lazy">
         <p><strong>Product or Business Name:</strong> Names like "Pepsi" or "Sony" can be registered as trademarks to identify a company or product.</p>
       </div>
       <div class="trademark-item">
-        <img src="../img/trademark/image2.png" alt="Logo or Symbol">
+        <img src="../img/trademark/image2.png" alt="Logo or Symbol" loading="lazy">
         <p><strong>Logo or Symbol:</strong> Logos serve as visual representations, such as McDonald's golden arches or Mercedes-Benz's three-pointed star.</p>
       </div>
       <div class="trademark-item">
-        <img src="../img/trademark/image3.png" alt="Business Tagline">
+        <img src="../img/trademark/image3.png" alt="Business Tagline" loading="lazy">
         <p><strong>Business Tagline:</strong> Taglines like "The Ultimate Driving Machine" by BMW or "Finger Lickin' Good" by KFC can be trademarked to reinforce brand identity.</p>
       </div>
       <div class="trademark-item">
-        <img src="../img/trademark/image4.png" alt="Shapes and Other Identifiers">
+        <img src="../img/trademark/image4.png" alt="Shapes and Other Identifiers" loading="lazy">
         <p><strong>Shapes and Other Identifiers:</strong> Shapes, colors, scents, and packaging styles can also be trademarked.</p>
       </div>
     </section>
@@ -167,7 +183,7 @@
       <p>Here’s a step-by-step guide for registering a trademark in Nepal:</p>
       <section class="flowchart">
         <h2>Trademark Registration Process Flowchart</h2>
-        <img src="../img/trademark/trademark-flowchart.png" alt="Trademark Registration Process Flowchart">
+        <img src="../img/trademark/trademark-flowchart.png" alt="Trademark Registration Process Flowchart" loading="lazy">
       </section>
       <ol>
         <li><strong>Submission of Application:</strong> Submit an application to the DOI with the necessary documents:
@@ -229,14 +245,20 @@
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       fetch("../header.html")
-        .then(response => response.text())
+        .then(response => {
+          if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+          return response.text();
+        })
         .then(data => {
           document.getElementById("header-placeholder").innerHTML = data;
         })
         .catch(error => console.error("Error loading header:", error));
 
       fetch("../footer.html")
-        .then(response => response.text())
+        .then(response => {
+          if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+          return response.text();
+        })
         .then(data => {
           document.getElementById("footer-placeholder").innerHTML = data;
         })

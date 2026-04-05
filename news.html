@@ -17,7 +17,7 @@
         <!-- News Item 1 -->
         <div class="col-lg-4 col-md-6 mb-4">
           <div class="card news-card">
-            <img src="img/news-1.jpg" class="card-img-top" alt="News Image">
+            <img src="img/news-1.jpg" class="card-img-top" alt="News Image" loading="lazy">
             <div class="card-body">
               <h5 class="card-title">Annual Financial Summit 2024</h5>
               <p class="card-text">Join us for the Annual Financial Summit, where industry experts share insights on the future of finance.</p>
@@ -29,7 +29,7 @@
         <!-- News Item 2 -->
         <div class="col-lg-4 col-md-6 mb-4">
           <div class="card news-card">
-            <img src="img/news-2.jpg" class="card-img-top" alt="News Image">
+            <img src="img/news-2.jpg" class="card-img-top" alt="News Image" loading="lazy">
             <div class="card-body">
               <h5 class="card-title">New Partnership Announcement</h5>
               <p class="card-text">Unifour Consultancy partners with leading tech firm to enhance financial technology solutions.</p>
@@ -41,7 +41,7 @@
         <!-- News Item 3 -->
         <div class="col-lg-4 col-md-6 mb-4">
           <div class="card news-card">
-            <img src="img/news-3.jpg" class="card-img-top" alt="News Image">
+            <img src="img/news-3.jpg" class="card-img-top" alt="News Image" loading="lazy">
             <div class="card-body">
               <h5 class="card-title">Free Webinar: Financial Compliance</h5>
               <p class="card-text">Sign up for our free webinar on financial compliance, covering new regulations and best practices.</p>
@@ -119,19 +119,30 @@
   <script src="lib/jquery/jquery.min.js"></script>
   <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script>
-// JavaScript to load header and footer
+// JavaScript to load header and footer with graceful fallbacks
 document.addEventListener("DOMContentLoaded", function() {
-  fetch("header.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("header-placeholder").innerHTML = data;
-    });
+  const loadPartial = (url, elementId, fallbackMessage) => {
+    const target = document.getElementById(elementId);
+    if (!target) return;
 
-  fetch("footer.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("footer-placeholder").innerHTML = data;
-    });
+    target.innerHTML = '<div class="text-center py-2">Loading...</div>';
+
+    fetch(url)
+      .then(response => {
+        if (!response.ok) throw new Error(`${url} returned ${response.status}`);
+        return response.text();
+      })
+      .then(data => {
+        target.innerHTML = data;
+      })
+      .catch(error => {
+        console.error(`Error loading ${url}:`, error);
+        target.innerHTML = `<div class="text-center py-2 text-muted">${fallbackMessage}</div>`;
+      });
+  };
+
+  loadPartial("header.html", "header-placeholder", "Navigation is temporarily unavailable.");
+  loadPartial("footer.html", "footer-placeholder", "Footer is temporarily unavailable.");
 });
 </script>
 

@@ -149,7 +149,7 @@
 
   <div class="row">
     <div class="col-lg-6 about-img">
-      <img src="img/about-img.jpg" alt="How We Work" style="width: 100%; height: auto;">
+      <img src="img/about-img.jpg" alt="How We Work" style="width: 100%; height: auto;" loading="lazy">
     </div>
 
     <div class="col-lg-6 content">
@@ -291,7 +291,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                <img src="../img/business-registration.jpg" alt="Business Registration Image" style="max-width: 20%; height: auto;">
+                <img src="../img/business-registration.jpg" alt="Business Registration Image" style="max-width: 20%; height: auto;" loading="lazy">
                 <p>Complete Business Registration service, including:</p>
                 <ul>
                   <li>Company Registration and document preparation</li>
@@ -332,7 +332,7 @@
                 </button>
               </div>
               <div class="modal-body">
-        	<img src="../img/book-keeping.jpg" alt="Accounting Image" class="mb-3" style="max-width: 20%; height: auto;">
+        	<img src="../img/book-keeping.jpg" alt="Accounting Image" class="mb-3" style="max-width: 20%; height: auto;" loading="lazy">
                 <p>Our accounting and bookkeeping services ensure:</p>
                 <ul>
                   <li>Company record Initial Setup</li>
@@ -371,7 +371,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <img src="../img/financial-reporting.jpg" alt="Financial Reporting Image" class="mb-3" style="max-width: 40%; height: auto;">
+        <img src="../img/financial-reporting.jpg" alt="Financial Reporting Image" class="mb-3" style="max-width: 40%; height: auto;" loading="lazy">
         <p>Our financial reporting and analysis services provide valuable insights, including:</p>
         <ul>
           <li>Preparation of accurate financial statements</li>
@@ -410,7 +410,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <img src="../img/compliance.jpg" alt="Compliance Image" class="mb-3" style="max-width: 30%; height: auto;">
+        <img src="../img/compliance.jpg" alt="Compliance Image" class="mb-3" style="max-width: 30%; height: auto;" loading="lazy">
         <p>Our statutory compliance services ensure timely and accurate filings:</p>
         <ul>
           <li>Timely Income tax, TDS, and VAT Filing</li>
@@ -447,7 +447,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <img src="../img/advisory.jpg" alt="Advisory Services Image" class="mb-3"  style="max-width: 40%; height: auto;">
+        <img src="../img/advisory.jpg" alt="Advisory Services Image" class="mb-3"  style="max-width: 40%; height: auto;" loading="lazy">
         <p>Our advisory services support strategic business decisions through:</p>
         <ul>
           <li>Regular update on regulatory changes</li>
@@ -485,7 +485,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <img src="../img/ancillary-services.jpg" alt="Ancillary Services Image" class="mb-3" style="max-width: 30%; height: auto;">
+        <img src="../img/ancillary-services.jpg" alt="Ancillary Services Image" class="mb-3" style="max-width: 30%; height: auto;" loading="lazy">
         <p>Our ancillary services cover various aspects to support your business operations:</p>
         <ul>
           <li>Company Valuation</li>
@@ -518,7 +518,7 @@
       <!-- Email Contact -->
       <div class="col-md-6">
         <div class="contact-email" style="text-align: center; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 30px; transition: transform 0.3s, box-shadow 0.3s; min-height: 200px;">
-          <a href="mailto:unifourconsultancy@gmail.com" style="text-decoration: none; color: inherit;">
+          <a href="mailto:info@unifour.com.np" style="text-decoration: none; color: inherit;">
             <i class="ion-ios-email-outline" style="font-size: 2em; color: #0c2e8a;"></i>
             <h3 style="color: #0c2e8a;">Email</h3>
           </a>
@@ -561,19 +561,30 @@
   <script src="lib/jquery/jquery.min.js"></script>
   <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script>
-// JavaScript to load header and footer
+// JavaScript to load header and footer with graceful fallbacks
 document.addEventListener("DOMContentLoaded", function() {
-  fetch("header.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("header-placeholder").innerHTML = data;
-    });
+  const loadPartial = (url, elementId, fallbackMessage) => {
+    const target = document.getElementById(elementId);
+    if (!target) return;
 
-  fetch("footer.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("footer-placeholder").innerHTML = data;
-    });
+    target.innerHTML = '<div class="text-center py-2">Loading...</div>';
+
+    fetch(url)
+      .then(response => {
+        if (!response.ok) throw new Error(`${url} returned ${response.status}`);
+        return response.text();
+      })
+      .then(data => {
+        target.innerHTML = data;
+      })
+      .catch(error => {
+        console.error(`Error loading ${url}:`, error);
+        target.innerHTML = `<div class="text-center py-2 text-muted">${fallbackMessage}</div>`;
+      });
+  };
+
+  loadPartial("header.html", "header-placeholder", "Navigation is temporarily unavailable.");
+  loadPartial("footer.html", "footer-placeholder", "Footer is temporarily unavailable.");
 });
 </script>
 

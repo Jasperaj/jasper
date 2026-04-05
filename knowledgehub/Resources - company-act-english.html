@@ -61,7 +61,7 @@
       <h1>Companies Act 2063 BS (2006 AD) - Nepal</h1>
 
       <!-- Header Image -->
-      <img src="../img/companies-act.png" alt="Companies Act 2063 Banner" class="header-image">
+      <img src="../img/companies-act.png" alt="Companies Act 2063 Banner" class="header-image" loading="lazy">
 
 
       <p>The Companies Act, 2063 BS (2006 AD), provides the legal framework for the formation, management, and regulation of companies in Nepal. Below is the complete document along with a table of contents for easier navigation through the main sections.</p>
@@ -102,14 +102,20 @@
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       fetch("../header.html")
-        .then(response => response.text())
+        .then(response => {
+          if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+          return response.text();
+        })
         .then(data => {
           document.getElementById("header-placeholder").innerHTML = data;
         })
         .catch(error => console.error("Error loading header:", error));
 
       fetch("../footer.html")
-        .then(response => response.text())
+        .then(response => {
+          if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+          return response.text();
+        })
         .then(data => {
           document.getElementById("footer-placeholder").innerHTML = data;
         })
