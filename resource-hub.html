@@ -252,17 +252,29 @@
       let currentCategory = "All";
       let filteredTopics = topics;
 
-      // Load header and footer dynamically
-      fetch("../header.html")
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById("header-placeholder").innerHTML = data;
-        });
-      fetch("../footer.html")
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById("footer-placeholder").innerHTML = data;
-        });
+      // Load header and footer dynamically with graceful fallbacks
+      const loadPartial = (url, elementId, fallbackMessage) => {
+        const target = document.getElementById(elementId);
+        if (!target) return;
+
+        target.innerHTML = '<div class="text-center py-2">Loading...</div>';
+
+        fetch(url)
+          .then(response => {
+            if (!response.ok) throw new Error(`${url} returned ${response.status}`);
+            return response.text();
+          })
+          .then(data => {
+            target.innerHTML = data;
+          })
+          .catch(error => {
+            console.error(`Error loading ${url}:`, error);
+            target.innerHTML = `<div class="text-center py-2 text-muted">${fallbackMessage}</div>`;
+          });
+      };
+
+      loadPartial("header.html", "header-placeholder", "Navigation is temporarily unavailable.");
+      loadPartial("footer.html", "footer-placeholder", "Footer is temporarily unavailable.");
 
       // Populate sidebar with categories and topics
       function populateSidebar() {
