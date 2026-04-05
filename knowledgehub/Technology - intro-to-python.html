@@ -151,6 +151,7 @@
   <main id="main-content">
     <h1>Technology - Lesson 1: Introduction to Python</h1>
       <!-- Header Image -->
+      <img src="../img/python.png" alt="Python Banner" class="header-image" loading="lazy">
       <img src="../img/python.png" alt="Python Banner" class="header-image">
     <section>
       <h2>Introduction</h2>
@@ -255,6 +256,10 @@
     document.addEventListener("DOMContentLoaded", function() {
       // Load header and footer dynamically
       fetch("../header.html")
+        .then(response => {
+          if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+          return response.text();
+        })
         .then(response => response.text())
         .then(data => {
           document.getElementById("header-placeholder").innerHTML = data;
@@ -262,6 +267,10 @@
         .catch(error => console.error("Error loading header:", error));
 
       fetch("../footer.html")
+        .then(response => {
+          if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+          return response.text();
+        })
         .then(response => response.text())
         .then(data => {
           document.getElementById("footer-placeholder").innerHTML = data;

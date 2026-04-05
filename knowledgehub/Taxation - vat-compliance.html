@@ -179,6 +179,7 @@
     <h1>VAT Compliance in Nepal</h1>
 
       <!-- Header Image -->
+      <img src="../img/vat-compliance.png" alt="VAT Compliance Banner" class="header-image" loading="lazy">
       <img src="../img/vat-compliance.png" alt="VAT Compliance Banner" class="header-image">
     <!-- Table of Contents -->
     <h2>Table of Contents</h2>
@@ -914,6 +915,10 @@
     document.addEventListener("DOMContentLoaded", function() {
       // Load header and footer dynamically
       fetch("../header.html")
+        .then(response => {
+          if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+          return response.text();
+        })
         .then(response => response.text())
         .then(data => {
           document.getElementById("header-placeholder").innerHTML = data;
@@ -921,6 +926,10 @@
         .catch(error => console.error("Error loading header:", error));
 
       fetch("../footer.html")
+        .then(response => {
+          if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+          return response.text();
+        })
         .then(response => response.text())
         .then(data => {
           document.getElementById("footer-placeholder").innerHTML = data;

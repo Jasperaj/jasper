@@ -200,6 +200,7 @@ fixed header */
   <!-- Main Content Section -->
   <main id="main-content">
       <h1>EMI Calculator for Home Loan, Car Loan & Personal Loan</h1>
+      <img src="../img/emi-calculator.png" alt="EMI Calculator Banner" class="header-image" loading="lazy">
       <img src="../img/emi-calculator.png" alt="EMI Calculator Banner" class="header-image">
 
       <div class="card mt-4">
@@ -332,6 +333,10 @@ document.querySelectorAll('.category').forEach(category => {
     document.addEventListener("DOMContentLoaded", function() {
       // Load header and footer dynamically
       fetch("../header.html")
+        .then(response => {
+          if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+          return response.text();
+        })
         .then(response => response.text())
         .then(data => {
           document.getElementById("header-placeholder").innerHTML = data;
@@ -339,6 +344,10 @@ document.querySelectorAll('.category').forEach(category => {
         .catch(error => console.error("Error loading header:", error));
 
       fetch("../footer.html")
+        .then(response => {
+          if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+          return response.text();
+        })
         .then(response => response.text())
         .then(data => {
           document.getElementById("footer-placeholder").innerHTML = data;

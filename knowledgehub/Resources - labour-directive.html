@@ -165,7 +165,7 @@
         <h1>Labour Directive, 2075 - Nepal</h1>
 
         <!-- Header Image -->
-        <img src="../img/labour-act.png" alt="Labour Directive Banner" class="header-image">
+        <img src="../img/labour-act.png" alt="Labour Directive Banner" class="header-image" loading="lazy">
         <p>The Labour Directive, 2075 outlines the rights, responsibilities, and protections for both employees and employers in Nepal. This document serves as a comprehensive guide for workplace standards, conditions, and dispute resolution processes. The full text is available below, along with a table of contents for quick access to key sections.</p>
 
         <!-- Table of Contents -->
@@ -206,14 +206,20 @@
     document.addEventListener("DOMContentLoaded", function () {
       // Load header and footer dynamically
       fetch("../header.html")
-        .then(response => response.text())
+        .then(response => {
+          if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+          return response.text();
+        })
         .then(data => {
           document.getElementById("header-placeholder").innerHTML = data;
         })
         .catch(error => console.error("Error loading header:", error));
       
       fetch("../footer.html")
-        .then(response => response.text())
+        .then(response => {
+          if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+          return response.text();
+        })
         .then(data => {
           document.getElementById("footer-placeholder").innerHTML = data;
         })

@@ -231,6 +231,10 @@ files.download(output_file)</code></pre>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       fetch("../header.html")
+        .then(response => {
+          if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+          return response.text();
+        })
         .then(response => response.text())
         .then(data => {
           document.getElementById("header-placeholder").innerHTML = data;

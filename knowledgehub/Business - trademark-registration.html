@@ -117,6 +117,7 @@
     <h1>Trademark Registration Process in Nepal</h1>
 
       <!-- Header Image -->
+      <img src="../img/companies-act.png" alt="Companies Act 2063 Banner" class="header-image" loading="lazy">
       <img src="../img/companies-act.png" alt="Companies Act 2063 Banner" class="header-image">
     <section>
       <h2>The Basic Concept of Trademark</h2>
@@ -131,6 +132,19 @@
     <section>
       <h2>What Can Be Registered as a Trademark?</h2>
       <div class="trademark-item">
+        <img src="../img/trademark/image1.png" alt="Product or Business Name" loading="lazy">
+        <p><strong>Product or Business Name:</strong> Names like "Pepsi" or "Sony" can be registered as trademarks to identify a company or product.</p>
+      </div>
+      <div class="trademark-item">
+        <img src="../img/trademark/image2.png" alt="Logo or Symbol" loading="lazy">
+        <p><strong>Logo or Symbol:</strong> Logos serve as visual representations, such as McDonald's golden arches or Mercedes-Benz's three-pointed star.</p>
+      </div>
+      <div class="trademark-item">
+        <img src="../img/trademark/image3.png" alt="Business Tagline" loading="lazy">
+        <p><strong>Business Tagline:</strong> Taglines like "The Ultimate Driving Machine" by BMW or "Finger Lickin' Good" by KFC can be trademarked to reinforce brand identity.</p>
+      </div>
+      <div class="trademark-item">
+        <img src="../img/trademark/image4.png" alt="Shapes and Other Identifiers" loading="lazy">
         <img src="../img/trademark/image1.png" alt="Product or Business Name">
         <p><strong>Product or Business Name:</strong> Names like "Pepsi" or "Sony" can be registered as trademarks to identify a company or product.</p>
       </div>
@@ -183,6 +197,7 @@
       <p>Here’s a step-by-step guide for registering a trademark in Nepal:</p>
       <section class="flowchart">
         <h2>Trademark Registration Process Flowchart</h2>
+        <img src="../img/trademark/trademark-flowchart.png" alt="Trademark Registration Process Flowchart" loading="lazy">
         <img src="../img/trademark/trademark-flowchart.png" alt="Trademark Registration Process Flowchart">
       </section>
       <ol>
@@ -245,6 +260,10 @@
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       fetch("../header.html")
+        .then(response => {
+          if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+          return response.text();
+        })
         .then(response => response.text())
         .then(data => {
           document.getElementById("header-placeholder").innerHTML = data;
@@ -252,6 +271,10 @@
         .catch(error => console.error("Error loading header:", error));
 
       fetch("../footer.html")
+        .then(response => {
+          if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+          return response.text();
+        })
         .then(response => response.text())
         .then(data => {
           document.getElementById("footer-placeholder").innerHTML = data;
